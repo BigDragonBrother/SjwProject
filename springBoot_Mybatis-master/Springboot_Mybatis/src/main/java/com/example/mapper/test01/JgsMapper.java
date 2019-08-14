@@ -17,4 +17,7 @@ public interface JgsMapper {
 
     //返回警告信息
     List<Map<String,Object>> selectjginfo();
+
+    //返回警告信息列表
+    List<Map<String,Object>> selectjginfoList();
 }

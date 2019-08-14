@@ -2,11 +2,15 @@ package com.example.dpinterface;
 
 import com.example.service.JgsService;
 import com.example.service.UpsService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,4 +61,18 @@ public class Jgsinterface {
         return resMap;
     }
 
+    /**
+     * 返回警告信息列表
+     * pageNum  第几页
+     * @return
+     */
+    @RequestMapping("/selectjginfoList")
+    public List<Map<String,Object>> selectjginfoList(@RequestParam(value = "pageNum",defaultValue="1") int pageNum){
+        List<Map<String,Object>> result = new ArrayList<>();
+        PageHelper.startPage(pageNum,10);
+        List<Map<String,Object>> list = jgsService.selectjginfoList();
+        //将查询到的数据封装到PageInfo对象
+        PageInfo<Map<String,Object>> pageInfo=new PageInfo(list,3);
+        return list;
+    }
 }

@@ -21,4 +21,18 @@
             fLastTime DESC
         LIMIT 1;
     </select>
+
+
+    <select id="selectjginfoList" resultType="java.util.Map">
+        SELECT
+        *
+        FROM
+        tfactive
+        WHERE
+        fSeverity = 5
+        ORDER BY
+        fLastTime DESC
+    </select>
+
+
 </mapper>

@@ -33,4 +33,13 @@ public class IJgsService implements JgsService {
     public List<Map<String, Object>> selectjginfo() {
         return jgsMapper.selectjginfo();
     }
+
+    /**
+     * 返回警告信息
+     * @return
+     */
+    @Override
+    public List<Map<String, Object>> selectjginfoList() {
+        return jgsMapper.selectjginfoList();
+    }
 }
