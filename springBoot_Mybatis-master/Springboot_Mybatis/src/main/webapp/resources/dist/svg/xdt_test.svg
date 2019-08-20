@@ -1,0 +1,39 @@
+﻿<svg id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="-200 -200 200  200">
+    <defs>
+        <style>
+            [id='line'] {
+            fill: none;
+            stroke: #309df3;
+            stroke-dasharray: 280;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 3;
+            -webkit-filter: drop-shadow(5px 1px 2px rgba(105, 105, 105, 0.8));
+            filter: drop-shadow(5px 1px 2px rgba(105, 105, 105, 0.8));
+            animation: g 1.5s  ease-out infinite reverse;
+            }
+            @keyframes g {
+            to {
+            stroke-dashoffset: 560;
+            }
+            }
+        </style>
+    </defs>
+    <title>心电图</title>
+    <linearGradient id="line-color">
+        <stop offset="0%" style="stop-color:#00fff0; stop-opacity:0;"/>
+        <stop offset="20%" style="stop-color:#00fff0; stop-opacity:0;"/>
+        <stop offset="30%" style="stop-color:#00fff0; stop-opacity:0.2;"/>
+        <stop offset="40%" style="stop-color:#00fff0; stop-opacity:0.3;"/>
+        <stop offset="65%" style="stop-color:#00fff0; stop-opacity:0.6;"/>
+        <stop offset="75%" style="stop-color:#00fff0; stop-opacity:0.9;"/>
+        <stop offset="100%" style="stop-color:#00fff0; stop-opacity:1;"/>
+    </linearGradient>
+    <path id='line' style="stroke:url(#line-color)" d='M-100 0 L-50 0
+					 L-40 -20 L-30 30
+					 L-20 -50 L-10 65
+					 L10 -40 L20 40
+					 L30 -20 L40 40
+					 L50 0 L100 0'/>
+</svg>

@@ -1,0 +1,12 @@
+var outputPath='../tiles/';
+var localurl_ = "./dist/bmap/js/";
+var urlType='4';
+var minZoom=11;
+var initZoom = 13;
+var maxZoom=15;
+var centX=125.326804;
+var centY=43.902322;
+var format='.png';
+var epsgCode='3857';
+var tileSize=256;
+var pointsStr='';

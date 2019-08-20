@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="../css/animation.style.css" tyle="text/css"?>
+<!-- Generator: Adobe Illustrator 22.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg width="100%" height="100%" fill="#ff00ff" version="1.1" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 900 900" style="enable-background:new 0 0 566.9 566.9;" xml:space="preserve">
+    <defs>
+         <g id="A1" transform="translate(-420,-200)">
+            <image x="330" y="75" height="200" width="200"
+                   xlink:href="qsyxts.svg"></image>
+             <text x="380" y="180" style="fill: #F2DE20;font-size: 1.6rem;">全省网络</text>
+        </g>
+        <g id="B1" transform="translate(-420,-200)">
+            <image x="330" y="75" height="200" width="200"
+                   xlink:href="qsyxts.svg"></image>
+            <text x="380" y="180" style="fill: #F2DE20;font-size: 1.6rem;">派驻机构</text>
+        </g>
+        <g id="C1" transform="translate(-420,-200)">
+            <image x="330" y="75" height="200" width="200"
+                   xlink:href="qsyxts.svg"></image>
+            <text x="380" y="180" style="fill: #F2DE20;font-size: 1.6rem;">网络拓展</text>
+        </g>
+    </defs>
+    <!--轨迹-->
+    <path id="path1-1" d="M850,500 h 0 a400,75 0 1,0 1,1 z" fill="none" stroke="none" stroke-width="3"/>
+    <use x="0" y="0" xlink:href="#A1" id="part1-user1" class="con-part1-itemA-ani">
+        <animateMotion dur="21s" begin="0s" repeatCount="indefinite">
+            <mpath xlink:href="#path1-1"/>
+        </animateMotion>
+    </use>
+
+    <use x="0" y="0" xlink:href="#B1" class="con-part1-itemB-ani">
+        <animateMotion dur="21s" begin="-7s" repeatCount="indefinite">
+            <mpath xlink:href="#path1-1"/>
+        </animateMotion>
+    </use>
+
+    <use x="0" y="0" xlink:href="#C1" class="con-part1-itemC-ani">
+        <animateMotion dur="21s" begin="-14s" repeatCount="indefinite">
+            <mpath xlink:href="#path1-1"/>
+        </animateMotion>
+    </use>
+</svg>
