@@ -1,3 +1,9 @@
+/**
+ * Created by Yu on 2019/8/21.
+ */
+//系统请求轮询时间间隔
+var timeout = 5000;
+
 function XDT(id){
     var canvas = document.getElementById(id);
     var context = canvas.getContext('2d');

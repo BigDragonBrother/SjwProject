@@ -125,7 +125,7 @@
             <!--警号框-->
             <div id="part-3-warning" class="part-body-4" style="display: none;">
                 <img src="<%=request.getContextPath()%>/resources/dist/images/jinggao.png" style="width:100%">
-                <div>
+                <div id="part-3-warningInfo">
                     <marquee style="    transform: scale(0.8);" font-size="10px" behavior="scroll"
                              onMouseOut="this.start()" onMouseOver="this.stop()">提示：服务器01发生异常错误
                     </marquee>

@@ -182,7 +182,7 @@ Tools = {
     /**
      * 业务应用
      */
-    part5YWYY:function(){
+    part5YWYY: function () {
         $("#part5YWYY-modal").show().html('<iframe frameborder="0" scrolling="no" src="oa.html" width="100%"' +
             ' height="100%"></iframe>');
     },
@@ -376,15 +376,86 @@ Tools = {
     /**
      * @desc UPS供电系统
      */
-    upsFn:function(){
+    upsFn: function () {
         $.ajax({
-            url:"../ups/selectupsinfo",
-            type:"post",
-            success:function(data){
-                debugger;
+            url: "../ups/selectupsinfo",
+            type: "post",
+            success: function (data) {
+                //还有一个字段：wdzt:默认值正常，该怎么使用 尚未确定
+                //电池温度
+                $("#part5-3-body1").html(data.wd);
+                //电池容量
+                $("#part5-3-body3").html(data.rl);
+                //续航时间
+                $("#part5-3-body2").html(data.sj);
+
+                setTimeout(function () {
+                    Tools.upsFn();
+                }, timeout)
             }
         })
-    }
+    },
+
+    /**
+     * @desc 涉密机房
+     */
+    smjfFn:function () {
+        $.ajax({
+            url: "../ups/selectsmjfwsd",
+            type: "post",
+            success: function (data) {
+                //还有一个字段：wdzt:默认值正常，该怎么使用 尚未确定
+                //温度
+                $("#con-part9-1").html(data.wd+"<span>℃</span>");
+                //湿度
+                $("#con-part9-2").html(data.rl+"<span>%RH</span>");
+
+                /**
+                 * wsdzt:温湿度状态
+                 wd:温度
+                 sd:湿度
+
+                 */
+                setTimeout(function () {
+                    Tools.smjfFn();
+                }, timeout)
+            }
+        })
+    },
+
+    /**
+     * @desc 告警数 接口
+     */
+    gjsFn:function(){
+        $.ajax({
+            url: "../jgs/selectjgsnum",
+            type: "post",
+            success: function (data) {
+                $("#part3-right").html(data.jgs);
+                setTimeout(function () {
+                    Tools.gjsFn();
+                }, timeout)
+            }
+        })
+    },
+    /**
+     * @desc 告警信息
+     */
+    gjxxFn:function(){
+        $.ajax({
+            url: "../jgs/selectjginfo",
+            type: "post",
+            success: function (data) {
+                $("#part-3-warningInfo").html(` <marquee style="    transform: scale(0.8);" font-size="10px" behavior="scroll"
+                             onMouseOut="this.start()" onMouseOver="this.stop()">${data.ca}</marquee>`);
+                setTimeout(function () {
+                    Tools.gjxxFn();
+                }, timeout)
+            }
+        })
+    },
+
+
 }
 
 

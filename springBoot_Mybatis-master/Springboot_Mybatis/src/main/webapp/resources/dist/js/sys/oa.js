@@ -11,13 +11,15 @@ Tools = {
                 $(window.parent.document.getElementById("part5YWYY-modal")).hide().empty()
             }
         }
+
         //部门发文
         Tools.barFn("part1-1", function (e) {
-            var data = [{name: '部门1', value: 30}, {name: '部门2', value: 36}, {name: '部门3', value: 49}, {
-                name: '部门4',
-                value: 40
-            }, {name: '部门5', value: 37}, {name: '部门6', value: 53},];
-            Tools.barSetData(color, e, data);
+            Tools.barGetData(color, e)
+            // var data = [{name: '部门1', value: 30}, {name: '部门2', value: 36}, {name: '部门3', value: 49}, {
+            //     name: '部门4',
+            //     value: 40
+            // }, {name: '部门5', value: 37}, {name: '部门6', value: 53},];
+            // Tools.barSetData(color, e, data);
         });
 
         //部门收文
@@ -26,7 +28,7 @@ Tools = {
                 name: '部门4',
                 value: 40
             }, {name: '部门5', value: 37}, {name: '部门6', value: 53},];
-            Tools.radiusSetData(e, data);
+            Tools.radiusGetData(e);
         });
 
         //督办件概况
@@ -42,40 +44,72 @@ Tools = {
         });
 
         //各地区得分情况
-        Tools.barFn("part4-1", function (e) {
-            var data = [{name: '长春市', value: 30}, {name: '吉林市', value: 36}, {name: '辽源市', value: 49}, {
-                name: '通化市',
-                value: 40
-            }, {name: '白山市', value: 37}, {name: '松原市', value: 53},];
-            Tools.barSetData(["#00fff0"], e, data);
+        Tools.barFn("part4-1", function (e1) {
+            // var data = [{name: '长春市', value: 30}, {name: '吉林市', value: 36}, {name: '辽源市', value: 49}, {
+            //     name: '通化市',
+            //     value: 40
+            // }, {name: '白山市', value: 37}, {name: '松原市', value: 53},];
+            // Tools.barSetData(["#00fff0"], e, data);
+            //各地区报送及采用情况
+            Tools.barsFn("part4-2", function (e2) {
+                // var data = {
+                //     xAxis: ["长春市", "吉林市", "辽源市", "通化市", "白山市", "松原市"],
+                //     data: [{
+                //         "data": [5, 2, 5, 7, 5, 6],
+                //         "name": "报送总条数",
+                //     }, {
+                //         "data": [2, 5, 7, 5, 6, 5],
+                //         "name": "被省纪委采用",
+                //     }, {
+                //         "data": [5, 7, 5, 6, 5, 2],
+                //         "name": "被中央纪委采用",
+                //     }]
+                // };
+                Tools.barsGetData(e1,e2, data);
+                // Tools.barsSetData(e, data);
+            });
         });
-
-        //各地区报送及采用情况
-        Tools.barsFn("part4-2", function (e) {
-            var data = {
-                xAxis: ["长春市", "吉林市", "辽源市", "通化市", "白山市", "松原市"],
-                data: [{
-                    "data": [5, 2, 5, 7, 5, 6],
-                    "name": "报送总条数",
-                }, {
-                    "data": [2, 5, 7, 5, 6, 5],
-                    "name": "被省纪委采用",
-                }, {
-                    "data": [5, 7, 5, 6, 5, 2],
-                    "name": "被中央纪委采用",
-                }]
-            };
-            Tools.barsSetData(e, data);
-        });
-
         Tools.graphFn("part6-1", function (e) {
 
         })
 
-
         Tools.tableFn();
     },
 
+    //当前在线人数
+    onlineGetData: function () {
+        $.ajax({
+            url: "../oayw/getOnlineNum",
+            type: "post",
+            success: function (data) {
+                $("#onlineNum").html(data.onlineNum)
+                $("#peopleNum").html(data.peopleNum)
+                $("#deptNum").html(data.deptNum)
+                $("#orgNum").html(data.orgNum)
+                $("#StationedNum").html(data.StationedNum)
+                setTimeout(function () {
+                    Tools.onlineGetData();
+                }, timeout)
+            }
+        })
+    },
+
+    //会议概况::返回数据格式存在争议  延后
+    meetingGetData: function () {
+        $.ajax({
+            url: "../oayw/getMeetingInfo",
+            type: "post",
+            success: function (data) {
+
+
+                setTimeout(function () {
+                    Tools.meetingGetData();
+                }, timeout)
+            }
+        })
+    },
+
+    // 部门发文：初始化统计图
     barFn: function (id, callback) {
         var myChart = echarts.init(document.getElementById(id));
         myChart.setOption({
@@ -140,6 +174,26 @@ Tools = {
         Tools.resizeFn(myChart);
         return callback(myChart);
     },
+    //部门发文：获取数据
+    barGetData: function (color_, e) {
+        $.ajax({
+            url: "../oayw/SendFile",
+            type: "post",
+            success: function (data) {
+                var data_ = [];
+                for (var i = 0; i < data.count.length; i++) {
+                    data_.push({name: data.deptName[i], value: data.count[i]})
+                }
+                //发文总数
+                $("#fwzs").html(data.sendAllCounts);
+                Tools.barSetData(color_, e, data_);
+                setTimeout(function () {
+                    Tools.barGetData(color_, e);
+                }, timeout)
+            }
+        })
+    },
+    //部门发文：统计图填充数据
     barSetData: function (color_, target, data) {
         target.setOption({
             xAxis: [{
@@ -248,6 +302,24 @@ Tools = {
         Tools.resizeFn(myChart);
         return callback(myChart);
     },
+    barsGetData:function () {
+        $.ajax({
+            url: "../oayw/getSubInfo",
+            type: "post",
+            success: function (data) {
+                // var data_ = [];
+                // for (var i = 0; i < data.count.length; i++) {
+                //     data_.push({name: data.deptName[i], value: data.count[i]})
+                // }
+                // //发文总数
+                // $("#fwzs").html(data.sendAllCounts);
+                // Tools.barSetData(color_, e, data_);
+                // setTimeout(function () {
+                //     Tools.barGetData(color_, e);
+                // }, timeout)
+            }
+        })
+    },
     barsSetData: function (target, data) {
         target.setOption({
             legend: {
@@ -278,6 +350,7 @@ Tools = {
         })
     },
 
+    //部门收文：初始化统计图
     radiusFn: function (id, callback) {
         var myChart = echarts.init(document.getElementById(id));
         myChart.setOption({
@@ -365,6 +438,26 @@ Tools = {
         Tools.resizeFn(myChart);
         return callback(myChart);
     },
+    //部门收文：获取数据
+    radiusGetData: function (e) {
+        $.ajax({
+            url: "../oayw/receiveFile",
+            type: "post",
+            success: function (data) {
+                var data_ = [];
+                for (var i = 0; i < data.count.length; i++) {
+                    data_.push({name: data.deptName[i], value: data.count[i]})
+                }
+                //收文总数
+                $("#swzs").html(data.receiveAllCounts);
+                Tools.radiusSetData(e, data_);
+                setTimeout(function () {
+                    Tools.radiusGetData(e);
+                }, timeout)
+            }
+        })
+    },
+    //部门收文：统计图填充数据
     radiusSetData: function (target, data) {
         target.setOption({
             legend: {
