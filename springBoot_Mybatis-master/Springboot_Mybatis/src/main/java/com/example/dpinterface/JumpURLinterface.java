@@ -38,12 +38,12 @@ public class JumpURLinterface {
     }
 
 
-    //可视化机房返回url
+    //二级页跳转可视化机房返回url
     //http://156.8.11.22:8080/itims/alm/alarm.jsp?mnSbj=alarm&mnCMP=2_0_2&lunchFrom=portal&lunchFuncID=rootalarm_view_active
     //http://10.2.13.15:8080/itims/room/view/view.jsp?mnSbj=topo&mnCMP=1_2&lunchFrom=start&lunchFuncID=roottopo_room
     @RequestMapping("tsgzKshjfJump")
     public String tsgzKshjfJump(){
-        String jurl = ADDR_URL+":"+DUANKOU_NUM+"/itims/alm/alarm.jsp?mnSbj=alarm&mnCMP=2_0_2&lunchFrom=portal&lunchFuncID=rootalarm_view_active";
+        String jurl = ADDR_URL+":"+DUANKOU_NUM+"/itims/room/view/view.jsp?mnSbj=topo&mnCMP=1_2&lunchFrom=start&lunchFuncID=roottopo_room";
         return "redirect:http://"+jurl;
     }
 }

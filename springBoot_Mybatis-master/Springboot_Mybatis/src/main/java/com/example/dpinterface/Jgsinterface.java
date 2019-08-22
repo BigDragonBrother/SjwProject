@@ -72,7 +72,7 @@ public class Jgsinterface {
         PageHelper.startPage(pageNum,10);
         List<Map<String,Object>> list = jgsService.selectjginfoList();
         //将查询到的数据封装到PageInfo对象
-        PageInfo<Map<String,Object>> pageInfo=new PageInfo(list,3);
+        //PageInfo<Map<String,Object>> pageInfo=new PageInfo(list,2);
         return list;
     }
 }

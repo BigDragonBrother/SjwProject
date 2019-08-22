@@ -19,6 +19,10 @@ public class UPSinterface {
     @Resource
     private UpsService upsService;
 
+    /**
+     * 一级页ups数据接口
+     * @return
+     */
     @RequestMapping("/selectupsinfo")
     public Map<String, Object> selectupsinfo(){
         Map<String, Object> resMap = new HashMap<>();
@@ -48,6 +52,7 @@ public class UPSinterface {
     }
 
     /**
+     * 一级页数据
      * 涉密机房温湿度
      * @return
      */
