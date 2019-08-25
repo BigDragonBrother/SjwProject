@@ -18,6 +18,32 @@ public class IndexController {
         return "index";
     }
 
+    @RequestMapping("oa")
+    public String oa() {
+        return "oa";
+    }
+
+    @RequestMapping("jsdd")
+    public String jsdd() {
+        return "jsdd";
+    }
+
+    @RequestMapping("gdgl")
+    public String gdgl() {
+        return "gdgl";
+    }
+
+    @RequestMapping("gjxx")
+    public String gjxx() {
+        return "gjxx";
+    }
+
+    @RequestMapping("zcgl")
+    public String zcgl() {
+        return "zcgl";
+    }
+
+
     @RequestMapping("index1")
     public String detest() {
         Log.info("日志内容");

@@ -15,19 +15,10 @@ Tools = {
         //部门发文
         Tools.barFn("part1-1", function (e) {
             Tools.barGetData(color, e)
-            // var data = [{name: '部门1', value: 30}, {name: '部门2', value: 36}, {name: '部门3', value: 49}, {
-            //     name: '部门4',
-            //     value: 40
-            // }, {name: '部门5', value: 37}, {name: '部门6', value: 53},];
-            // Tools.barSetData(color, e, data);
         });
 
         //部门收文
         Tools.radiusFn("part1-2", function (e) {
-            var data = [{name: '部门1', value: 30}, {name: '部门2', value: 36}, {name: '部门3', value: 49}, {
-                name: '部门4',
-                value: 40
-            }, {name: '部门5', value: 37}, {name: '部门6', value: 53},];
             Tools.radiusGetData(e);
         });
 
@@ -39,40 +30,27 @@ Tools = {
                 data2: [40, 20, 45, 65, 110, 75],
                 data3: [20, 60, 50, 80, 120, 100],
                 data4: [40, 90, 80, 100, 120, 150],
+                date: []
             };
             Tools.linesAreaSetData(e, data);
         });
 
+
+        Tools.onlineGetData();
+
+        //会议概况
+        Tools.meetingGetData();
+
         //各地区得分情况
         Tools.barFn("part4-1", function (e1) {
-            // var data = [{name: '长春市', value: 30}, {name: '吉林市', value: 36}, {name: '辽源市', value: 49}, {
-            //     name: '通化市',
-            //     value: 40
-            // }, {name: '白山市', value: 37}, {name: '松原市', value: 53},];
-            // Tools.barSetData(["#00fff0"], e, data);
             //各地区报送及采用情况
             Tools.barsFn("part4-2", function (e2) {
-                // var data = {
-                //     xAxis: ["长春市", "吉林市", "辽源市", "通化市", "白山市", "松原市"],
-                //     data: [{
-                //         "data": [5, 2, 5, 7, 5, 6],
-                //         "name": "报送总条数",
-                //     }, {
-                //         "data": [2, 5, 7, 5, 6, 5],
-                //         "name": "被省纪委采用",
-                //     }, {
-                //         "data": [5, 7, 5, 6, 5, 2],
-                //         "name": "被中央纪委采用",
-                //     }]
-                // };
-                Tools.barsGetData(e1,e2, data);
-                // Tools.barsSetData(e, data);
+                Tools.barsGetData(e1, e2);
             });
         });
         Tools.graphFn("part6-1", function (e) {
-
+            Tools.graphGetDataFn(e)
         })
-
         Tools.tableFn();
     },
 
@@ -81,7 +59,8 @@ Tools = {
         $.ajax({
             url: "../oayw/getOnlineNum",
             type: "post",
-            success: function (data) {
+            success: function (res) {
+                var data = JSON.parse(res);
                 $("#onlineNum").html(data.onlineNum)
                 $("#peopleNum").html(data.peopleNum)
                 $("#deptNum").html(data.deptNum)
@@ -99,9 +78,25 @@ Tools = {
         $.ajax({
             url: "../oayw/getMeetingInfo",
             type: "post",
-            success: function (data) {
-
-
+            success: function (res) {
+                var data = JSON.parse(res);
+                $("#meeting-con").empty();
+                for (var i = 0; i < (data.meetingname.length > 2 ? 2 : data.meetingname.length); i++) {
+                    $("#meeting-con").append(` <div class="list-style-1">
+                        <div class="list-style-no">1</div>
+                        <div class="list-style-content">
+                            <div>${data.meetingname[i]}</div>
+                            <div>
+                                <div class="list-style-desc">
+                                    <div>开会时间：<span class="color-title">${data.surplusTimes[i]}</span></div>
+                                    <div>开会位置：<span class="color-title">${data.palces[i]}</span></div>
+                                </div>
+                                <div class="list-style-date">倒计时：<span class="fontNumber color-orange">${data.surplusTimes[i]}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`)
+                }
                 setTimeout(function () {
                     Tools.meetingGetData();
                 }, timeout)
@@ -174,12 +169,14 @@ Tools = {
         Tools.resizeFn(myChart);
         return callback(myChart);
     },
+
     //部门发文：获取数据
     barGetData: function (color_, e) {
         $.ajax({
             url: "../oayw/SendFile",
             type: "post",
-            success: function (data) {
+            success: function (res) {
+                var data = JSON.parse(res);
                 var data_ = [];
                 for (var i = 0; i < data.count.length; i++) {
                     data_.push({name: data.deptName[i], value: data.count[i]})
@@ -193,6 +190,7 @@ Tools = {
             }
         })
     },
+
     //部门发文：统计图填充数据
     barSetData: function (color_, target, data) {
         target.setOption({
@@ -302,21 +300,33 @@ Tools = {
         Tools.resizeFn(myChart);
         return callback(myChart);
     },
-    barsGetData:function () {
+    //信息报送
+    barsGetData: function (tar1, tar2) {
         $.ajax({
             url: "../oayw/getSubInfo",
             type: "post",
-            success: function (data) {
-                // var data_ = [];
-                // for (var i = 0; i < data.count.length; i++) {
-                //     data_.push({name: data.deptName[i], value: data.count[i]})
-                // }
-                // //发文总数
-                // $("#fwzs").html(data.sendAllCounts);
-                // Tools.barSetData(color_, e, data_);
-                // setTimeout(function () {
-                //     Tools.barGetData(color_, e);
-                // }, timeout)
+            success: function (res) {
+                var data = JSON.parse(res);
+                var data_1 = [];
+                $("#totalScore").html(data.sumAllScore);
+                $("#totalCount").html(data.sumCounts);
+                for (var i = 0; i < data.regions.length; i++) {
+                    data_1.push({name: data.regions[i], value: data.scores[i]})
+                }
+                Tools.barSetData(["#00fff0"], tar1, data_1);
+                Tools.barsSetData(tar2, {
+                    xAxis: data.subregions,
+                    data: [{
+                        "data": data.allSubCounts,
+                        "name": "报送总条数",
+                    }, {
+                        "data": data.PDCommissions,
+                        "name": "被省纪委采用",
+                    }, {
+                        "data": data.CDCommissions,
+                        "name": "被中央纪委采用",
+                    }]
+                });
             }
         })
     },
@@ -443,7 +453,8 @@ Tools = {
         $.ajax({
             url: "../oayw/receiveFile",
             type: "post",
-            success: function (data) {
+            success: function (res) {
+                var data = JSON.parse(res);
                 var data_ = [];
                 for (var i = 0; i < data.count.length; i++) {
                     data_.push({name: data.deptName[i], value: data.count[i]})
@@ -664,6 +675,11 @@ Tools = {
         return callback(myChart);
     },
     linesAreaSetData: function (target, data) {
+        // $.ajax({
+        //     url: "../oayw/getDubanInfo",
+        //     type: "post",
+        //     success: function (res) {
+        //         var data = JSON.parse(res);
         target.setOption({
             legend: [{
                 data: data.legend
@@ -760,6 +776,8 @@ Tools = {
                     data: data.data4
                 }]
         })
+        // }
+        // })
     },
 
     graphFn: function (id, callback) {
@@ -831,15 +849,34 @@ Tools = {
         Tools.resizeFn(myChart);
         return callback(myChart);
     },
-    tableFn: function () {
-        var data = [
-            {ext0: 1, ext1: "活动名称活动名称活动名称活动名称活动名称", ext2: "49人"},
-            {ext0: 2, ext1: "活动名称活动名称活动名称活动名称活动名称", ext2: "48人"},
-            {ext0: 3, ext1: "活动名称活动名称活动名称活动名称活动名称", ext2: "55人"},
-            {ext0: 4, ext1: "活动名称活动名称活动名称活动名称活动名称", ext2: "45人"},
-            {ext0: 5, ext1: "活动名称活动名称活动名称活动名称活动名称", ext2: "63人"},
-            {ext0: 6, ext1: "活动名称活动名称活动名称活动名称活动名称", ext2: "21人"},
-        ]
+    graphGetDataFn: function (e) {
+        $.ajax({
+            url: "../oayw/getPartyInfo",
+            type: "post",
+            success: function (res) {
+                var data = JSON.parse(res);
+                Tools.tableFn((function () {
+                    var data_ = [];
+                    for (var i = 0; i < data.actNames.length; i++) {
+                        data_.push({
+                            ext0: i,
+                            ext1: data.actNames[i],
+                            ext2: data.joinCounts[i]+"人"
+                        })
+                    }
+                    return data_;
+                })());
+
+                /**
+                 * 1 OrgNames：党支部名称集合
+                 2 baseNums：各党支部人数集合
+                 */
+                $("#enter_counts").html(data.enter_counts);
+                $("#Allactivities").html(data.Allactivities);
+            }
+        })
+    },
+    tableFn: function (data) {
         var index = 2;
         var i = 0;
         animationFn()

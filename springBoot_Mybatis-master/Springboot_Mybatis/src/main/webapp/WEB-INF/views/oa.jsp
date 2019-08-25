@@ -7,7 +7,7 @@
     <link href="<%=request.getContextPath()%>/resources/dist/css/oa.style.css" rel="stylesheet" type="text/css">
     <link href="<%=request.getContextPath()%>/resources/dist/css/test.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body style="margin-top: -15%;margin-left: -65%;">
 <div class="container">
     <div class="con-part0">OA运维监控系统</div>
     <div class="con-part1">
@@ -39,32 +39,32 @@
     </div>
     <div class="con-part3">
         <div class="con-part3-1">
-            <div class="fontNumber" style="color: #f4537c !important;  font-size: 0.9rem;text-align: center;">32</div>
-            <div style="color: #fff;font-size: 0.3rem;text-align: center;" id="orgNum">机构总数</div>
+            <div class="fontNumber"id="orgNum" style="color: #f4537c !important;  font-size: 0.9rem;text-align: center;">--</div>
+            <div style="color: #fff;font-size: 0.3rem;text-align: center;" >机构总数</div>
         </div>
         <div class="con-part3-2">
-            <div class="fontNumber" style="color: #765dfa !important;  font-size: 0.9rem;text-align: center;">39</div>
-            <div style="color: #fff;font-size: 0.3rem;text-align: center;" id="StationedNum">派驻机构</div>
+            <div class="fontNumber" id="StationedNum" style="color: #765dfa !important;  font-size: 0.9rem;text-align: center;">--</div>
+            <div style="color: #fff;font-size: 0.3rem;text-align: center;" >派驻机构</div>
         </div>
         <div class="con-part3-3">
-            <div class="fontNumber" style="color: #0cd693 !important;  font-size: 0.9rem;text-align: center;">23</div>
-            <div style="color: #fff;font-size: 0.3rem;text-align: center;" id="deptNum">部门总数</div>
+            <div class="fontNumber" id="deptNum" style="color: #0cd693 !important;  font-size: 0.9rem;text-align: center;">--</div>
+            <div style="color: #fff;font-size: 0.3rem;text-align: center;" >部门总数</div>
         </div>
         <div class="con-part3-4">
-            <div class="fontNumber" style="color: #2099ff !important;  font-size: 0.9rem;text-align: center;">422</div>
-            <div style="color: #fff;font-size: 0.3rem;text-align: center;" id="peopleNum">用户总数</div>
+            <div class="fontNumber" id="peopleNum" style="color: #2099ff !important;  font-size: 0.9rem;text-align: center;">--</div>
+            <div style="color: #fff;font-size: 0.3rem;text-align: center;" >用户总数</div>
         </div>
         <div class="con-part3-5">
-            <div class="fontNumber con-part3-5-center">355</div>
-            <div style="color: #fff;font-size: 0.3rem;text-align: center;" id="onlineNum">当前在线人数</div>
+            <div id="onlineNum" class="fontNumber con-part3-5-center">--</div>
+            <div style="color: #fff;font-size: 0.3rem;text-align: center;" >当前在线人数</div>
         </div>
     </div>
     <div class="con-part4">
         <div class="con-part4-copy">
             <div class="con-part-header">
                 <span class="color-title">信息报送</span>
-                <span>总得分：<span class="color-title title-count">2363</span>分</span>
-                <span>总报送条数：<span class="color-title title-count">5563</span>件</span>
+                <span>总得分：<span class="color-title title-count" id="totalScore">0</span>分</span>
+                <span>总报送条数：<span class="color-title title-count" id="totalCount">0</span>件</span>
             </div>
             <div class="con-part-body1">
                 <div class="con-part-body-title" data-content="">各地区得分情况：</div>
@@ -84,37 +84,7 @@
                 <span>本年会议总数：<span class="color-title title-count">63</span>次</span>
             </div>
             <div class="con-part-body1">
-                <div class="con-part-body-content">
-                    <div class="list-style-1">
-                        <div class="list-style-no">1</div>
-                        <div class="list-style-content">
-                            <div>会议主题会议主题会议主题会议主题会议主题会议主题会议主题会议主题会议主题会议主题</div>
-                            <div>
-                                <div class="list-style-desc">
-                                    <div>开会时间：<span class="color-title">2019-03-26 12:30</span></div>
-                                    <div>开会位置：<span class="color-title">第三会议室</span></div>
-                                </div>
-                                <div class="list-style-date">倒计时：<span class="fontNumber color-orange">05:32</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="list-style-1">
-                        <div class="list-style-no">2</div>
-                        <div class="list-style-content">
-                            <div>会议主题会议主题会议主题会议主题会议主题会议主题会议主题会议主题会议主题会议主题</div>
-                            <div>
-                                <div class="list-style-desc">
-                                    <div>开会时间：<span class="color-title">2019-03-26 12:30</span></div>
-                                    <div>开会位置：<span class="color-title">第三会议室</span></div>
-                                </div>
-                                <div class="list-style-date">倒计时：<span class="fontNumber color-orange">05:32</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="con-part-body-content" id="meeting-con"></div>
             </div>
         </div>
     </div>
@@ -123,7 +93,7 @@
             <div class="con-part-header">
                 <span class="color-title">党建中心</span>
                 <span></span>
-                <span>本年会议总数：<span class="color-title title-count">63</span>次</span>
+<%--                <span>本年会议总数：<span class="color-title title-count" id="bnhyzs">63</span>次</span>--%>
             </div>
             <div class="con-part-body1">
                 <div class="con-part-body-title" data-content="">各部门党员情况：</div>
@@ -132,8 +102,8 @@
             <div class="con-part-body2">
                 <div class="con-part-body-title has-bg" data-content="">
                     <span class="color-title">组织活动</span>
-                    <span>活动总数：<span class="color-title title-count">236</span></span>
-                    <span>参加总人数：<span class="color-title title-count">836</span></span>
+                    <span>活动总数：<span class="color-title title-count" id="Allactivities">0</span></span>
+                    <span>参加总人数：<span class="color-title title-count" id="enter_counts">0</span></span>
                 </div>
                 <div class="con-part-body-content">
                     <ul class="table-ul">
