@@ -30,22 +30,22 @@ public class UPSinterface {
         if(list.size()>0){
             for(int i=0;i<list.size();i++){
                 if("AU129".equals(list.get(i).get("varid"))){
-                    resMap.put("rl",list.get(i).get("hvalue")+""+list.get(i).get("insunit"));
+                    resMap.put("rl",list.get(i).get("hvalue"));
                 }
                 if("AU130".equals(list.get(i).get("varid"))){
-                    resMap.put("wd",list.get(i).get("hvalue")+""+list.get(i).get("insunit"));
+                    resMap.put("wd",list.get(i).get("hvalue"));
                 }
                 if("AU132".equals(list.get(i).get("varid"))){
-                    resMap.put("sj",list.get(i).get("hvalue")+""+list.get(i).get("insunit"));
+                    resMap.put("sj",list.get(i).get("hvalue"));
                 }
                 if("AUZ111".equals(list.get(i).get("varid"))){
                     resMap.put("wdzt",list.get(i).get("hvalue"));
                 }
             }
         }else{
-            resMap.put("rl","100.00%");
-            resMap.put("wd","25.00℃");
-            resMap.put("sj","533.00M");
+            resMap.put("rl","100.00");
+            resMap.put("wd","25.00");
+            resMap.put("sj","533.00");
             resMap.put("wdzt","正常");
         }
             return resMap;
@@ -68,18 +68,18 @@ public class UPSinterface {
                 }
                 //7#温度
                 if("AWSD071".equals(list.get(i).get("varid"))){
-                    resMap.put("wd",list.get(i).get("hvalue")+""+list.get(i).get("insunit"));
+                    resMap.put("wd",list.get(i).get("hvalue"));
                 }
                 //7#温度
                 if("AWSD072".equals(list.get(i).get("varid"))){
-                    resMap.put("sd",list.get(i).get("hvalue")+""+list.get(i).get("insunit"));
+                    resMap.put("sd",list.get(i).get("hvalue"));
                 }
 
             }
         }else{
             resMap.put("wsdzt","通讯正常");
-            resMap.put("wd","27.00℃");
-            resMap.put("sd","57.10%");
+            resMap.put("wd","27.00");
+            resMap.put("sd","57.10");
 
         }
         return resMap;

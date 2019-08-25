@@ -36,18 +36,18 @@ public class Zcglinterface {
     //网络设备
     String categroy1 = "402881d6483f64c601483f64e31b0013";
     //中间件
-    String categroy2 = "";
+    String categroy2 = "402881d6483f64c601483f64e31b0025";
     //存储
-    String categroy3 = "";
+    String categroy3 = "402881d6483f64c601483f64e31b0015";
     //虚拟化
-    String categroy4 = "";
-    //待定义
-    String categroy5 = "";
-    //待定义
-    String categroy6 = "";
-    //待定义
-    String categroy7 = "";
-    //待定义
+    String categroy4 = "402881d6483f64c601483f64e31b0050";
+    //安全设备
+    String categroy5 = "402881d6483f64c601483f64e31b0016";
+    //服务器
+    String categroy6 = "402881d6483f64c601483f64e31b0014";
+    //数据库
+    String categroy7 = "2c9898f84fb04cb3014fb15272810019";
+    //其他
     String categroy8 = "";
 
 
@@ -94,8 +94,26 @@ public class Zcglinterface {
         map.put("time_",System.currentTimeMillis()+"");
         map.put("moduleId", "402883f56b1c7988016b1c7a22f4006d");
         if("1".equals(type)){
-            System.out.println("进入到1");
+            System.out.println("网络设备");
             map.put("categoryId",categroy1);
+        }else if("2".equals(type)){
+            System.out.println("中间件");
+            map.put("categoryId",categroy2);
+        }else if("3".equals(type)){
+            System.out.println("存储");
+            map.put("categoryId",categroy3);
+        }else if("4".equals(type)){
+            System.out.println("虚拟化");
+            map.put("categoryId",categroy4);
+        }else if("5".equals(type)){
+            System.out.println("安全设备");
+            map.put("categoryId",categroy5);
+        }else if("6".equals(type)){
+            System.out.println("服务器");
+            map.put("categoryId",categroy6);
+        }else if("7".equals(type)){
+            System.out.println("数据库");
+            map.put("categoryId",categroy7);
         }
         String secret = CryptUtils.md5HexStr("dhccitsm");
         String method = "/init.mvc";
@@ -112,24 +130,32 @@ public class Zcglinterface {
 
     /**
      * 工单的一级+二级页接口 带有分页功能 当前每页默认十条
+     * http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/queryTask.mvc?filter=handling&start=0&limit=2
+     * start 从0开始
      * @param start
      * @param limit
+     * 0825新增参数
+     * processDefinitionKey=incident
      * @return
      */
     @RequestMapping("getGdListDate")
     @ResponseBody
     public String dogetResponseDateGdList(String start,String limit){
         String url="";
-        if(!"".equals(start) && start != null){
-             url= "http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/queryTask.mvc?filter=handling&start="+start+"&limit=10";
-        }else{
-            url="http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/queryTask.mvc?filter=handling";
-        }
         try{
+        if("".equals(limit)){
+            limit = 10+"";
+        }
+        if(!"".equals(start) && start != null){
+             url= "http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/queryTask.mvc?filter=handling&processDefinitionKey=incident&start="+start+"&limit="+limit;
+        }else{
+            url="http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/queryTask.mvc?filter=handling&processDefinitionKey=incident";
+        }
+
             String  a = sendGetData(url,"utf-8");
             return a;
         }catch ( Exception e){
-            return null;
+            return "";
         }
     }
 
@@ -140,13 +166,33 @@ public class Zcglinterface {
      */
     @RequestMapping("getZcglListDateByType")
     @ResponseBody
-    public String dogetResponseDateZcglList(){
-        String url = "http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/listByCiCategory.mvc?categoryId="+categroy1;
+    public String dogetResponseDateZcglList(String type){
+        String url_paramesKey = "categoryId=";
+        String url_resultVal="";
+        if("1".equals(type)){
+            url_resultVal=categroy1;
+        }else if("2".equals(type)){
+            url_resultVal=categroy2;
+        }else if("3".equals(type)){
+            url_resultVal=categroy3;
+        }else if("4".equals(type)){
+            url_resultVal=categroy4;
+        }else if("5".equals(type)){
+            url_resultVal=categroy5;
+        }else if("6".equals(type)){
+            url_resultVal=categroy6;
+        }else if("7".equals(type)){
+            url_resultVal=categroy7;
+        }else if("8".equals(type)){
+            url_paramesKey="excludeIds=";
+            url_resultVal=categroy1+","+categroy2+","+categroy3+","+categroy4+","+categroy5+","+categroy6+","+categroy7;
+        }
+        String url = "http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/listByCiCategory.mvc?deepIn=false&"+url_paramesKey+url_resultVal;
         try{
             String  a = sendGetData(url,"utf-8");
             return a;
         }catch ( Exception e){
-            return null;
+            return "";
         }
     }
     /**
@@ -157,12 +203,12 @@ public class Zcglinterface {
     @RequestMapping("getZcglAllDateForDp")
     @ResponseBody
     public String dogetResponsegetZcglAllDateForDp(){
-        String url = "http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/ci_category_counts.mvc?categories=cagt_1_business_system,cagt_1_virtual_device,cagt_2_network_device,cagt_2_middle_application,cagt_2_storage_device";
+        String url = "http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/ci_category_counts.mvc?categories=cagt_2_virtual_machine,cagt_2_network_device,cagt_2_middle_application,cagt_2_storage_device,cagt_2_security_device,cagt_2_server_device,cagt_2_database_application";
         try{
             String  a = sendGetData(url,"utf-8");
             return a;
         }catch ( Exception e){
-            return null;
+            return "";
         }
     }
 
@@ -179,7 +225,7 @@ public class Zcglinterface {
             System.out.println(str);
             return str;
         }catch ( Exception e){
-            return null;
+            return "";
         }
     }
 
@@ -192,8 +238,11 @@ public class Zcglinterface {
     public String dogetResponseRiskListDate(String start,String limit){
         try{
             String url = "";
+            if("".equals(limit)){
+                limit=10+"";
+            }
             if(!"".equals(start) && start != null){
-                url = "http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/large/riskList.mvc?start="+start+"&limit=10";
+                url = "http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/large/riskList.mvc?start="+start+"&limit="+limit;
             }else{
                 url="http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/large/riskList.mvc?start=0&limit=10";
             }
@@ -201,7 +250,7 @@ public class Zcglinterface {
             System.out.println(str);
             return str;
         }catch ( Exception e){
-            return null;
+            return "";
         }
     }
 
