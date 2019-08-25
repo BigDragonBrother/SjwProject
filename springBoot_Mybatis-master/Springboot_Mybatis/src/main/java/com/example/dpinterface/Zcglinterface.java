@@ -166,9 +166,14 @@ public class Zcglinterface {
      */
     @RequestMapping("getZcglListDateByType")
     @ResponseBody
-    public String dogetResponseDateZcglList(String type){
+    public String dogetResponseDateZcglList(String type,String start,String limit){
         String url_paramesKey = "categoryId=";
         String url_resultVal="";
+        String pageHelp="";
+        try{
+        if(!"".equals(start) && !"".equals(limit)){
+            pageHelp="&start="+start+"&limit="+limit;
+        }
         if("1".equals(type)){
             url_resultVal=categroy1;
         }else if("2".equals(type)){
@@ -187,8 +192,7 @@ public class Zcglinterface {
             url_paramesKey="excludeIds=";
             url_resultVal=categroy1+","+categroy2+","+categroy3+","+categroy4+","+categroy5+","+categroy6+","+categroy7;
         }
-        String url = "http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/listByCiCategory.mvc?deepIn=false&"+url_paramesKey+url_resultVal;
-        try{
+        String url = "http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/listByCiCategory.mvc?deepIn=false&"+url_paramesKey+url_resultVal+pageHelp;
             String  a = sendGetData(url,"utf-8");
             return a;
         }catch ( Exception e){
