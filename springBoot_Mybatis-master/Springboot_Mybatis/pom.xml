@@ -216,6 +216,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.4.2.RELEASE</version>
                 <configuration>
                     <mainClass>com.example.DemoApplication</mainClass>
                     <fork>true</fork>
