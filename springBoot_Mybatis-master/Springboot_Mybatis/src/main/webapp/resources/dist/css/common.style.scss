@@ -1,0 +1,113 @@
+@import "bg.style";
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/common-bg.jpg);
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.con-part0 {
+  @include positionFn(29%, 2.63rem, 35.7%, null, 3%, null, null, null);
+  line-height: 2.63rem;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #01FEFF;
+  font-weight: bold;
+  display: inline-block;
+
+  & > span {
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      @include positionFn(2.53rem, 1.2rem, null, 103%, 0.35rem, null, null, url(../images/zuo.png));
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      @include positionFn(2.53rem, 1.2rem, 103%, null, 0.35rem, null, null, url(../images/you.png));
+    }
+  }
+}
+
+.con-part1{
+  @include positionFn(null, null, 4.5%, 4.7%, 18%, 20%, null, null);
+}
+.con-part2{
+  @include positionFn(null, null, 5.5%, 5.7%, 80%, 13%, null, null);
+}
+.con-part3{
+  @include positionFn(5rem, null, 50%, null, null, 1%, null, url(../images/common-bottom.png));
+  padding: 0.6rem 0;
+  margin-left: -2.5rem;
+  color: #00FEFE;
+  font-size: 0.7rem;
+  text-align: center;
+}
+.table-ul {
+  position: absolute;
+  left: 1.4rem;
+  right: 1.40rem;
+  top: 1.25rem;
+  bottom: 1.25rem;
+
+  & > li {
+    font-family: MicrosoftYaHei;
+    color: rgba(255, 255, 255, 1);
+    border-radius: 0.15rem;
+    display: flex;
+    margin-bottom: 0.15rem !important;
+    background-clip: content-box !important;
+
+    &.table-th {
+      font-size: .3rem;
+      margin-bottom: 0.1rem !important;
+      background: rgba(0, 249, 251, 0.5) !important;
+      background-clip: content-box !important;
+    }
+
+    &:nth-child(odd) {
+      background: rgba(7, 247, 250, 0.28);
+    }
+
+    &:nth-child(even) {
+      background: rgba(53, 129, 130, 0.21);
+    }
+
+    & > div {
+      &:nth-child(1) {
+        flex: 1 !important;
+      }
+
+      &:nth-child(2) {
+        flex: 1 !important;
+      }
+
+      flex: 2;
+      font-size: .26rem;
+      padding: 0.12rem 0;
+      text-align: center;
+      color: #D9FEE8;
+    }
+
+    //&.tr-status-1 {
+    //  background-color: rgba(255, 255, 0, 0.5);
+    //}
+    //
+    //&.tr-status-2 {
+    //  background-color: rgba(34, 172, 56, 0.5);
+    //}
+    //
+    //&.tr-status-3 {
+    //  background-color: rgba(230, 0, 18, 0.5);
+    //}
+  }
+}

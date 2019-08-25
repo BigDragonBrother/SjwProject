@@ -1,8 +1,8 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>吉林省纪委监委信息化运维平台</title>
     <link href="<%=request.getContextPath()%>/resources/dist/css/layout.style.css" rel="stylesheet" type="text/css">
     <link href="<%=request.getContextPath()%>/resources/dist/css/animate.min.css" rel="stylesheet" type="text/css">
@@ -66,14 +66,14 @@
         </div>
         <div class="part-body">
             <div class="part-body-1">
-                <div>
+                <div onclick="Tools.partZCGL()" data-target="0">
                     <object data="<%=request.getContextPath()%>/resources/dist/svg/ybp1.svg" type="image/svg+xml" style="width: 100%;">
                         <p>您的浏览器不支持SVG文件</p>
                     </object>
                     <div class="fontNumber ybp_data fontSuccess" id="part2-1-data">0</div>
                     <p>虚拟化</p>
                 </div>
-                <div>
+                <div onclick="Tools.partZCGL()" data-target="0">
                     <object data="<%=request.getContextPath()%>/resources/dist/svg/ybp1.svg" type="image/svg+xml" style="width: 100%;">
                         <p>您的浏览器不支持SVG文件</p>
                     </object>
@@ -82,14 +82,14 @@
                 </div>
             </div>
             <div class="part-body-2">
-                <div>
+                <div onclick="Tools.partZCGL()" data-target="0">
                     <object data="<%=request.getContextPath()%>/resources/dist/svg/ybp1.svg" type="image/svg+xml" style="width: 100%;">
                         <p>您的浏览器不支持SVG文件</p>
                     </object>
                     <div class="fontNumber fontSuccess ybp_data" id="part2-3-data">0</div>
                     <p>中间件</p>
                 </div>
-                <div>
+                <div onclick="Tools.partZCGL()" data-target="0">
                     <object data="<%=request.getContextPath()%>/resources/dist/svg/ybp1.svg" type="image/svg+xml" style="width: 100%;">
                         <p>您的浏览器不支持SVG文件</p>
                     </object>
@@ -110,15 +110,12 @@
                     style="top: -1.5%;height: 91%;width: 100%;position: absolute;">
                 <p>您的浏览器不支持SVG文件</p>
             </object>
-            <!--<div class="part-body-0">-->
-            <!--<img src="dist/svg/ld-pink.svg" width="100%">-->
-            <!--</div>-->
             <div class="part-body-1" data-content="健康度">
                 <img src="<%=request.getContextPath()%>/resources/dist/svg/ld_left.svg" style="width: 100%;">
                 <div class="fontNumber fontSuccess" id="part3-left">0</div>
             </div>
             <div class="part-body-2" id="leida"></div>
-            <div class="part-body-3" data-content="告警数">
+            <div class="part-body-3" data-content="告警数" onclick="Tools.partGJXX()">
                 <img src="<%=request.getContextPath()%>/resources/dist/svg/ld_right.svg" style="width: 100%;">
                 <div class="fontNumber fontSuccess" id="part3-right">0</div>
             </div>
@@ -141,7 +138,7 @@
         </div>
         <div class="part-body">
             <div class="part-body-1">
-                <div>
+                <div onclick="Tools.partZCGL()" data-target="0">
                     <!--<img src="dist/svg/ybp1.svg">-->
                     <object data="<%=request.getContextPath()%>/resources/dist/svg/ybp1.svg" type="image/svg+xml" style="width: 100%;">
                         <p>您的浏览器不支持SVG文件</p>
@@ -149,7 +146,7 @@
                     <div class="fontNumber ybp_data fontSuccess" id="part4-1-data">0</div>
                     <p>安全设备</p>
                 </div>
-                <div>
+                <div onclick="Tools.partZCGL()" data-target="0">
                     <!--<img src="dist/svg/ybp1.svg">-->
                     <object data="<%=request.getContextPath()%>/resources/dist/svg/ybp1.svg" type="image/svg+xml" style="width: 100%;">
                         <p>您的浏览器不支持SVG文件</p>
@@ -159,14 +156,14 @@
                 </div>
             </div>
             <div class="part-body-2">
-                <div>
+                <div onclick="Tools.partZCGL()" data-target="0">
                     <object data="<%=request.getContextPath()%>/resources/dist/svg/ybp1.svg" type="image/svg+xml" style="width: 100%;">
                         <p>您的浏览器不支持SVG文件</p>
                     </object>
                     <div class="fontNumber ybp_data fontSuccess" id="part4-3-data">0</div>
                     <p>数据库</p>
                 </div>
-                <div>
+                <div onclick="Tools.partZCGL()" data-target="0">
                     <object data="<%=request.getContextPath()%>/resources/dist/svg/ybp1.svg" type="image/svg+xml" style="width: 100%;">
                         <p>您的浏览器不支持SVG文件</p>
                     </object>
@@ -221,7 +218,7 @@
             <span>工单系统</span>
             <img src="<%=request.getContextPath()%>/resources/dist/images/tit_right.png">
         </div>
-        <div class="part-body">
+        <div class="part-body" onclick="Tools.partGDGL()">
             <ul class="table-ul">
                 <li class="table-th">
                     <div><i class="fa fa-bell-o"></i> 单号</div>
@@ -291,9 +288,12 @@
             <div id="con-part8-2" class="con-part8-2 fontNumber fontSuccess" data-content="文档管理">20%</div>
             <div id="con-part8-3" class="con-part8-3 fontNumber fontSuccess" data-content="容量存储">20%</div>
             <!--指针动画-->
-            <div class="con-part8-1-point"><img src="<%=request.getContextPath()%>/resources/dist/svg/wjbf_zz1.svg"></div>
-            <div class="con-part8-2-point"><img src="<%=request.getContextPath()%>/resources/dist/svg/wjbf_zz2.svg"></div>
-            <div class="con-part8-3-point"><img src="<%=request.getContextPath()%>/resources/dist/svg/wjbf_zz3.svg"></div>
+            <div class="con-part8-1-point"><img src="<%=request.getContextPath()%>/resources/dist/svg/wjbf_zz1.svg">
+            </div>
+            <div class="con-part8-2-point"><img src="<%=request.getContextPath()%>/resources/dist/svg/wjbf_zz2.svg">
+            </div>
+            <div class="con-part8-3-point"><img src="<%=request.getContextPath()%>/resources/dist/svg/wjbf_zz3.svg">
+            </div>
         </div>
 
         <div class="part-header">
@@ -334,12 +334,16 @@
     </div>
 </div>
 <!--part1:派驻-->
-<div class="part1PZ-modal" id="part1PZ-modal" style="display: none">
+<div class="part-modal" id="part1PZ-modal" style="display: none">
     <div id="allmap" class="allmap"></div>
 </div>
 <!--part5:即时调度-->
-<div class="part5JSDD-modal" id="part5JSDD-modal" style="display: none;"></div>
-<div class="part5YWYY-modal" id="part5YWYY-modal" style="display: none;"></div>
+<div class="part-modal" id="part5JSDD-modal" style="display: none;"></div>
+<%--part5:业务应用--%>
+<div class="part-modal" id="part5YWYY-modal" style="display: none;"></div>
+<div class="part-modal" id="part2ZCGL-modal" style="display: none;"></div>
+<div class="part-modal" id="part6GDGL-modal" style="display: none;"></div>
+<div class="part-modal" id="part3GJXX-modal" style="display: none;"></div>
 <script src="<%=request.getContextPath()%>/resources/dist/js/common/jquery-3.3.1.min.js"></script>
 <!--地图组件  begin-->
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/dist/bmap/js/tilesInfo.js"></script>

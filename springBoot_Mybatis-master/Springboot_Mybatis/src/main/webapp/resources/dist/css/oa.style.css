@@ -486,7 +486,8 @@ div[class^=con-part] {
           border-width: 0.3rem 0.8rem;
           border-style: solid;
           border-color: transparent;
-          box-sizing: border-box; }
+          box-sizing: border-box;
+          width: 100%; }
       .container .con-part5 .con-part5-copy::before {
         content: '';
         display: block;
