@@ -66,14 +66,14 @@
         </div>
         <div class="part-body">
             <div class="part-body-1">
-                <div onclick="Tools.partZCGL()" data-target="0">
+                <div onclick="Tools.partZCGL(this)" data-target="0">
                     <object data="<%=request.getContextPath()%>/resources/dist/svg/ybp1.svg" type="image/svg+xml" style="width: 100%;">
                         <p>您的浏览器不支持SVG文件</p>
                     </object>
                     <div class="fontNumber ybp_data fontSuccess" id="part2-1-data">0</div>
                     <p>虚拟化</p>
                 </div>
-                <div onclick="Tools.partZCGL()" data-target="0">
+                <div onclick="Tools.partZCGL(this)" data-target="0">
                     <object data="<%=request.getContextPath()%>/resources/dist/svg/ybp1.svg" type="image/svg+xml" style="width: 100%;">
                         <p>您的浏览器不支持SVG文件</p>
                     </object>
@@ -82,14 +82,14 @@
                 </div>
             </div>
             <div class="part-body-2">
-                <div onclick="Tools.partZCGL()" data-target="0">
+                <div onclick="Tools.partZCGL(this)" data-target="0">
                     <object data="<%=request.getContextPath()%>/resources/dist/svg/ybp1.svg" type="image/svg+xml" style="width: 100%;">
                         <p>您的浏览器不支持SVG文件</p>
                     </object>
                     <div class="fontNumber fontSuccess ybp_data" id="part2-3-data">0</div>
                     <p>中间件</p>
                 </div>
-                <div onclick="Tools.partZCGL()" data-target="0">
+                <div onclick="Tools.partZCGL(this)" data-target="0">
                     <object data="<%=request.getContextPath()%>/resources/dist/svg/ybp1.svg" type="image/svg+xml" style="width: 100%;">
                         <p>您的浏览器不支持SVG文件</p>
                     </object>
@@ -138,7 +138,7 @@
         </div>
         <div class="part-body">
             <div class="part-body-1">
-                <div onclick="Tools.partZCGL()" data-target="0">
+                <div onclick="Tools.partZCGL(this)" data-target="0">
                     <!--<img src="dist/svg/ybp1.svg">-->
                     <object data="<%=request.getContextPath()%>/resources/dist/svg/ybp1.svg" type="image/svg+xml" style="width: 100%;">
                         <p>您的浏览器不支持SVG文件</p>
@@ -146,7 +146,7 @@
                     <div class="fontNumber ybp_data fontSuccess" id="part4-1-data">0</div>
                     <p>安全设备</p>
                 </div>
-                <div onclick="Tools.partZCGL()" data-target="0">
+                <div onclick="Tools.partZCGL(this)" data-target="0">
                     <!--<img src="dist/svg/ybp1.svg">-->
                     <object data="<%=request.getContextPath()%>/resources/dist/svg/ybp1.svg" type="image/svg+xml" style="width: 100%;">
                         <p>您的浏览器不支持SVG文件</p>
@@ -156,14 +156,14 @@
                 </div>
             </div>
             <div class="part-body-2">
-                <div onclick="Tools.partZCGL()" data-target="0">
+                <div onclick="Tools.partZCGL(this)" data-target="0">
                     <object data="<%=request.getContextPath()%>/resources/dist/svg/ybp1.svg" type="image/svg+xml" style="width: 100%;">
                         <p>您的浏览器不支持SVG文件</p>
                     </object>
                     <div class="fontNumber ybp_data fontSuccess" id="part4-3-data">0</div>
                     <p>数据库</p>
                 </div>
-                <div onclick="Tools.partZCGL()" data-target="0">
+                <div onclick="Tools.partZCGL(this)" data-target="0">
                     <object data="<%=request.getContextPath()%>/resources/dist/svg/ybp1.svg" type="image/svg+xml" style="width: 100%;">
                         <p>您的浏览器不支持SVG文件</p>
                     </object>
@@ -221,8 +221,8 @@
         <div class="part-body" onclick="Tools.partGDGL()">
             <ul class="table-ul">
                 <li class="table-th">
-                    <div><i class="fa fa-bell-o"></i> 单号</div>
-                    <div>姓名</div>
+                    <div><i class="fa fa-bell-o"></i>序号</div>
+                    <div>处理人</div>
                     <div>故障类型</div>
                     <div>故障编码</div>
                     <div>派单时间</div>

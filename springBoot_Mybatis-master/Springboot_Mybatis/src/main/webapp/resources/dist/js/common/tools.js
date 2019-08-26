@@ -3,8 +3,7 @@
  */
 //系统请求轮询时间间隔
 var timeout = 10000;
-//分页条数
-var iDisplayLength = 9;
+
 function XDT(id){
     var canvas = document.getElementById(id);
     var context = canvas.getContext('2d');
@@ -43,24 +42,7 @@ function XDT(id){
     setInterval(draw, 20);
 }
 
-// 初始化分页控件
-function pageEvent() {
-    $.jqPaginator('#pagination', {
-        totalPages: parseInt($("#countindex").val()),
-        visiblePages: parseInt($("#visiblePages").val()),
-        currentPage: 1,
-        first: '<li class="first"><a href="javascript:;">首页</a></li>',
-        prev: '<li class="prev"><a href="javascript:;"><i class="arrow arrow2"></i>上一页</a></li>',
-        next: '<li class="next"><a href="javascript:;">	下一页<i class="arrow arrow3"></i></a></li>',
-        last: '<li class="last"><a href="javascript:;">尾页</a></li>',
-        page: '<li class="page"><a href="javascript:;">{{page}}</a></li>',
-        onPageChange: function (num, type) {
-            if (type == "change") {
-                //getList(num, iDisplayLength);
-            }
-        }
-    });
-}
+
 $(function(){
     document.onkeydown = function (event) {
         var e = event || window.event || arguments.callee.caller.arguments[0];

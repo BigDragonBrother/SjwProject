@@ -1,9 +1,9 @@
 html {
   body {
-    height: 100%;
-    //height: 50% !important;
-    //transform-origin: top;
-    //transform: scale(1, 2);
+    //height: 100%;
+    height: 50% !important;
+    transform-origin: top;
+    transform: scale(1, 2);
     //margin-left: -50%; //测试样式
     //margin-top: -5%; //测试样式
 
@@ -19,8 +19,9 @@ $paginationBorderColor: #0a8188 !default;
 
 .pagination {
   &>*{
-    font-size: 0.8rem;
+    font-size: 0.4rem;
   }
+
   float: right;
   height: 100%;
   display: inline-block;

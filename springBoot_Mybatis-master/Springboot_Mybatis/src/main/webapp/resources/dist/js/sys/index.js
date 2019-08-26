@@ -4,77 +4,16 @@ Tools = {
     data: {
         countError: 0,//当前存在告警数
     },
-    initExtends: function (status) {
-        // Tools.partSetData("part1-1-data", status ? 34 : 45);//本级
-        // Tools.partSetData("part1-2-data", status ? 46 : 27);//派驻
-        // Tools.partSetData("part1-3-data", status ? 28 : 39);//市县
-        Tools.partSetData("part2-1-data", status ? 7 : 4);//虚拟化
-        Tools.partSetData("part2-2-data", status ? 8 : 12);//网络设备
-        Tools.partSetData("part2-3-data", status ? 6 : 2, 10, 2);//中间件
-        Tools.partSetData("part2-4-data", status ? 130 : 125, 150, 2);//存储
-        Tools.partSetData("part4-1-data", status ? 5 : 2, 10, 1);//安全设备
-        Tools.partSetData("part4-2-data", status ? 11 : 16, 20, 1);//服务器
-        Tools.partSetData("part4-3-data", status ? 85 : 60, 100, 2);//数据库
-        Tools.partSetData("part4-4-data", status ? 145 : 175, 200, 2);//其他
-        Tools.partSetData("part3-left", status ? 97 : 95);
-        // Tools.partSetData("part3-right", status ? 18 : 20);
-        Tools.partSetData("part5-3-body1", status ? "30" : "31");
-        Tools.partSetData("part5-3-body2", status ? 115 : 100);
-        Tools.partSetData("part5-3-body3", status ? "76" : "90");
-        Tools.partSetData("part-7-1", status ? 20 : 23);
-        Tools.partSetData("part-7-2", status ? 8 : 12);
-        Tools.partSetData("con-part8-1", status ? "23%" : "19%");
-        Tools.partSetData("con-part8-2", status ? "25%" : "21%");
-        Tools.partSetData("con-part8-3", status ? "16%" : "12%");
-
-        // Tools.partSetData("con-part9-1", status ? 56 : 50);
-        // Tools.partSetData("con-part9-2", status ? 49 : 48);
-        // Tools.partSetData("con-part9-3", status ? 35 : 42);
-        // Tools.partSetData("con-part9-4", status ? 45 : 37);
-
-        Tools.partSetData("con-part9-1", status ? "22<span>℃</span>" : "23<span>℃</span>");
-        Tools.partSetData("con-part9-3", status ? "21<span>℃</span>" : "22<span>℃</span>");
-        Tools.partSetData("con-part9-5", status ? "22<span>℃</span>" : "20<span>℃</span>");
-        Tools.partSetData("con-part9-7", status ? "21<span>℃</span>" : "23<span>℃</span>");
-
-        Tools.partSetData("con-part9-2", status ? "54<span>%RH</span>" : "55<span>%RH</span>");
-        Tools.partSetData("con-part9-4", status ? "55<span>%RH</span>" : "54<span>%RH</span>");
-        Tools.partSetData("con-part9-6", status ? "54<span>%RH</span>" : "53<span>%RH</span>");
-        Tools.partSetData("con-part9-8", status ? "55<span>%RH</span>" : "56<span>%RH</span>");
-
-    },
     init: function () {
-        //心电图动画生成方法
-        Tools.part5XDT();
-        //var status = true;
-        //setInterval(function () {
-        //     Tools.initExtends(status);
-        //     status = !status;
-        // }, 10000);
-        //Tools.initExtends(status);
-
-
+        Tools.part5XDT(); //心电图动画生成方法
         Tools.part3();
+        // Tools.upsFn();   //UPS供电管理：001
+        // Tools.smjfFn();//涉密机房：001
+        // Tools.gjsFn(); //告警数  001
+        // Tools.gjxxFn();//告警信息  001
+        Tools.zcglFn(); //资产管理  ok
+        Tools.jkdFn(); //健康度  ok
         Tools.part6();
-
-
-        //UPS供电管理：001
-        //Tools.upsFn();
-
-        //涉密机房：001
-        //Tools.smjfFn();
-
-        //告警数  001
-        // Tools.gjsFn();
-
-        //告警信息  001
-        // Tools.gjxxFn();
-
-        //资产管理
-        Tools.zcglFn();
-
-        //健康度
-        // Tools.jkdFn();
 
         //关闭modal
         document.onkeydown = function (event) {
@@ -83,9 +22,7 @@ Tools = {
             if (e && e.keyCode == 27) {
                 $("#part1PZ-modal").hide();
                 $("#part5JSDD-modal").hide().empty();
-                console.log("1")
                 $("#part5YWYY-modal").hide().empty();
-                console.log("2")
             }
         }
         //测试地图入口
@@ -116,47 +53,27 @@ Tools = {
             var countError = Tools.data.countError;//系统中存在的错误
             var countErrorNew = $(".point-error").length;//当前页面显示的错误point点数量
             var countErrorDif = countError - countErrorNew;
-            if(countErrorDif>0){
-                for(var i = 0 ;i <countErrorDif;i++){
+            if (countErrorDif > 0) {
+                for (var i = 0; i < countErrorDif; i++) {
                     Tools.part3GetPos(function (pos) {
                         $("#leida").append("<div class='point-error' style='left:" + pos.width + "px;top:" + pos.height + "px;'></div>");
                         var len_success = $(".point-success").length;
-                        var random_ = Math.floor(Math.random()*len_success);
-                        $(".point-success:nth-child("+random_+")").remove();
+                        var random_ = Math.floor(Math.random() * len_success);
+                        $(".point-success:nth-child(" + random_ + ")").remove();
                     });
                 }
-            }else{
+            } else {
                 var countErrorDif_ = Math.abs(countErrorDif);
-                for(var i = 0 ;i <countErrorDif_;i++){
+                for (var i = 0; i < countErrorDif_; i++) {
                     Tools.part3GetPos(function (pos) {
                         $("#leida").append("<div class='point-success' style='left:" + pos.width + "px;top:" + pos.height + "px;'></div>");
                         var len_error = $(".point-error").length;
-                        var random_ = Math.floor(Math.random()*len_error);
-                        console.log("random:"+random_)
+                        var random_ = Math.floor(Math.random() * len_error);
                         $(".point-error").eq(random_).remove();
                     });
                 }
             }
 
-
-
-
-
-
-
-
-
-            //模拟数据--只允许出现一个告警睡觉  正式数据这里要删掉判断
-            // if ($(".point-error").length != countError) {
-            //     for(var i = 0 ;i < countError;i++){
-            //         $("#leida").append("<div class='point-error' style='left:" + width + "px;top:" + height + "px;'></div>")
-            //     }
-            //     $("#part-3-warning").show();
-            // } else {
-            //     if ($(".point-success").length < 15) {
-            //         $("#leida").append("<div class='point-success' style='left:" + width + "px;top:" + height + "px;'></div>")
-            //     }
-            // }
             $("#part3-right").html(countError);
             //这里是当报警数 大于零的时候 给 告警数框添加样式
             if (countError == 0) {
@@ -167,18 +84,6 @@ Tools = {
                 $("#part3-right").removeClass("fontSuccess").addClass("fontError");
             }
         }, 1000);
-        // setInterval(function () {
-        //     var countError = Tools.data.countError;
-        //     $(".point-error").remove();
-        //     $(".point-success:nth-child(1),.point-success:nth-child(2)").remove();
-        //     $("#part-3-warning").hide();
-        //     $("#part3-right").html($(".point-error").length);
-        //     if (countError == 0) {
-        //         $("#part3-right").removeClass("fontError").addClass("fontSuccess");
-        //     } else {
-        //         $("#part3-right").removeClass("fontSuccess").addClass("fontError");
-        //     }
-        // }, 13000)
 
         function createArea() {
             var height = 2.48;
@@ -189,12 +94,15 @@ Tools = {
             } else {
                 radarStyle.innerHTML = str;
             }
-            ;
             document.getElementsByTagName("head")[0].appendChild(radarStyle);
         }
     },
-    partSetData: function (target, data) {
+
+    partSetData: function (target, data, id) {
         $("#" + target).html(data);
+        if (id) {
+            $("#" + target).parent().data("target", id);
+        }
     },
     /**
      * part5XDT:即使调度 动画
@@ -209,22 +117,11 @@ Tools = {
         $.ajax({
             url: "../zcgl/getGdListDate",
             data: {
-                start: 1,
+                start: 0,
                 limit: 10
             },
-            success: function (data) {
-                data = {
-                    root: [{ext0: 1, ext1: "郭志强", ext2: "服务器异常", ext3: "F-00FWQ0002", ext4: "2019.7.26", ext5: 3},
-                        {ext0: 2, ext1: "张明会", ext2: "网络设备异常", ext3: "W-00WLSB0009", ext4: "2019.7.24", ext5: 2},
-                        {ext0: 3, ext1: "刘明哲", ext2: "存储设备异常", ext3: "C-00CCSB0004", ext4: "2019.7.13", ext5: 2},
-                        {ext0: 4, ext1: "王德凯", ext2: "安全设备告警", ext3: "A-00AQSB0001", ext4: "2019.7.1", ext5: 3},
-                        {ext0: 5, ext1: "王智达", ext2: "网络连接异常", ext3: "W-00WLLJ0010", ext4: "2019.6.30", ext5: 1},
-                        {ext0: 6, ext1: "王德凯", ext2: "存储检测异常", ext3: "C-00CCSB0001", ext4: "2019.6.25", ext5: 1},
-                        {ext0: 7, ext1: "张明会", ext2: "中间件异常", ext3: "Z-00ZJJ0006", ext4: "2019.6.21", ext5: 1},
-                        {ext0: 8, ext1: "郭志强", ext2: "UPS检测异常", ext3: "U-00UPS0012", ext4: "2019.6.18", ext5: 1},
-                        {ext0: 9, ext1: "刘明哲", ext2: "存储设备异常", ext3: "C-00CCSB0008", ext4: "2019.6.10", ext5: 1},
-                        {ext0: 10, ext1: "王德凯", ext2: "服务器异常", ext3: "F-00FWQ0022", ext4: "2019.6.2", ext5: 3}]
-                }
+            success: function (res) {
+                var data = JSON.parse(res);
                 return callback(data.root)
             }
         })
@@ -233,29 +130,32 @@ Tools = {
         Tools.part6GetData(function (data) {
             var index = 5;
             var i = 0;
-            animationFn()
+            animationFn();
 
             function animationFn() {
                 $(".table-ul>li").removeClass("flipInX");
                 var a = setInterval(function () {
-                    $(".table-ul>li:nth-child(" + (i + 2) + ")").removeClass(".tr-status-1 .tr-status-2 .tr-status-3").addClass("flipInX" +
-                        " tr-status-" + data[index + i].ext5);
-                    $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(1)").html(data[index + i].ext0);
-                    $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(2)").html(data[index + i].ext1);
-                    $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(3)").html(data[index + i].ext2);
-                    $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(4)").html(data[index + i].ext3);
-                    $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(5)").html(data[index + i].ext4);
-                    // $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(6)").html(data[index + i].ext5);
-                    i++;
-                    if (i > 4) {
-                        i = 0;
-                        window.clearInterval(a)
+                    if (index + i < data.length) {
+
+                        $(".table-ul>li:nth-child(" + (i + 2) + ")").removeClass(".tr-status-1 .tr-status-2 .tr-status-3").addClass("flipInX" +
+                            " tr-status-" + data[index + i].urgency.starNumber);
+                        $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(1)").html(i + 1);//单号
+                        $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(2)").html(data[index + i].applicationClient.name || "--");//
+                        $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(3)").html(data[index + i].category.name || "--");
+                        $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(4)").html(data[index + i].code);//故障编码
+                        $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(5)").html(data[index + i].createdOn);
+                        // $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(6)").html(data[index + i].ext5);
+                        i++;
+                        if (i > 4) {
+                            i = 0;
+                            window.clearInterval(a)
+                        }
                     }
                 }, 300)
                 index = (index == 5) ? 0 : 5;
             }
 
-            setInterval(animationFn, 10000)
+            setInterval(animationFn, 10000);
         })
     },
     /**
@@ -291,8 +191,9 @@ Tools = {
     /**
      * 资产管理二级页面
      */
-    partZCGL: function () {
-        Tools.partModalFn("part2ZCGL-modal", "zcgl");
+    partZCGL: function (that) {
+        var type = $(that).data("target");
+        Tools.partModalFn("part2ZCGL-modal", "zcgl?type=" + type);
     },
     /**
      * 工单系统二级页面
@@ -581,14 +482,18 @@ Tools = {
             url: "../zcgl/getZcglAllDateForDp",
             success: function (res) {
                 var data = JSON.parse(res);
-                Tools.partSetData("part2-1-data", data.cagt_1_virtual_device.count);//虚拟化
-                Tools.partSetData("part2-2-data", data.cagt_2_network_device.count);//网络设备
-                Tools.partSetData("part2-3-data", data.cagt_2_middle_application.count);//中间件
-                Tools.partSetData("part2-4-data", data.cagt_2_storage_device.count);//存储
-                // Tools.partSetData("part4-1-data", status ? 5 : 2, 10, 1);//安全设备
-                // Tools.partSetData("part4-2-data", status ? 11 : 16, 20, 1);//服务器
-                // Tools.partSetData("part4-3-data", status ? 85 : 60, 100, 2);//数据库
-                Tools.partSetData("part4-4-data", data.otherCi.count);//其他
+                Tools.partSetData("part2-1-data", data.cagt_2_virtual_machine.count, 4);//虚拟化
+                Tools.partSetData("part2-2-data", data.cagt_2_network_device.count, 1);//网络设备
+                Tools.partSetData("part2-3-data", data.cagt_2_middle_application.count, 2);//中间件
+                Tools.partSetData("part2-4-data", data.cagt_2_storage_device.count, 3);//存储
+                Tools.partSetData("part4-1-data", data.cagt_2_security_device.count, 5);//安全设备
+                Tools.partSetData("part4-2-data", data.cagt_2_server_device.count, 6);//服务器
+                Tools.partSetData("part4-3-data", data.cagt_2_database_application.count, 7);//数据库
+                Tools.partSetData("part4-4-data", data.otherCi.count, 8);//其他
+
+                setTimeout(function () {
+                    Tools.zcglFn();
+                },timeout)
             }
         })
     },
@@ -600,8 +505,9 @@ Tools = {
         $.ajax({
             url: "../zcgl/getJksDate",
             type: "post",
-            success: function (data) {
-                Tools.partSetData("part3-left", data.score);
+            success: function (res) {
+                var data = JSON.parse(res);
+                Tools.partSetData("part3-left", Math.floor((+data.score) * 100));
                 setTimeout(function () {
                     Tools.jkdFn();
                 }, timeout);

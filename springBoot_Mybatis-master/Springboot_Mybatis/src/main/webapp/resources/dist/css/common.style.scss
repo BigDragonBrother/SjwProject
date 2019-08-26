@@ -42,7 +42,7 @@
   @include positionFn(null, null, 4.5%, 4.7%, 18%, 20%, null, null);
 }
 .con-part2{
-  @include positionFn(null, null, 5.5%, 5.7%, 80%, 13%, null, null);
+  @include positionFn(null, null, 5.5%, 5.7%, 82.3%, 13%, null, null);
 }
 .con-part3{
   @include positionFn(5rem, null, 50%, null, null, 1%, null, url(../images/common-bottom.png));
