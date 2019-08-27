@@ -758,13 +758,12 @@ div[class^=con-part] {
           position: absolute;
           left: 0;
           top: 0;
-          background-image: url(../svg/wjbf_outer.svg);
-          -webkit-background-size: 100%;
-          background-size: 100%;
+          background-image: url(../images/wjbf_outer.png);
+          -webkit-background-size: contain;
+          background-size: contain;
           background-repeat: no-repeat;
-          -webkit-animation: rotate360 45s infinite;
-          -o-animation: rotate360 45s infinite;
-          animation: rotate360 45s infinite; }
+          background-position-x: center;
+          background-position-y: center; }
         .container .con-part8 .part-body .con-part8-1::after, .container .con-part8 .part-body .con-part8-2::after, .container .con-part8 .part-body .con-part8-3::after {
           content: attr(data-content);
           position: absolute;

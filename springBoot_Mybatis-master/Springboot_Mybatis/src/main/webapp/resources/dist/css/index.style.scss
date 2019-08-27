@@ -948,13 +948,15 @@
           position: absolute;
           left: 0;
           top: 0;
-          background-image: url(../svg/wjbf_outer.svg);
-          -webkit-background-size: 100%;
-          background-size: 100%;
+          background-image: url(../images/wjbf_outer.png);
+          -webkit-background-size: contain;
+          background-size: contain;
           background-repeat: no-repeat;
-          -webkit-animation: rotate360 45s infinite;
-          -o-animation: rotate360 45s infinite;
-          animation: rotate360 45s infinite;
+          //-webkit-animation: rotate360 45s infinite;
+          //-o-animation: rotate360 45s infinite;
+          //animation: rotate360 45s infinite;
+          background-position-x: center;
+          background-position-y: center;
         }
 
         &::after {
