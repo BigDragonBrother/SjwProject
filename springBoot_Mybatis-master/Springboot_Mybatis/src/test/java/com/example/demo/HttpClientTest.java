@@ -23,6 +23,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.*;
 
+import static com.example.utils.FontUtils.decodeUnicode;
+
 /**
  * @date：2019年3月20日
  */
@@ -243,7 +245,7 @@ public class HttpClientTest {
     //{"score":"0.78"}
     @Test
     public void mytest3() throws ClientProtocolException, IOException {
-        String url = "http://192.168.43.101:8080/fvsd4/ioptcn/rest/jlsjw/large/healthScore.mvc";
+        String url = "http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/large/healthScore.mvc";
         String str = sendGetData(url,"utf-8");
         System.out.println(str);
 
@@ -260,5 +262,14 @@ public class HttpClientTest {
 
 
     }
+//decodeUnicode
+@Test
+public void mytest5() throws ClientProtocolException, IOException {
+    String url = "http://156.8.16.16/phpdir/trade_third.php?tradecode=networkclient&login=thirdadmin&pass=888888&contype=2";
+    String str = sendGetData(url,"utf-8");
+    String strs = decodeUnicode(str);
+    System.out.println(strs);
 
+
+}
 }

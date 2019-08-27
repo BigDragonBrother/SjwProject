@@ -5,6 +5,12 @@ Tools = {
         countError: 0,//当前存在告警数
     },
     init: function () {
+		
+		$("body").append(`
+		<iframe data-desc="可视化机房" style="display:none" src="http://156.8.11.22:8080/itims/login.action?userName=admin&pwd=21232f297a57a5a743894a0e4a801fc3&DMSN=998"></iframe>
+		<iframe data-desc="终端态势感知" style="display:none" src="https://156.8.16.16/tp/login.html?login=admin&password=admin@123"></iframe>
+		`)
+		
         Tools.part5XDT(); //心电图动画生成方法
         Tools.part3();
         // Tools.upsFn();   //UPS供电管理：001
@@ -137,13 +143,35 @@ Tools = {
                 var a = setInterval(function () {
                     if (index + i < data.length) {
 
+						//1.assigneeInfo数组。name
+						
+						//2.assigneeInfo数组为空[]||null						
+						
+						//3.solver:!=null   solver.xingMing
+						
+						//4.else   未签收
+						
+						var name ="";// ((typeof data[index+i].assigneeInfo) =="object" && data[index+i].solver) ? (data[index+i].assigneeInfo.length>0?data[index+i].assigneeInfo[0].assignee.name:(data[index+i].solver?data[index+i].solver.xingMing:"无"):(data[index+i].solver?data[index+i].solver.xingMing: "未签收");
+						 
+						if((typeof data[index+i].assigneeInfo) =="object"){
+							if(data[index+i].assigneeInfo.length>0){
+								name = data[index+i].assigneeInfo[0].assignee.name;
+							}else if(data[index+i].solver){
+								name=data[index+i].solver.xingMing;
+							}else{
+								name="无";
+							}					
+						}else{
+							name = "未签收";
+						}
+
                         $(".table-ul>li:nth-child(" + (i + 2) + ")").removeClass(".tr-status-1 .tr-status-2 .tr-status-3").addClass("flipInX" +
                             " tr-status-" + data[index + i].urgency.starNumber);
-                        $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(1)").html(i + 1);//单号
-                        $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(2)").html(data[index + i].applicationClient.name || "--");//
-                        $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(3)").html(data[index + i].category.name || "--");
-                        $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(4)").html(data[index + i].code);//故障编码
-                        $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(5)").html(data[index + i].createdOn);
+                        $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(1)").html(i + 1).attr("title",(i+1));//单号
+                        $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(2)").html(name).attr("title",name);//
+                        $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(3)").html(data[index + i].category.name || "--").attr("title",data[index + i].category.name || "--");
+                        $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(4)").html(data[index + i].code).attr("title",data[index + i].code);//故障编码
+                        $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(5)").html((data[index + i].createdOn).split(" ")[0]).attr("title",(data[index + i].createdOn));
                         // $(".table-ul>li:nth-child(" + (i + 2) + ")>div:nth-child(6)").html(data[index + i].ext5);
                         i++;
                         if (i > 4) {
@@ -205,6 +233,20 @@ Tools = {
         $("#" + id).show().html('<iframe frameborder="0" scrolling="no" src="' + html + '" width="100%"' +
             ' height="100%"></iframe>');
     },
+	/**
+	*可视化机房-第三方
+	*/
+	partKSHJFFn:function(){
+		Tools.partModalFn("part9KSHJF-modal", "http://156.8.11.22:8080/itims/room/view/view.jsp?mnSbj=topo&mnCMP=1_2&lunchFrom=start&lunchFuncID=roottopo_room");
+	},
+	
+	
+	/**
+	*终端态势感知-第三方
+	*/
+	//partTSGZFn:function(){
+	//	Tools.partModalFn("part9KSHJF-modal", "https://156.8.16.16/tp/login.html?login=admin&password=admin@123");		
+	//},
 
     /**
      * part1:派驻机构地图

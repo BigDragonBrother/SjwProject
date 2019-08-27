@@ -318,10 +318,10 @@
             <div id="con-part9-4" class="con-part9-4 fontNumber fontSuccess" data-content="湿度">55<span>%RH</span></div>
             <div id="con-part9-6" class="con-part9-6 fontNumber fontSuccess" data-content="湿度">55<span>%RH</span></div>
             <div id="con-part9-8" class="con-part9-8 fontNumber fontSuccess" data-content="湿度">55<span>%RH</span></div>
-            <div id="con-part9-9" class="con-part9-9"></div>
-            <div id="con-part9-10" class="con-part9-10"></div>
-            <div id="con-part9-11" class="con-part9-11"></div>
-            <div id="con-part9-12" class="con-part9-12"></div>
+            <div id="con-part9-9" class="con-part9-9" onclick="Tools.partKSHJFFn()"></div>
+            <div id="con-part9-10" class="con-part9-10" onclick="Tools.partKSHJFFn()"></div>
+            <div id="con-part9-11" class="con-part9-11" onclick="Tools.partKSHJFFn()"></div>
+            <div id="con-part9-12" class="con-part9-12" onclick="Tools.partKSHJFFn()"></div>
             <div class="con-part9-13">
                 <img src="<%=request.getContextPath()%>/resources/dist/svg/mmgl_six.svg">
             </div>
@@ -334,7 +334,7 @@
     </div>
 </div>
 <!--part1:派驻-->
-<div class="part-modal" id="part1PZ-modal" style="display: none">
+<div class="part-modal bmap" id="part1PZ-modal" style="display: none">
     <div id="allmap" class="allmap"></div>
 </div>
 <!--part5:即时调度-->
@@ -344,6 +344,7 @@
 <div class="part-modal" id="part2ZCGL-modal" style="display: none;"></div>
 <div class="part-modal" id="part6GDGL-modal" style="display: none;"></div>
 <div class="part-modal" id="part3GJXX-modal" style="display: none;"></div>
+<div class="part-modal" id="part9KSHJF-modal" style="display: none;"></div>
 <script src="<%=request.getContextPath()%>/resources/dist/js/common/jquery-3.3.1.min.js"></script>
 <!--地图组件  begin-->
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/dist/bmap/js/tilesInfo.js"></script>

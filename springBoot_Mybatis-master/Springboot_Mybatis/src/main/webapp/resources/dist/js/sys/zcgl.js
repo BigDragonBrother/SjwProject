@@ -3,20 +3,20 @@ var iDisplayLength = 10;
 var Tools = {
     data: {
         header: {
-            type1: ["序号", "资产编号", "资产名称", "状态", "管理IP", "主机", "保密级别", "操作系统", "CPU", "内存", "存储", "用途"],
-            type2: ["序号", "资产编号", "资产名称", "状态", "管理IP", "保密级别", "名牌", "型号", "位置", "用途"],
-            type3: ["序号", "资产编号", "资产名称", "状态", "软件名称", "软件版本", "运行设备", "服务端口", "用途"],
-            type4: ["序号", "资产编号", "资产名称", "状态", "品牌", "型号", "保密级别", "用途"],
+            type4: ["序号", "资产编号", "资产名称", "状态", "管理IP", "主机", "保密级别", "操作系统", "CPU", "内存", "存储", "用途"],
+            type1: ["序号", "资产编号", "资产名称", "状态", "管理IP", "保密级别", "名牌", "型号", "位置", "用途"],
+            type2: ["序号", "资产编号", "资产名称", "状态", "软件名称", "软件版本", "运行设备", "服务端口", "用途"],
+            type3: ["序号", "资产编号", "资产名称", "状态", "品牌", "型号", "保密级别", "用途"],
             type5: ["序号", "资产编号", "资产名称", "状态", "管理IP", "保密级别", "名牌", "型号", "位置", "用途"],
             type6: ["序号", "资产编号", "资产名称", "状态", "管理IP", "保密级别", "操作系统", "品牌", "型号", "用途"],
             type7: ["序号", "资产编号", "资产名称", "状态", "软件名称", "软件版本", "运行设备", "服务端口", "用途"],
             type8: ["序号", "资产编号", "资产名称", "状态", "保密级别", "用途"]
         },
         body: {
-            type1: ["assetNO", "name", "status", "apManageIP", "apPlaceHost", "secrecyLevel", "apOperatingSystem", "apCpuNumber", "apMemory", "apSize", "usage"],
-            type2: ["assetNO", "name", "status", "apManageIP", "secrecyLevel", "brand", "model", "region.fullName", "usage"],
-            type3: ["assetNO", "name", "status", "software.name", "apVersion", "runOn.name", "apUsePorts", "usage"],
-            type4: ["assetNO", "name", "status", "brand", "model", "secrecyLevel", "usage"],
+            type4: ["assetNO", "name", "status", "apManageIP", "apPlaceHost", "secrecyLevel", "apOperatingSystem", "apCpuNumber", "apMemory", "apSize", "usage"],
+            type1: ["assetNO", "name", "status", "apManageIP", "secrecyLevel", "brand", "model", "region.fullName", "usage"],
+            type2: ["assetNO", "name", "status", "software.name", "apVersion", "runOn.name", "apUsePorts", "usage"],
+            type3: ["assetNO", "name", "status", "brand", "model", "secrecyLevel", "usage"],
             type5: ["assetNO", "name", "status", "apManageIP", "secrecyLevel", "brand", "model", "region.fullName", "usage"],
             type6: ["assetNO", "name", "status", "apManageIP", "secrecyLevel", "apOperatingSystem", "brand", "model", "usage"],
             type7: ["assetNO", "name", "status", "software.name", "apVersion", "runOn.name", "apUsePorts", "usage"],
@@ -30,7 +30,6 @@ var Tools = {
     },
     appendHeader: function (type, callback) {
         var type = Tools.QueryString("type");
-        console.log("type1:" + type);
         var header = Tools.data.header;
         $(".table-th").empty().append((function () {
             var str = "";
@@ -47,7 +46,6 @@ var Tools = {
     },
     init: function () {
         var type = Tools.QueryString("type");
-        console.log("type2:" + type);
         Tools.appendHeader(type, function () {
             Tools.getData(1, iDisplayLength);
         })
@@ -79,9 +77,9 @@ var Tools = {
                         var point = item.indexOf(".");
                         if (point > 0) {
                             var key_ = item.split(".");
-                            str += `<div class="fontNumber">${item_[key_[0]][key_[1]]}</div>`
+                            str += `<div class="fontNumber">${item_[key_[0]][key_[1]]||"无"}</div>`
                         } else {
-                            str += `<div class="fontNumber">${item_[item]}</div>`
+                            str += `<div class="fontNumber">${item_[item]||"无"}</div>`
                         }
                     })
                     str += `</li>`;

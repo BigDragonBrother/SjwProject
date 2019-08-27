@@ -7,7 +7,7 @@
     <link href="<%=request.getContextPath()%>/resources/dist/css/oa.style.css" rel="stylesheet" type="text/css">
     <link href="<%=request.getContextPath()%>/resources/dist/css/test.css" rel="stylesheet" type="text/css">
 </head>
-<body style="margin-top: -15%;margin-left: -65%;">
+<body>
 <div class="container">
     <div class="con-part0">OA运维监控系统</div>
     <div class="con-part1">

@@ -649,6 +649,9 @@ div[class^=con-part] {
           .container .con-part6 .part-body .table-ul > li:nth-child(even) {
             background: rgba(53, 129, 130, 0.21); }
           .container .con-part6 .part-body .table-ul > li > div {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
             flex: 2;
             font-size: .26rem;
             padding: 0.12rem 0;
