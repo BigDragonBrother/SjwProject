@@ -203,10 +203,10 @@
             <div class="part-body-2">
                 <div id="part5-3">
                     <div class="part5-3-title1">电池温度</div>
-                    <div id="part5-3-body1" class="part5-3-body1 fontNumber fontSuccess" data-content="℃">20</div>
-                    <div id="part5-3-body2" class="part5-3-body2 fontNumber fontSuccess" data-content="M">100</div>
+                    <div id="part5-3-body1" class="part5-3-body1 fontNumber fontSuccess" data-content="℃">25</div>
+                    <div id="part5-3-body2" class="part5-3-body2 fontNumber fontSuccess" data-content="M">533</div>
                     <div class="part5-3-title3">电池容量</div>
-                    <div id="part5-3-body3" class="part5-3-body3 fontNumber fontSuccess" data-content="%">90</div>
+                    <div id="part5-3-body3" class="part5-3-body3 fontNumber fontSuccess" data-content="%">100</div>
                 </div>
             </div>
         </div>

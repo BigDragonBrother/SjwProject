@@ -125,7 +125,8 @@ div[class^=con-part] {
   margin-left: -2.5rem;
   color: #00FEFE;
   font-size: 0.7rem;
-  text-align: center; }
+  text-align: center;
+  cursor: pointer; }
 
 .table-ul {
   position: absolute;
@@ -162,7 +163,6 @@ div[class^=con-part] {
         flex: 1 !important; }
       .table-ul > li > div:nth-child(2) {
         flex: 1 !important; }
-
 
 .pagination {
   float: right;

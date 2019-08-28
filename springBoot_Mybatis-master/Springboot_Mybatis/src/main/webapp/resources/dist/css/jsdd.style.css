@@ -204,9 +204,15 @@ div[class^=con-part] {
     height: 3.9rem;
     left: 46.65%;
     top: 36.7%;
+    background: url("../images/pengyouquan.png");
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    overflow: hidden; }
+    background-size: 90% 90% !important;
+    overflow: hidden;
+    background-position: center center; }
 
 /*# sourceMappingURL=jsdd.style.css.map */

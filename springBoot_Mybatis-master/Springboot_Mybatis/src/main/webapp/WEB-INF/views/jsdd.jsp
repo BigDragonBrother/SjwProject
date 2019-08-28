@@ -23,9 +23,7 @@
     <div class="con-part12"></div>
     <div class="con-part13"></div>
     <div class="con-part14"></div>
-    <div class="con-part15" id="con-part15">
-        <canvas id="part15-canvas" style="width:100%;height:100%"></canvas>
-    </div>
+    <div class="con-part15" id="con-part15"></div>
 </div>
 <script src="<%=request.getContextPath()%>/resources/dist/js/common/jquery-3.3.1.min.js"></script>
 <script src="<%=request.getContextPath()%>/resources/dist/js/common/tools.js"></script>

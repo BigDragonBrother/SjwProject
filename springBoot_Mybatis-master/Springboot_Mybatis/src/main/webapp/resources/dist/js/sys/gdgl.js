@@ -88,8 +88,8 @@ var Tools = {
         $(window.parent.document.getElementById("part6GDGL-modal")).hide().empty()
     },
     goNext: function () {
-
-
+        $("#gdgl-modal").show().html('<iframe frameborder="0" scrolling="no" src="http://156.8.11.22:8090/itsms/init.mvc?moduleId=402883f56b1c7988016b1c7a22f3006b&activeFirstModuleId=402883f56b1c7988016b1c7a22f3006b&uri=%2Fincident%2Fnew-incident.jsp" width="100%"' +
+            ' height="100%"></iframe>');
     },
 
     /**

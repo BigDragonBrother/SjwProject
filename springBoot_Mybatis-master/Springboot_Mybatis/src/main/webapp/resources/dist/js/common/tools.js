@@ -53,6 +53,7 @@ $(function(){
             $(window.parent.document.getElementById("part2ZCGL-modal")).hide().empty()
             $(window.parent.document.getElementById("part6GDGL-modal")).hide().empty()
             $(window.parent.document.getElementById("part3GJXX-modal")).hide().empty()
+            $("#part1PZ-modal").hide();
 
 
         }

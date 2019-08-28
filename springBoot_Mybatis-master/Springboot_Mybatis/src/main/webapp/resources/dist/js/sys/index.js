@@ -312,7 +312,7 @@ Tools = {
         ptList.push(pt);
         $.each(data, function (index, item) {
             var pt2 = new BMap.Point(item.lng, item.lat);
-            var icon = (item.status == 1 ? "dist/images/map-icon-3.png" : (item.status == 2 ? "dist/images/map-icon-4.png" : "dist/images/map-icon-5.gif"));
+            var icon = (item.status == 1 ? "../resources/dist/images/map-icon-3.png" : (item.status == 2 ? "../resources/dist/images/map-icon-4.png" : "../resources/dist/images/map-icon-5.gif"));
             var myIcon = new BMap.Icon(icon, new BMap.Size(40, 40));
             var marker2 = new BMap.Marker(pt2, {icon: myIcon});  // 创建标注
             map.addOverlay(marker2); // 将标注添加到地图中
@@ -320,7 +320,7 @@ Tools = {
         })
 
         var pt_ = new BMap.Point(centX, centY);
-        var myIcon_ = new BMap.Icon("dist/images/map-icon-2.png", new BMap.Size(50, 50));
+        var myIcon_ = new BMap.Icon("../resources/dist/images/map-icon-2.png", new BMap.Size(50, 50));
         var marker1 = new BMap.Marker(pt_, {icon: myIcon_});  // 创建标注
         map.addOverlay(marker1); // 将标注添加到地图中
         setTimeout(function () {
@@ -412,7 +412,7 @@ Tools = {
         ptList.push(pt);
         $.each(data, function (index, item) {
             var pt2 = new BMap.Point(item.lng, item.lat);
-            var icon = (item.status == 1 ? "dist/images/map-icon-3.png" : (item.status == 2 ? "dist/images/map-icon-4.png" : "dist/images/map-icon-5.gif"));
+            var icon = (item.status == 1 ? "../resources/dist/images/map-icon-3.png" : (item.status == 2 ? "../resources/dist/images/map-icon-4.png" : "../resources/dist/images/map-icon-5.gif"));
             var myIcon = new BMap.Icon(icon, new BMap.Size(40, 40));
             var marker2 = new BMap.Marker(pt2, {icon: myIcon});  // 创建标注
             map.addOverlay(marker2); // 将标注添加到地图中
@@ -422,7 +422,7 @@ Tools = {
         })
 
         var pt_ = new BMap.Point(centX, centY);
-        var myIcon_ = new BMap.Icon("dist/images/map-icon-2.png", new BMap.Size(50, 50));
+        var myIcon_ = new BMap.Icon("../resources/dist/images/map-icon-2.png", new BMap.Size(50, 50));
         var marker1 = new BMap.Marker(pt_, {icon: myIcon_});  // 创建标注
         map.addOverlay(marker1); // 将标注添加到地图中
         setTimeout(function () {
