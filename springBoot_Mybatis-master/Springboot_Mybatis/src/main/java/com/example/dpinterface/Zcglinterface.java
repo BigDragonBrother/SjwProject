@@ -58,6 +58,7 @@ public class Zcglinterface {
      * @return
      */
     @RequestMapping("zcglGdJump")
+    @ResponseBody
     public String zcglGdJump(){
         try{
             String urlStr="";
@@ -86,46 +87,51 @@ public class Zcglinterface {
      * @return
      */
     @RequestMapping("zcglSelectOneJump")
+    @ResponseBody
     public String zcglSelectOneJump(String type){
         String urlStr="";
         String serviceAddr="156.8.11.22:8090/itsms";
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("appkey_","itsm");
-        map.put("time_",System.currentTimeMillis()+"");
-        map.put("moduleId", "402883f56b1c7988016b1c7a22f4006d");
-        if("1".equals(type)){
-            System.out.println("网络设备");
-            map.put("categoryId",categroy1);
-        }else if("2".equals(type)){
-            System.out.println("中间件");
-            map.put("categoryId",categroy2);
-        }else if("3".equals(type)){
-            System.out.println("存储");
-            map.put("categoryId",categroy3);
-        }else if("4".equals(type)){
-            System.out.println("虚拟化");
-            map.put("categoryId",categroy4);
-        }else if("5".equals(type)){
-            System.out.println("安全设备");
-            map.put("categoryId",categroy5);
-        }else if("6".equals(type)){
-            System.out.println("服务器");
-            map.put("categoryId",categroy6);
-        }else if("7".equals(type)){
-            System.out.println("数据库");
-            map.put("categoryId",categroy7);
-        }
-        String secret = CryptUtils.md5HexStr("dhccitsm");
-        String method = "/init.mvc";
-        String token = HMACTokenUtils.buildToken(method, map, secret);
         try{
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("appkey_","itsm");
+            map.put("time_",System.currentTimeMillis()+"");
+            map.put("moduleId", "402883f56b1c7988016b1c7a22f4006d");
+            if("1".equals(type)){
+                System.out.println("网络设备");
+                map.put("categoryId",categroy1);
+            }else if("2".equals(type)){
+                System.out.println("中间件");
+                map.put("categoryId",categroy2);
+            }else if("3".equals(type)){
+                System.out.println("存储");
+                map.put("categoryId",categroy3);
+            }else if("4".equals(type)){
+                System.out.println("虚拟化");
+                map.put("categoryId",categroy4);
+            }else if("5".equals(type)){
+                System.out.println("安全设备");
+                map.put("categoryId",categroy5);
+            }else if("6".equals(type)){
+                System.out.println("服务器");
+                map.put("categoryId",categroy6);
+            }else if("7".equals(type)){
+                System.out.println("数据库");
+                map.put("categoryId",categroy7);
+            }else{
+                //参数异常返回数据库的跳转url
+                map.put("categoryId",categroy7);
+            }
+            String secret = CryptUtils.md5HexStr("dhccitsm");
+            String method = "/init.mvc";
+            String token = HMACTokenUtils.buildToken(method, map, secret);
+
             String param = mapToQueryStr(map);
             urlStr= serviceAddr + method + "?" + param + "&token_=" + token;
-
+            return urlStr;
         }catch (UnsupportedEncodingException e){
-
+            return "";
         }
-        return "redirect:http://"+urlStr;
+
     }
 
     /**
