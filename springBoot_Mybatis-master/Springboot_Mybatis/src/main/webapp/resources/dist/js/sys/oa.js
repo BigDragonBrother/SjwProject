@@ -8,7 +8,8 @@ Tools = {
         document.onkeydown = function (event) {
             var e = event || window.event || arguments.callee.caller.arguments[0];
             if (e && e.keyCode == 27) {
-                $(window.parent.document.getElementById("part5YWYY-modal")).hide().empty()
+                $(window.parent.document.getElementById("part5YWYY-modal")).hide().empty();
+				$("#part5YWYY-modal").hide().empty()
             }
         }
 
@@ -879,8 +880,10 @@ Tools = {
     tableFn: function (data) {
         var index = 2;
         var i = 0;
-        animationFn()
-
+		if(data){
+			animationFn();
+			 setInterval(animationFn, 2000);
+		}
         function animationFn() {
             $(".table-ul>li").removeClass("flipInX");
             var a = setInterval(function () {
@@ -897,7 +900,7 @@ Tools = {
             index = (index == 2) ? 0 : 2;
         }
 
-        setInterval(animationFn, 2000)
+       
     },
     resizeFn: function (target) {
         window.addEventListener("resize", function () {

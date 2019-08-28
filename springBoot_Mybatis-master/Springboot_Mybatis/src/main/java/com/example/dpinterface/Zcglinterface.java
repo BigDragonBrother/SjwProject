@@ -59,24 +59,24 @@ public class Zcglinterface {
      */
     @RequestMapping("zcglGdJump")
     public String zcglGdJump(){
-
-        String urlStr="";
-        String serviceAddr="156.8.11.22:8090/itsms";
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("appkey_","itsm");
-        map.put("time_",System.currentTimeMillis()+"");
-        map.put("moduleId", "2c948a876cb1b2df016cb1b35001006d");
-        String secret = CryptUtils.md5HexStr("dhccitsm");
-        String method = "/init.mvc";
-        String token = HMACTokenUtils.buildToken(method, map, secret);
         try{
+            String urlStr="";
+            String serviceAddr="156.8.11.22:8090/itsms";
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("appkey_","itsm");
+            map.put("time_",System.currentTimeMillis()+"");
+            map.put("moduleId", "2c948a876cb1b2df016cb1b35001006d");
+            String secret = CryptUtils.md5HexStr("dhccitsm");
+            String method = "/init.mvc";
+            String token = HMACTokenUtils.buildToken(method, map, secret);
+
             String param = mapToQueryStr(map);
             urlStr= serviceAddr + method + "?" + param + "&token_=" + token;
-
+            return urlStr;
         }catch (UnsupportedEncodingException e){
-
+            return "";
         }
-        return "redirect:http://"+urlStr;
+
     }
 
     /**

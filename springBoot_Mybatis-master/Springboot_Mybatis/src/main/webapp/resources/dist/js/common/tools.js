@@ -47,11 +47,14 @@ $(function(){
     document.onkeydown = function (event) {
         var e = event || window.event || arguments.callee.caller.arguments[0];
         if (e && e.keyCode == 27) {
-            $(".part-modal:not(.bmap)").hide().empty();
-          //  $(window.parent.document.getElementById("part5JSDD-modal")).hide().empty()
-            //$(window.parent.document.getElementById("part2ZCGL-modal")).hide().empty()
-            //$(window.parent.document.getElementById("part6GDGL-modal")).hide().empty()
-            //$(window.parent.document.getElementById("part3GJXX-modal")).hide().empty()
+            $(window.parent.document.getElementById("part5YWYY-modal")).hide().empty()
+			$(window.parent.document.getElementById("part9KSHJF-modal")).hide().empty()
+           $(window.parent.document.getElementById("part5JSDD-modal")).hide().empty()
+            $(window.parent.document.getElementById("part2ZCGL-modal")).hide().empty()
+            $(window.parent.document.getElementById("part6GDGL-modal")).hide().empty()
+            $(window.parent.document.getElementById("part3GJXX-modal")).hide().empty()
+			
+			
         }
     }
 })
