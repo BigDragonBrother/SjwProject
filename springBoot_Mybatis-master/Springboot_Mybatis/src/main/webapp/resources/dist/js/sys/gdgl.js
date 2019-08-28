@@ -97,7 +97,7 @@ var Tools = {
      */
     getLoginUrl: function (callback) {
         $.ajax({
-            url: "",
+            url: "../zcgl/zcglGdJump",
             success: function (data) {
                 return callback(data);
             }

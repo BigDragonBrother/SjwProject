@@ -5,6 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>吉林省纪委监委信息化运维平台</title>
     <link href="<%=request.getContextPath()%>/resources/dist/css/common.style.css" rel="stylesheet" type="text/css">
+    <link href="<%=request.getContextPath()%>/resources/dist/css/modal.style.css" rel="stylesheet" type="text/css">
     <%--<link href="<%=request.getContextPath()%>/resources/dist/css/layout.style.css" rel="stylesheet" type="text/css">--%>
 </head>
 <body data-desc="资产管理">
@@ -23,8 +24,9 @@
         <!--设置最多显示的页码数 可以手动设置 默认为7-->
         <input type="hidden" id="visiblePages" runat="server" value="7"/>
     </div>
-    <div class="con-part3" onclick="Tools.goback()">返回首页</div>
+    <div class="con-part3" onclick="Tools.goNext()">资产管理</div>
 </div>
+<div class="part-modal" id="zcgl-modal" style="display: none;"></div>
 <script src="<%=request.getContextPath()%>/resources/dist/js/common/jquery-3.3.1.min.js"></script>
 <script src="<%=request.getContextPath()%>/resources/dist/js/common/jqPaginator.min.js"></script>
 <script src="<%=request.getContextPath()%>/resources/dist/js/common/tools.js"></script>
