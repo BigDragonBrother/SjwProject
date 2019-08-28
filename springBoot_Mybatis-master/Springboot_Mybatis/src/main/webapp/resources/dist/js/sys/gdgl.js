@@ -3,7 +3,7 @@ var iDisplayLength = 10;
 var Tools = {
     data: {},
     init: function () {
-		$(".table-th").empty().append(`
+        $(".table-th").empty().append(`
 		<div><i class="fa fa-bell-o"></i>序号</div>
 				<div>故障编码</div>
 				<div>处理人</div>
@@ -17,8 +17,8 @@ var Tools = {
                 <div>优先级</div>
                 <div>重大故障</div>
 		`);
-		
-		$("head").append(`<style>
+
+        $("head").append(`<style>
 			.table-ul > li > div:nth-child(6) {
 				flex: 5 !important;
 			}
@@ -30,6 +30,12 @@ var Tools = {
 			}
 		</style>`)
         Tools.getData(1, iDisplayLength);
+
+        Tools.getLoginUrl(function (data) {
+            $("body").append(`
+                <iframe data-desc="工单系统" style="display:none" src="${data}"></iframe>
+            `)
+        });
     },
     getData: function (offset, pageSize) {
         $.ajax({
@@ -48,18 +54,18 @@ var Tools = {
                 }
                 $(".table-ul>li:not(.table-th)").remove();
                 $.each(data.root, function (index, item) {
-					if((typeof item.assigneeInfo) =="object"){
-							if(item.assigneeInfo.length>0){
-								name = item.assigneeInfo[0].assignee.name;
-							}else if(item.solver){
-								name=item.solver.xingMing;
-							}else{
-								name="无";
-							}					
-						}else{
-							name = "未签收";
-						}
-					
+                    if ((typeof item.assigneeInfo) == "object") {
+                        if (item.assigneeInfo.length > 0) {
+                            name = item.assigneeInfo[0].assignee.name;
+                        } else if (item.solver) {
+                            name = item.solver.xingMing;
+                        } else {
+                            name = "无";
+                        }
+                    } else {
+                        name = "未签收";
+                    }
+
                     $(".table-ul").append(`<li class="animated flipInX tr-status-${item.urgency.starNumber}">
                         <div class="fontNumber">${(offset - 1) * iDisplayLength + index + 1}</div>
                         <div class="fontNumber">${item.code}</div>
@@ -78,8 +84,25 @@ var Tools = {
             }
         })
     },
-    goback:function () {
+    goback: function () {
         $(window.parent.document.getElementById("part6GDGL-modal")).hide().empty()
+    },
+    goNext: function () {
+
+
+    },
+
+    /**
+     *    获取免登录地址的接口
+     */
+    getLoginUrl: function (callback) {
+        $.ajax({
+            url: "",
+            success: function (data) {
+                return callback(data);
+            }
+        })
+
     }
 }
 

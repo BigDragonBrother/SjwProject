@@ -1,7 +1,19 @@
 // var pageSize = 10;
-var iDisplayLength = 10;
+var iDisplayLength = 12;
 var Tools = {
     data: {
+		title:{
+			type4:"虚拟化",
+            type1: "网络设备",
+            type2: "中间件",
+            type3: "存储",
+            type5: "安全设备",
+            type6: "服务器",
+            type7: "数据库",
+            type8: "其他"
+		},
+		
+		//4:虚拟化	1：网络设备		2：中间件		3：存储		5：安全设备		6：服务器		7：数据库		8：其他
         header: {
             type4: ["序号", "资产编号", "资产名称", "状态", "管理IP", "主机", "保密级别", "操作系统", "CPU", "内存", "存储", "用途"],
             type1: ["序号", "资产编号", "资产名称", "状态", "管理IP", "保密级别", "名牌", "型号", "位置", "用途"],
@@ -28,6 +40,10 @@ var Tools = {
         var re = new RegExp("" + val + "\=([^\&\?]*)", "ig");
         return ((uri.match(re)) ? (uri.match(re)[0].substr(val.length + 1)) : null);
     },
+	appendTitle:function(){
+		var type = Tools.QueryString("type");
+		$(".con-part0>span").html("资产管理-"+Tools.data.title["type"+type])
+	},
     appendHeader: function (type, callback) {
         var type = Tools.QueryString("type");
         var header = Tools.data.header;
@@ -46,6 +62,7 @@ var Tools = {
     },
     init: function () {
         var type = Tools.QueryString("type");
+		Tools.appendTitle();
         Tools.appendHeader(type, function () {
             Tools.getData(1, iDisplayLength);
         })

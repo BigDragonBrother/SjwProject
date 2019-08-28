@@ -555,7 +555,7 @@ Tools = {
                 }, timeout);
             },
             error: function (data) {
-                debugger;
+                console.error(JSON.stringify(data));
             }
         })
     }
