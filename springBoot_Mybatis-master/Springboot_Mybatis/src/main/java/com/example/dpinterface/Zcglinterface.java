@@ -226,7 +226,6 @@ public class Zcglinterface {
         try{
             String url = "http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/large/healthScore.mvc";
             String str = sendGetData(url,"utf-8");
-            System.out.println(str);
             return str;
         }catch ( Exception e){
             return "";
@@ -251,7 +250,6 @@ public class Zcglinterface {
                 url="http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/large/riskList.mvc?start=0&limit=10";
             }
             String str = sendGetData(url,"utf-8");
-            System.out.println(str);
             return str;
         }catch ( Exception e){
             return "";
