@@ -72,7 +72,7 @@ public class Zcglinterface {
             String token = HMACTokenUtils.buildToken(method, map, secret);
 
             String param = mapToQueryStr(map);
-            urlStr= serviceAddr + method + "?" + param + "&token_=" + token;
+            urlStr= "http://"+serviceAddr + method + "?" + param + "&token_=" + token;
             return urlStr;
         }catch (UnsupportedEncodingException e){
             return "";
@@ -126,7 +126,7 @@ public class Zcglinterface {
             String token = HMACTokenUtils.buildToken(method, map, secret);
 
             String param = mapToQueryStr(map);
-            urlStr= serviceAddr + method + "?" + param + "&token_=" + token;
+            urlStr= "http://"+serviceAddr + method + "?" + param + "&token_=" + token;
             return urlStr;
         }catch (UnsupportedEncodingException e){
             return "";
