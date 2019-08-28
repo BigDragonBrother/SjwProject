@@ -24,7 +24,6 @@ public class OaYwjkxtinterface {
         GetChartsWebserviceImpService gg = new GetChartsWebserviceImpService();
         IGetChartWebservice i = gg.getGetChartsWebserviceImpPort();
         String ddd = i.getOrSendFile("sendFile",AccesskeyOA);
-        System.out.println(ddd);
         return ddd;
     }
 
@@ -34,7 +33,6 @@ public class OaYwjkxtinterface {
         GetChartsWebserviceImpService gg = new GetChartsWebserviceImpService();
         IGetChartWebservice i = gg.getGetChartsWebserviceImpPort();
         String ddd = i.getOrSendFile("receiveFile", AccesskeyOA);
-        System.out.println(ddd);
         return ddd;
     }
 
@@ -45,7 +43,6 @@ public class OaYwjkxtinterface {
         GetChartsWebserviceImpService gg = new GetChartsWebserviceImpService();
         IGetChartWebservice i = gg.getGetChartsWebserviceImpPort();
         String ddd = i.getOnlineNum(AccesskeyOA);
-        System.out.println(ddd);
         return ddd;
     }
 
@@ -55,7 +52,6 @@ public class OaYwjkxtinterface {
         GetChartsWebserviceImpService gg = new GetChartsWebserviceImpService();
         IGetChartWebservice i = gg.getGetChartsWebserviceImpPort();
         String ddd = i.getMeetingInfo(AccesskeyOA);
-        System.out.println(ddd);
         return ddd;
     }
 
@@ -65,7 +61,6 @@ public class OaYwjkxtinterface {
         GetChartsWebserviceImpService gg = new GetChartsWebserviceImpService();
         IGetChartWebservice i = gg.getGetChartsWebserviceImpPort();
         String ddd = i.getPartyInfo(AccesskeyOA);
-        System.out.println(ddd);
         return ddd;
     }
 
@@ -75,7 +70,6 @@ public class OaYwjkxtinterface {
         GetChartsWebserviceImpService gg = new GetChartsWebserviceImpService();
         IGetChartWebservice i = gg.getGetChartsWebserviceImpPort();
         String ddd = i.getSubInfo(AccesskeyOA);
-        System.out.println(ddd);
         return ddd;
     }
 
@@ -85,7 +79,6 @@ public class OaYwjkxtinterface {
         GetChartsWebserviceImpService gg = new GetChartsWebserviceImpService();
         IGetChartWebservice i = gg.getGetChartsWebserviceImpPort();
         String ddd = i.getDubanInfo(AccesskeyOA);
-        System.out.println(ddd);
         return ddd;
     }
 
