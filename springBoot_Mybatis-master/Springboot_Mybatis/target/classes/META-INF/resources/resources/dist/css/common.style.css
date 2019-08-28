@@ -1,0 +1,228 @@
+* {
+  padding: 0;
+  margin: 0; }
+
+html {
+  font-size: calc(100vw / 76.80);
+  width: 100%;
+  height: 100%; }
+  html body {
+    background-color: #2b1c3c;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden; }
+
+div[class^=con-part] {
+  position: absolute; }
+
+@font-face {
+  font-family: fontNumber;
+  src: url("../fonts/LcdD.eot"), url("../fonts/LcdD.ttf"), url("../fonts/LcdD.woff"), url("../fonts/LcdD.otf"); }
+.fontNumber {
+  font-family: fontNumber !important; }
+
+.tr-status-1 div:first-child::before {
+  content: '';
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  position: relative;
+  top: 0.07rem;
+  background-image: url(../images/J-1.png);
+  background-repeat: no-repeat;
+  background-size: 100%; }
+
+.tr-status-2 div:first-child::before {
+  content: '';
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  position: relative;
+  top: 0.07rem;
+  background-image: url(../images/J-2.png);
+  background-repeat: no-repeat;
+  background-size: 100%; }
+
+.tr-status-3 div:first-child::before {
+  content: '';
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  position: relative;
+  top: 0.07rem;
+  background-image: url(../images/J-3.png);
+  background-repeat: no-repeat;
+  background-size: 100%; }
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 107%;
+  background-repeat: no-repeat;
+  background-position-y: 30%;
+  background-image: url(../images/common-bg.jpg); }
+
+.con-part0 {
+  width: 29%;
+  height: 2.63rem;
+  left: 35.7%;
+  top: 1.5%;
+  line-height: 2.63rem;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #01FEFF;
+  font-weight: bold;
+  display: inline-block; }
+  .con-part0 > span {
+    position: relative; }
+    .con-part0 > span::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 2.53rem;
+      height: 1.2rem;
+      right: 103%;
+      top: 0.35rem;
+      background: url(../images/zuo.png);
+      background-repeat: no-repeat;
+      -webkit-background-size: 100% 100%;
+      background-size: 100% 100%; }
+    .con-part0 > span::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 2.53rem;
+      height: 1.2rem;
+      left: 103%;
+      top: 0.35rem;
+      background: url(../images/you.png);
+      background-repeat: no-repeat;
+      -webkit-background-size: 100% 100%;
+      background-size: 100% 100%; }
+
+.con-part1 {
+  left: 4.5%;
+  right: 4.7%;
+  top: 18%;
+  bottom: 20%; }
+
+.con-part2 {
+  left: 5.5%;
+  right: 5.7%;
+  top: 82.3%;
+  bottom: 13%; }
+
+.con-part3 {
+  width: 5rem;
+  left: 50%;
+  bottom: 1%;
+  background: url(../images/common-bottom.png);
+  background-repeat: no-repeat;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  padding: 0.6rem 0;
+  margin-left: -2.5rem;
+  color: #00FEFE;
+  font-size: 0.7rem;
+  text-align: center;
+  cursor: pointer; }
+
+.table-ul {
+  position: absolute;
+  left: 0.8rem;
+  right: 0.8rem;
+  top: 0rem;
+  bottom: 0rem; }
+  .table-ul > li {
+    font-family: MicrosoftYaHei;
+    color: white;
+    border-radius: 0.15rem;
+    display: flex;
+    margin-bottom: 0.15rem !important;
+    background-clip: content-box !important; }
+    .table-ul > li.table-th {
+      font-size: .3rem;
+      margin-bottom: 0.1rem !important;
+      background: rgba(0, 249, 251, 0.5) !important;
+      background-clip: content-box !important; }
+    .table-ul > li:nth-child(odd) {
+      background: rgba(7, 247, 250, 0.28); }
+    .table-ul > li:nth-child(even) {
+      background: rgba(53, 129, 130, 0.21); }
+    .table-ul > li > div {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+      font-size: .26rem;
+      padding: 0.12rem 0;
+      text-align: center;
+      color: #D9FEE8; }
+      .table-ul > li > div:nth-child(1) {
+        flex: 1 !important; }
+      .table-ul > li > div:nth-child(2) {
+        flex: 1 !important; }
+
+.pagination {
+  float: right;
+  height: 100%;
+  display: inline-block;
+  padding-left: 0;
+  border-radius: 0.04rem; }
+  .pagination > * {
+    font-size: 0.4rem; }
+  .pagination > .active > a, .pagination > .active > span {
+    background-color: rgba(20, 118, 123, 0.75);
+    border-color: #00fff0;
+    z-index: 3;
+    color: #00fff0;
+    cursor: default; }
+    .pagination > .active > a:hover, .pagination > .active > span:hover {
+      background-color: rgba(20, 118, 123, 0.75);
+      border-color: #00fff0;
+      color: #00fff0;
+      z-index: 3;
+      cursor: default; }
+    .pagination > .active > a:focus, .pagination > .active > span:focus {
+      background: rgba(20, 118, 123, 0.75);
+      border-color: #00fff0;
+      z-index: 3;
+      color: #00fff0;
+      cursor: default; }
+  .pagination > .disabled > a, .pagination > .disabled > span {
+    color: #00fff0;
+    cursor: not-allowed;
+    background-color: rgba(0, 255, 240, 0.1);
+    border-color: #0a8188; }
+    .pagination > .disabled > a:hover, .pagination > .disabled > a:focus, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus {
+      color: #00fff0;
+      cursor: not-allowed;
+      background-color: rgba(20, 118, 123, 0.75);
+      border-color: #0a8188; }
+  .pagination > li {
+    display: inline; }
+    .pagination > li > a, .pagination > li > span {
+      color: #00fff0;
+      position: relative;
+      float: left;
+      padding: 0.06rem 0.2rem;
+      margin-left: -1px;
+      line-height: 1.42857143;
+      text-decoration: none;
+      background-color: transparent;
+      border: 1px solid #0a8188; }
+      .pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > span:hover, .pagination > li > span:focus {
+        color: #00fff0;
+        z-index: 2;
+        background-color: rgba(20, 118, 123, 0.75);
+        border-color: #0a8188; }
+    .pagination > li:first-child > a, .pagination > li:first-child > span {
+      margin-left: 0;
+      border-top-left-radius: 0.04rem;
+      border-bottom-left-radius: 0.04rem; }
+    .pagination > li:last-child > a, .pagination > li:last-child > span {
+      border-top-left-radius: 0.04rem;
+      border-bottom-left-radius: 0.04rem; }
+
+/*# sourceMappingURL=common.style.css.map */

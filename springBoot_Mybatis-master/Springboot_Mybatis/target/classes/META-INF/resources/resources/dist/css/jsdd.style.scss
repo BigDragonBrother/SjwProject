@@ -1,0 +1,90 @@
+@import "bg.style";
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/jsdd-bg.jpg);
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  .con-part0 {
+    color: #00a4ff;
+    position: absolute;
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+    width: 5rem;
+    left: 50%;
+    margin-left: -2.5rem;
+    top: 7%;
+  }
+
+  .con-part1 {
+    @include positionFn(6.42rem, 3.63rem, 4%, null, 14%, null, null, url("../images/jsdd-kuang.png"));
+  }
+
+  .con-part2 {
+    @include positionFn(6.42rem, 3.63rem, 18%, null, 10%, null, null, url("../images/jsdd-kuang.png"));
+  }
+
+  .con-part3 {
+    @include positionFn(6.42rem, 3.63rem, 6%, null, 42%, null, null, url("../images/jsdd-kuang.png"));
+  }
+
+  .con-part4 {
+    @include positionFn(6.42rem, 3.63rem, 16%, null, 30%, null, null, url("../images/jsdd-kuang.png"));
+  }
+
+  .con-part5 {
+    @include positionFn(6.42rem, 3.63rem, 21%, null, 50%, null, null, url("../images/jsdd-kuang.png"));
+  }
+
+  .con-part6 {
+    @include positionFn(6.42rem, 3.63rem, 10%, null, 68%, null, null, url("../images/jsdd-kuang.png"));
+  }
+
+  .con-part7 {
+    @include positionFn(6.42rem, 3.63rem, 27%, null, 70%, null, null, url("../images/jsdd-kuang.png"));
+  }
+
+  .con-part8 {
+    @include positionFn(6.42rem, 3.63rem, null, 4%, 14%, null, null, url("../images/jsdd-kuang.png"));
+  }
+
+  .con-part9 {
+    @include positionFn(6.42rem, 3.63rem, null, 18%, 10%, null, null, url("../images/jsdd-kuang.png"));
+  }
+
+  .con-part10 {
+    @include positionFn(6.42rem, 3.63rem, null, 6%, 42%, null, null, url("../images/jsdd-kuang.png"));
+  }
+
+  .con-part11 {
+    @include positionFn(6.42rem, 3.63rem, null, 16%, 30%, null, null, url("../images/jsdd-kuang.png"));
+  }
+
+  .con-part12 {
+    @include positionFn(6.42rem, 3.63rem, null, 21%, 50%, null, null, url("../images/jsdd-kuang.png"));
+  }
+
+  .con-part13 {
+    @include positionFn(6.42rem, 3.63rem, null, 10%, 68%, null, null, url("../images/jsdd-kuang.png"));
+  }
+
+  .con-part14 {
+    @include positionFn(6.42rem, 3.63rem, null, 27%, 70%, null, null, url("../images/jsdd-kuang.png"));
+  }
+
+  .con-part15 {
+    @include positionFn(3.9rem, 3.9rem, 46.65%, null, 36.7%, null, null, url("../images/pengyouquan.png"));
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-size: 90% 90% !important;
+    overflow: hidden;
+    background-position: center center;
+  }
+}

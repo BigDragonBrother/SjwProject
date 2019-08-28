@@ -1,0 +1,63 @@
+.part-modal, .part-modal,.part-modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0%;
+    bottom: 0%;
+    background: #171930;
+    z-index: 9999;
+    /*border: 1px solid #00f9fb;*/
+    -webkit-border-radius: 0.03rem;
+    -moz-border-radius: 0.03rem;
+    border-radius: 0.03rem;
+    display: none;
+    background: #000 !important;
+}
+
+.allmap {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000 !important;
+}
+
+.anchorBL {
+    display: none;
+}
+
+/*# sourceMappingURL=modal.style.css.map */
+
+.BMapLabel {
+    background-color: rgba(255, 255, 255, 0) !important;
+    border: 1px solid rgba(224, 224, 224, 0) !important;
+    border-radius: 3px;
+    padding: 0 !important;
+    font: 14px arial, sans-serif !important;
+}
+
+.marker-status-1, .marker-status-2, .marker-status-3 {
+    border: 1px solid #00fff0 !important;
+    border-radius: 6px;
+    font: 14px arial, sans-serif !important;
+    color: #fff;
+    background: #151256 !important;
+    position: relative;
+    box-shadow: 4px -2px 0 #07062b;
+    padding: 1px 10px;
+}
+
+.marker-status-1::after, .marker-status-2::after, .marker-status-3::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    /* border-width: 6px; */
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAfCAYAAAAFkva3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAISSURBVEhLrdU9SBxBFAfwdTkPTrnc+XGCRbAMiEhsIrFTVERSxhA0ohAUJJVKipBCEoIQIhZyFn41NtonhYWQJhICKVQ0Imr8AIVEr1Fh782cPt/ozjK3jt7exx/+cBzzfuzOzt4ZOcvlZdD+lEUYe2rE+bIBHO1vMgyiz4GywgBqCFiXUF7sLEMMEp1GnJ07V0R90DOWARbnEypinMcx1DWKZeEXaWAA1QQtqZDv9xYWNb6/hrxjFq+n4W0VCox/w8jDLgfyhgG8pv1hDmQxDL6dSUJSY4h+uq1J9WrMoxiGXn7WQqL2pCviIALfUKH8nxtYVP9Oi8ja00os3mwA21ehQJT2p/yVFlBrC3YAulVEHMRQ54h2UNcbxOItNLyrQub+fww/H9YO3VW5Pw4i6vu1icW1A9qB+0onms1KxNz9h4Uf5zASadcuTlXaJ/5XYiXVb7SLvFZgzptf/KRfu8hrk15c8+AY/d9XMdw6pF2cquI4PJaYbN7JKfoXlzH87IN26K7Ko9FESNKLLGoexrAg+tXzk73BZBiro9teuYXSmSv8NI8llX1aRNZWXLF4AyGbbjT/xzoGB6cxUtGdBiZz/Z7ynVvo0h/n19U7JsNYLx3uCzcamFzAUMeXNDEZgB5CE25UPKTSR71pYiLivxJ41A361vYywGQAqujJTyWhWQcSbXTrJ7nBROTfYO5iGFdL2smV//5lYQAAAABJRU5ErkJggg==");
+    /* border-style: solid; */
+    /* border-color: transparent #161056 transparent transparent; */
+    top: 50%;
+    left: -7px;
+    margin-top: -6px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
