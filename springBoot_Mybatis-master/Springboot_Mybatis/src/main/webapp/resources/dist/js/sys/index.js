@@ -155,7 +155,7 @@ Tools = {
 						 
 						if((typeof data[index+i].assigneeInfo) =="object"){
 							if(data[index+i].assigneeInfo.length>0){
-								name = data[index+i].assigneeInfo[0].assignee.name;
+								name = data[index+i].assigneeInfo[0].assignee?data[index+i].assigneeInfo[0].assignee.name:"代签收";
 							}else if(data[index+i].solver){
 								name=data[index+i].solver.xingMing;
 							}else{
