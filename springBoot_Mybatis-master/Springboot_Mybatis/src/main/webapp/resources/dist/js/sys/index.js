@@ -244,9 +244,15 @@ Tools = {
 	/**
 	*终端态势感知-第三方
 	*/
-	//partTSGZFn:function(){
-	//	Tools.partModalFn("part9KSHJF-modal", "https://156.8.16.16/tp/login.html?login=admin&password=admin@123");		
-	//},
+	partTSGZFn:function(){
+	    $.ajax({
+            url:"../zcgl/GetWlywTsgzJumpUrl",
+            success:function (data) {
+                Tools.partModalFn("part3TSGZ-modal", data);
+            }
+        })
+
+	},
 
     /**
      * part1:派驻机构地图

@@ -67,9 +67,7 @@ var Tools = {
             Tools.getData(1, iDisplayLength);
         })
         Tools.getLoginUrl(function (data) {
-            $("body").append(`
-                <iframe data-desc="资产管理" style="display:none" src="${data}"></iframe>
-            `)
+            Tools.data.thirdUrl = data;
         });
     },
     getData: function (offset, pageSize) {
@@ -118,8 +116,9 @@ var Tools = {
         $(window.parent.document.getElementById("part2ZCGL-modal")).hide().empty()
     },
     goNext: function () {
-        $("#zcgl-modal").show().html('<iframe frameborder="0" scrolling="no" src="http://156.8.11.22:8090/itsms/init.mvc?moduleId=402883f56b1c7988016b1c7a22f4006d&activeFirstModuleId=402883f56b1c7988016b1c7a22f4006d&uri=%2Fsacm%2Findex.jsp###" width="100%"' +
-            ' height="100%"></iframe>');
+        $(window.parent.document.getElementById("zcgl-modal")).show().html(
+            ` <iframe data-desc="资产管理" style="width: 100%; height:100%;border: 0;" src="${Tools.data.loginUrl}"></iframe>`
+        );
     },
 
     /**

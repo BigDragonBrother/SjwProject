@@ -4,10 +4,11 @@
 <head>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>吉林省纪委监委信息化运维平台</title>
+    <link href="<%=request.getContextPath()%>/resources/dist/css/layout.style.css" rel="stylesheet" type="text/css">
     <link href="<%=request.getContextPath()%>/resources/dist/css/jsdd.style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div class="container">
+<div class="container xKing">
     <div class="con-part0">即时调度</div>
     <div class="con-part1"></div>
     <div class="con-part2"></div>

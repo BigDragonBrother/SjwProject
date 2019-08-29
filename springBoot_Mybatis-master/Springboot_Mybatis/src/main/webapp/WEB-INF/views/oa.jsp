@@ -4,12 +4,13 @@
 <head>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>吉林省纪委监委信息化运维平台</title>
+    <link href="<%=request.getContextPath()%>/resources/dist/css/layout.style.css" rel="stylesheet" type="text/css">
     <link href="<%=request.getContextPath()%>/resources/dist/css/oa.style.css" rel="stylesheet" type="text/css">
     <link href="<%=request.getContextPath()%>/resources/dist/css/test.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body  >
 <%--假数据版  需要删除--%>
-<div class="container">
+<div class="container xKing">
     <div class="con-part0">OA运维监控系统</div>
     <div class="con-part1">
         <div class="con-part1-copy">

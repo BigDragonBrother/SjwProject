@@ -13,7 +13,7 @@
             src="http://api.map.baidu.com/api?v=3.0&ak=dPAplGZUNkhKNhwGBogEHXszowDRTbFk"></script>
 </head>
 <body>
-<div class="container">
+<div class="container xKing">
     <!--Part-1:标题容器-->
     <div class="con-part0">
         <div class="con-part0-title">
@@ -106,6 +106,7 @@
             <img src="<%=request.getContextPath()%>/resources/dist/images/tit_right.png">
         </div>
         <div class="part-body" id="radar">
+            <div class="part-body-0" onclick="Tools.partTSGZFn()"></div>
             <object data="<%=request.getContextPath()%>/resources/dist/svg/leida.svg" type="image/svg+xml"
                     style="top: -1.5%;height: 91%;width: 100%;position: absolute;">
                 <p>您的浏览器不支持SVG文件</p>
@@ -341,10 +342,19 @@
 <div class="part-modal" id="part5JSDD-modal" style="display: none;"></div>
 <%--part5:业务应用--%>
 <div class="part-modal" id="part5YWYY-modal" style="display: none;"></div>
+<%--资产管理--%>
 <div class="part-modal" id="part2ZCGL-modal" style="display: none;"></div>
+<%--工单管理--%>
 <div class="part-modal" id="part6GDGL-modal" style="display: none;"></div>
+<%--告警信息--%>
 <div class="part-modal" id="part3GJXX-modal" style="display: none;"></div>
+<div class="part-modal" id="part3TSGZ-modal" style="display: none;"></div>
+<%--可视化机房--%>
 <div class="part-modal" id="part9KSHJF-modal" style="display: none;"></div>
+<%--第三方页面：工单系统--%>
+<div class="part-modal" id="gdgl-modal" style="display: none;"></div>
+<%--第三方页面：资产管理--%>
+<div class="part-modal" id="zcgl-modal" style="display: none;"></div>
 <script src="<%=request.getContextPath()%>/resources/dist/js/common/jquery-3.3.1.min.js"></script>
 <!--地图组件  begin-->
 <script type="text/javascript" src="<%=request.getContextPath()%>/resources/dist/bmap/js/tilesInfo.js"></script>
