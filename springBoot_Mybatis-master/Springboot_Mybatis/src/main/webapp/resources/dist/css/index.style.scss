@@ -300,7 +300,7 @@
       }
 
       .part-body-0 {    position: absolute;
-        @include positionFn(9.53rem, 10.53rem, 8.85rem, null, 0rem, null, 300, #00fff03d);
+        @include positionFn(9.53rem, 10.53rem, 8.85rem, null, 0rem, null, 300, null);
         -webkit-border-radius:50%;
         -moz-border-radius:50%;
         border-radius:50%;
