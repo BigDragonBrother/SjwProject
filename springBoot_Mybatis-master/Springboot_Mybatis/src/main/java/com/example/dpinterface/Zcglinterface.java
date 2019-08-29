@@ -139,6 +139,33 @@ public class Zcglinterface {
         }
 
     }
+    /**
+     * 网络平台态势感知入口 返回url
+     * @return
+     */
+    @RequestMapping("GetWlywTsgzJumpUrl")
+    @ResponseBody
+    public String GetWlywTsgzJumpUrl(){
+        String urlStr="";
+        String serviceAddr="156.8.11.51:8090/itsmstsgz";
+        try{
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("appkey_","itsmts");
+            map.put("time_",System.currentTimeMillis()+"");
+            map.put("moduleId", "ff8080816cdce5ba016cdce636860060");
+
+            String secret = CryptUtils.md5HexStr("itsmts");
+            String method = "/largeScreen.mvc";
+            String token = HMACTokenUtils.buildToken(method, map, secret);
+
+            String param = mapToQueryStr(map);
+            urlStr= "http://"+serviceAddr + method + "?" + param + "&token_=" + token;
+            return urlStr;
+        }catch (Exception e){
+            return "";
+        }
+
+    }
 
     /**
      * 工单的一级+二级页接口 带有分页功能 当前每页默认十条
