@@ -76,7 +76,7 @@ public class Zcglinterface {
             String param = mapToQueryStr(map);
             urlStr= "http://"+serviceAddr + method + "?" + param + "&token_=" + token;
             return urlStr;
-        }catch (UnsupportedEncodingException e){
+        }catch (Exception e){
             return "";
         }
 
@@ -134,7 +134,7 @@ public class Zcglinterface {
             String param = mapToQueryStr(map);
             urlStr= "http://"+serviceAddr + method + "?" + param + "&token_=" + token;
             return urlStr;
-        }catch (UnsupportedEncodingException e){
+        }catch (Exception e){
             return "";
         }
 
