@@ -87,7 +87,6 @@ var Tools = {
     },
     goNext: function () {
         $(window.parent.document.getElementById("gdgl-modal")).show().html(` <iframe data-desc="工单管理" style="width: 100%; height:100%;border: 0;" src="${Tools.data.loginUrl}"></iframe>`);
-
     },
 
     /**

@@ -10,7 +10,8 @@ var Tools = {
             type5: "安全设备",
             type6: "服务器",
             type7: "数据库",
-            type8: "其他"
+            type8: "其他",
+            loginUrl:""
         },
 
         //4:虚拟化	1：网络设备		2：中间件		3：存储		5：安全设备		6：服务器		7：数据库		8：其他
@@ -67,7 +68,7 @@ var Tools = {
             Tools.getData(1, iDisplayLength);
         })
         Tools.getLoginUrl(function (data) {
-            Tools.data.thirdUrl = data;
+            Tools.data.loginUrl = data;
         });
     },
     getData: function (offset, pageSize) {
