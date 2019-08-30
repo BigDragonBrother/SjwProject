@@ -48,7 +48,7 @@ public class Zcglinterface {
     //数据库
     String categroy7 = "2c9898f84fb04cb3014fb15272810019";
     //其他
-    String categroy8 = "";
+    String categroy8 = "402881d6483f64c601483f64e31b0009";
 
 
 
@@ -56,27 +56,30 @@ public class Zcglinterface {
     /**
      * 全部工单免登陆跳转
      * @return
+     * http://156.8.11.51:8090/itsmsgd
      */
     @RequestMapping("zcglGdJump")
+    @ResponseBody
     public String zcglGdJump(){
-
-        String urlStr="";
-        String serviceAddr="156.8.11.22:8090/itsms";
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("appkey_","itsm");
-        map.put("time_",System.currentTimeMillis()+"");
-        map.put("moduleId", "2c948a876cb1b2df016cb1b35001006d");
-        String secret = CryptUtils.md5HexStr("dhccitsm");
-        String method = "/init.mvc";
-        String token = HMACTokenUtils.buildToken(method, map, secret);
         try{
+            String urlStr="";
+            String serviceAddr="156.8.11.51:8090/itsmsgd";
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("appkey_","itsmgd");
+            map.put("time_",System.currentTimeMillis()+"");
+            //map.put("moduleId", "2c948a876cb1b2df016cb1b35001006d");
+            map.put("moduleId", "ff8080816cdce5ba016cdce6366e0032");
+            String secret = CryptUtils.md5HexStr("itsmgd");
+            String method = "/init.mvc";
+            String token = HMACTokenUtils.buildToken(method, map, secret);
+
             String param = mapToQueryStr(map);
-            urlStr= serviceAddr + method + "?" + param + "&token_=" + token;
-
-        }catch (UnsupportedEncodingException e){
-
+            urlStr= "http://"+serviceAddr + method + "?" + param + "&token_=" + token;
+            return urlStr;
+        }catch (Exception e){
+            return "";
         }
-        return "redirect:http://"+urlStr;
+
     }
 
     /**
@@ -86,46 +89,82 @@ public class Zcglinterface {
      * @return
      */
     @RequestMapping("zcglSelectOneJump")
+    @ResponseBody
     public String zcglSelectOneJump(String type){
         String urlStr="";
-        String serviceAddr="156.8.11.22:8090/itsms";
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("appkey_","itsm");
-        map.put("time_",System.currentTimeMillis()+"");
-        map.put("moduleId", "402883f56b1c7988016b1c7a22f4006d");
-        if("1".equals(type)){
-            System.out.println("网络设备");
-            map.put("categoryId",categroy1);
-        }else if("2".equals(type)){
-            System.out.println("中间件");
-            map.put("categoryId",categroy2);
-        }else if("3".equals(type)){
-            System.out.println("存储");
-            map.put("categoryId",categroy3);
-        }else if("4".equals(type)){
-            System.out.println("虚拟化");
-            map.put("categoryId",categroy4);
-        }else if("5".equals(type)){
-            System.out.println("安全设备");
-            map.put("categoryId",categroy5);
-        }else if("6".equals(type)){
-            System.out.println("服务器");
-            map.put("categoryId",categroy6);
-        }else if("7".equals(type)){
-            System.out.println("数据库");
-            map.put("categoryId",categroy7);
-        }
-        String secret = CryptUtils.md5HexStr("dhccitsm");
-        String method = "/init.mvc";
-        String token = HMACTokenUtils.buildToken(method, map, secret);
+        String serviceAddr="156.8.11.51:8090/itsmstsgz";
         try{
+            Map<String, Object> map = new HashMap<String, Object>();
+            //map.put("appkey_","itsm");
+            map.put("appkey_","itsmts");
+            map.put("time_",System.currentTimeMillis()+"");
+            /*map.put("moduleId", "402883f56b1c7988016b1c7a22f4006d");*/
+            map.put("moduleId", "ff8080816cdce5ba016cdce636860060");
+            if("1".equals(type)){
+                System.out.println("网络设备");
+                map.put("categoryId",categroy1);
+            }else if("2".equals(type)){
+                System.out.println("中间件");
+                map.put("categoryId",categroy2);
+            }else if("3".equals(type)){
+                System.out.println("存储");
+                map.put("categoryId",categroy3);
+            }else if("4".equals(type)){
+                System.out.println("虚拟化");
+                map.put("categoryId",categroy4);
+            }else if("5".equals(type)){
+                System.out.println("安全设备");
+                map.put("categoryId",categroy5);
+            }else if("6".equals(type)){
+                System.out.println("服务器");
+                map.put("categoryId",categroy6);
+            }else if("7".equals(type)){
+                System.out.println("数据库");
+                map.put("categoryId",categroy7);
+            }else if("8".equals(type)){
+                map.put("categoryId",categroy8);
+            }else{
+                //防止参数异常报错
+                map.put("categoryId",categroy8);
+            }
+            String secret = CryptUtils.md5HexStr("itsmts");
+            String method = "/init.mvc";
+            String token = HMACTokenUtils.buildToken(method, map, secret);
+
             String param = mapToQueryStr(map);
-            urlStr= serviceAddr + method + "?" + param + "&token_=" + token;
-
-        }catch (UnsupportedEncodingException e){
-
+            urlStr= "http://"+serviceAddr + method + "?" + param + "&token_=" + token;
+            return urlStr;
+        }catch (Exception e){
+            return "";
         }
-        return "redirect:http://"+urlStr;
+
+    }
+    /**
+     * 网络平台态势感知入口 返回url
+     * @return
+     */
+    @RequestMapping("GetWlywTsgzJumpUrl")
+    @ResponseBody
+    public String GetWlywTsgzJumpUrl(){
+        String urlStr="";
+        String serviceAddr="156.8.11.51:8090/itsmstsgz";
+        try{
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("appkey_","itsmts");
+            map.put("time_",System.currentTimeMillis()+"");
+            map.put("moduleId", "ff8080816cdce5ba016cdce636860060");
+
+            String secret = CryptUtils.md5HexStr("itsmts");
+            String method = "/largeScreen.mvc";
+            String token = HMACTokenUtils.buildToken(method, map, secret);
+
+            String param = mapToQueryStr(map);
+            urlStr= "http://"+serviceAddr + method + "?" + param + "&token_=" + token;
+            return urlStr;
+        }catch (Exception e){
+            return "";
+        }
+
     }
 
     /**
@@ -147,9 +186,9 @@ public class Zcglinterface {
             limit = 10+"";
         }
         if(!"".equals(start) && start != null){
-             url= "http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/queryTask.mvc?filter=handling&processDefinitionKey=incident&start="+start+"&limit="+limit;
+             url= "http://156.8.11.51:8090/itsmsgd/ioptcn/rest/jlsjw/queryTask.mvc?filter=handling&processDefinitionKey=incident&start="+start+"&limit="+limit;
         }else{
-            url="http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/queryTask.mvc?filter=handling&processDefinitionKey=incident";
+            url="http://156.8.11.51:8090/itsmsgd/ioptcn/rest/jlsjw/queryTask.mvc?filter=handling&processDefinitionKey=incident";
         }
 
             String  a = sendGetData(url,"utf-8");
@@ -192,7 +231,7 @@ public class Zcglinterface {
             url_paramesKey="excludeIds=";
             url_resultVal=categroy1+","+categroy2+","+categroy3+","+categroy4+","+categroy5+","+categroy6+","+categroy7;
         }
-        String url = "http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/listByCiCategory.mvc?deepIn=false&"+url_paramesKey+url_resultVal+pageHelp;
+        String url = "http://156.8.11.51:8090/itsmstsgz/ioptcn/rest/jlsjw/listByCiCategory.mvc?deepIn=false&"+url_paramesKey+url_resultVal+pageHelp;
             String  a = sendGetData(url,"utf-8");
             return a;
         }catch ( Exception e){
@@ -207,7 +246,7 @@ public class Zcglinterface {
     @RequestMapping("getZcglAllDateForDp")
     @ResponseBody
     public String dogetResponsegetZcglAllDateForDp(){
-        String url = "http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/ci_category_counts.mvc?categories=cagt_2_virtual_machine,cagt_2_network_device,cagt_2_middle_application,cagt_2_storage_device,cagt_2_security_device,cagt_2_server_device,cagt_2_database_application";
+        String url = "http://156.8.11.51:8090/itsmstsgz/ioptcn/rest/jlsjw/ci_category_counts.mvc?categories=cagt_2_virtual_machine,cagt_2_network_device,cagt_2_middle_application,cagt_2_storage_device,cagt_2_security_device,cagt_2_server_device,cagt_2_database_application";
         try{
             String  a = sendGetData(url,"utf-8");
             return a;
@@ -224,9 +263,8 @@ public class Zcglinterface {
     @ResponseBody
     public String dogetResponseDateJks(){
         try{
-            String url = "http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/large/healthScore.mvc";
+            String url = "http://156.8.11.51:8090/itsmstsgz/ioptcn/rest/jlsjw/large/healthScore.mvc";
             String str = sendGetData(url,"utf-8");
-            System.out.println(str);
             return str;
         }catch ( Exception e){
             return "";
@@ -246,12 +284,11 @@ public class Zcglinterface {
                 limit=10+"";
             }
             if(!"".equals(start) && start != null){
-                url = "http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/large/riskList.mvc?start="+start+"&limit="+limit;
+                url = "http://156.8.11.51:8090/itsmstsgz/ioptcn/rest/jlsjw/large/riskList.mvc?start="+start+"&limit="+limit;
             }else{
-                url="http://156.8.11.22:8090/itsms/ioptcn/rest/jlsjw/large/riskList.mvc?start=0&limit=10";
+                url="http://156.8.11.51:8090/itsmstsgz/ioptcn/rest/jlsjw/large/riskList.mvc?start=0&limit=10";
             }
             String str = sendGetData(url,"utf-8");
-            System.out.println(str);
             return str;
         }catch ( Exception e){
             return "";

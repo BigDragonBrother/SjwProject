@@ -1,110 +1,12 @@
 html {
   body {
-    //height: 100%;
-    height: 50% !important;
-    transform-origin: top;
-    transform: scale(1, 2);
-    //margin-left: -50%; //测试样式
-    //margin-top: -5%; //测试样式
-
-  }
-}
-
-/* 改变分页颜色 */
-$paginationFontColor: #00fff0 !default;
-$paginationBGColor: transparent !default;
-$paginationActiveColor: rgba(20, 118, 123, 0.75) !default;
-$paginationBorderColor: #0a8188 !default;
-
-
-.pagination {
-  &>*{
-    font-size: 0.4rem;
-  }
-
-  float: right;
-  height: 100%;
-  display: inline-block;
-  padding-left: 0;
-  border-radius: 0.04rem;
-
-  & > .active {
-    & > a, & > span {
-      background-color: $paginationActiveColor;
-      border-color: $paginationFontColor;
-      z-index: 3;
-      color: $paginationFontColor;
-      cursor: default;
-
-      &:hover {
-        background-color: $paginationActiveColor;
-        border-color: $paginationFontColor;
-        color: $paginationFontColor;
-        z-index: 3;
-        cursor: default;
-      }
-
-      &:focus {
-        background: $paginationActiveColor;
-        border-color: $paginationFontColor;
-        z-index: 3;
-        color: $paginationFontColor;
-        cursor: default;
-      }
-    }
-  }
-
-  & > .disabled {
-    & > a, & > span {
-      &:hover, &:focus {
-        color: $paginationFontColor;
-        cursor: not-allowed;
-        background-color: $paginationActiveColor;
-        border-color: $paginationBorderColor;
-      }
-
-      color: $paginationFontColor;
-      cursor: not-allowed;
-      background-color: rgba(0, 255, 240, 0.1);
-      border-color: $paginationBorderColor
-    }
-  }
-
-  & > li {
-    display: inline;
-
-    & > a, & > span {
-      color: $paginationFontColor;
-      position: relative;
-      float: left;
-      padding: 0.06rem 0.2rem;
-      margin-left: -1px;
-      line-height: 1.42857143;
-      text-decoration: none;
-      background-color: $paginationBGColor;
-      border: 1px solid $paginationBorderColor;
-
-      &:hover, &:focus {
-        color: $paginationFontColor;
-        z-index: 2;
-        background-color: $paginationActiveColor;
-        border-color: $paginationBorderColor;
-      }
-    }
-
-    &:first-child {
-      & > a, & > span {
-        margin-left: 0;
-        border-top-left-radius: 0.04rem;
-        border-bottom-left-radius: 0.04rem
-      }
-    }
-
-    &:last-child {
-      & > a, & > span {
-        border-top-left-radius: 0.04rem;
-        border-bottom-left-radius: 0.04rem
-      }
+    .xKing {
+      //height: 100%;
+      height: 50% !important;
+      transform-origin: top;
+      transform: scale(1, 2);
+      //margin-left: -50%; //测试样式
+      //margin-top: -5%; //测试样式
     }
   }
 }

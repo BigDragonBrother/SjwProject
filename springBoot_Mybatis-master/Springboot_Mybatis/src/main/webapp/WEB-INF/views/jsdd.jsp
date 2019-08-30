@@ -4,10 +4,11 @@
 <head>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>吉林省纪委监委信息化运维平台</title>
+    <link href="<%=request.getContextPath()%>/resources/dist/css/layout.style.css" rel="stylesheet" type="text/css">
     <link href="<%=request.getContextPath()%>/resources/dist/css/jsdd.style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div class="container">
+<div class="container xKing">
     <div class="con-part0">即时调度</div>
     <div class="con-part1"></div>
     <div class="con-part2"></div>
@@ -23,9 +24,7 @@
     <div class="con-part12"></div>
     <div class="con-part13"></div>
     <div class="con-part14"></div>
-    <div class="con-part15" id="con-part15">
-        <canvas id="part15-canvas" style="width:100%;height:100%"></canvas>
-    </div>
+    <div class="con-part15" id="con-part15"></div>
 </div>
 <script src="<%=request.getContextPath()%>/resources/dist/js/common/jquery-3.3.1.min.js"></script>
 <script src="<%=request.getContextPath()%>/resources/dist/js/common/tools.js"></script>

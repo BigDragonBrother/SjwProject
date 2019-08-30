@@ -155,7 +155,7 @@ Tools = {
 						 
 						if((typeof data[index+i].assigneeInfo) =="object"){
 							if(data[index+i].assigneeInfo.length>0){
-								name = data[index+i].assigneeInfo[0].assignee.name;
+								name = data[index+i].assigneeInfo[0].assignee?data[index+i].assigneeInfo[0].assignee.name:"代签收";
 							}else if(data[index+i].solver){
 								name=data[index+i].solver.xingMing;
 							}else{
@@ -244,9 +244,15 @@ Tools = {
 	/**
 	*终端态势感知-第三方
 	*/
-	//partTSGZFn:function(){
-	//	Tools.partModalFn("part9KSHJF-modal", "https://156.8.16.16/tp/login.html?login=admin&password=admin@123");		
-	//},
+	partTSGZFn:function(){
+	    $.ajax({
+            url:"../zcgl/GetWlywTsgzJumpUrl",
+            success:function (data) {
+                Tools.partModalFn("part3TSGZ-modal", data);
+            }
+        })
+
+	},
 
     /**
      * part1:派驻机构地图
@@ -312,7 +318,7 @@ Tools = {
         ptList.push(pt);
         $.each(data, function (index, item) {
             var pt2 = new BMap.Point(item.lng, item.lat);
-            var icon = (item.status == 1 ? "dist/images/map-icon-3.png" : (item.status == 2 ? "dist/images/map-icon-4.png" : "dist/images/map-icon-5.gif"));
+            var icon = (item.status == 1 ? "../resources/dist/images/map-icon-3.png" : (item.status == 2 ? "../resources/dist/images/map-icon-4.png" : "../resources/dist/images/map-icon-5.gif"));
             var myIcon = new BMap.Icon(icon, new BMap.Size(40, 40));
             var marker2 = new BMap.Marker(pt2, {icon: myIcon});  // 创建标注
             map.addOverlay(marker2); // 将标注添加到地图中
@@ -320,7 +326,7 @@ Tools = {
         })
 
         var pt_ = new BMap.Point(centX, centY);
-        var myIcon_ = new BMap.Icon("dist/images/map-icon-2.png", new BMap.Size(50, 50));
+        var myIcon_ = new BMap.Icon("../resources/dist/images/map-icon-2.png", new BMap.Size(50, 50));
         var marker1 = new BMap.Marker(pt_, {icon: myIcon_});  // 创建标注
         map.addOverlay(marker1); // 将标注添加到地图中
         setTimeout(function () {
@@ -412,7 +418,7 @@ Tools = {
         ptList.push(pt);
         $.each(data, function (index, item) {
             var pt2 = new BMap.Point(item.lng, item.lat);
-            var icon = (item.status == 1 ? "dist/images/map-icon-3.png" : (item.status == 2 ? "dist/images/map-icon-4.png" : "dist/images/map-icon-5.gif"));
+            var icon = (item.status == 1 ? "../resources/dist/images/map-icon-3.png" : (item.status == 2 ? "../resources/dist/images/map-icon-4.png" : "../resources/dist/images/map-icon-5.gif"));
             var myIcon = new BMap.Icon(icon, new BMap.Size(40, 40));
             var marker2 = new BMap.Marker(pt2, {icon: myIcon});  // 创建标注
             map.addOverlay(marker2); // 将标注添加到地图中
@@ -422,7 +428,7 @@ Tools = {
         })
 
         var pt_ = new BMap.Point(centX, centY);
-        var myIcon_ = new BMap.Icon("dist/images/map-icon-2.png", new BMap.Size(50, 50));
+        var myIcon_ = new BMap.Icon("../resources/dist/images/map-icon-2.png", new BMap.Size(50, 50));
         var marker1 = new BMap.Marker(pt_, {icon: myIcon_});  // 创建标注
         map.addOverlay(marker1); // 将标注添加到地图中
         setTimeout(function () {
@@ -555,7 +561,7 @@ Tools = {
                 }, timeout);
             },
             error: function (data) {
-                debugger;
+                console.error(JSON.stringify(data));
             }
         })
     }

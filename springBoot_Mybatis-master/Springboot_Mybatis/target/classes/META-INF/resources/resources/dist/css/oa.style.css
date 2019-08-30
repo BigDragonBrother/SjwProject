@@ -1,0 +1,667 @@
+* {
+  padding: 0;
+  margin: 0; }
+
+html {
+  font-size: calc(100vw / 76.80);
+  width: 100%;
+  height: 100%; }
+  html body {
+    background-color: #2b1c3c;
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden; }
+
+div[class^=con-part] {
+  position: absolute; }
+
+@font-face {
+  font-family: fontNumber;
+  src: url("../fonts/LcdD.eot"), url("../fonts/LcdD.ttf"), url("../fonts/LcdD.woff"), url("../fonts/LcdD.otf"); }
+.fontNumber {
+  font-family: fontNumber !important; }
+
+.tr-status-1 div:first-child::before {
+  content: '';
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  position: relative;
+  top: 0.07rem;
+  background-image: url(../images/J-1.png);
+  background-repeat: no-repeat;
+  background-size: 100%; }
+
+.tr-status-2 div:first-child::before {
+  content: '';
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  position: relative;
+  top: 0.07rem;
+  background-image: url(../images/J-2.png);
+  background-repeat: no-repeat;
+  background-size: 100%; }
+
+.tr-status-3 div:first-child::before {
+  content: '';
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  position: relative;
+  top: 0.07rem;
+  background-image: url(../images/J-3.png);
+  background-repeat: no-repeat;
+  background-size: 100%; }
+
+.color-title {
+  color: #01ecfd !important;
+  font-size: 0.4rem !important; }
+
+.title-count {
+  position: relative;
+  bottom: 0rem;
+  font-weight: bold; }
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/oa-bg.jpg);
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat; }
+  .container .con-part-header {
+    position: relative;
+    top: -0.25rem; }
+    .container .con-part-header > span {
+      display: inline-flex;
+      position: relative;
+      color: #afb6d5;
+      font-size: 0.3rem; }
+      .container .con-part-header > span:nth-child(1) {
+        width: 40%; }
+      .container .con-part-header > span:nth-child(2) {
+        width: 25%; }
+      .container .con-part-header > span:nth-child(3) {
+        width: 25%; }
+    .container .con-part-header::before {
+      content: "";
+      display: inline-flex;
+      width: 0.4rem;
+      height: 0.4rem;
+      position: relative;
+      border-width: 0.4rem 0.2rem 0.4rem 0.4rem;
+      border-style: solid;
+      border-color: transparent;
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAYCAYAAAAVibZIAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGMSURBVEhLrZS9SgNBFIVHQRH0GUQbwRQzE/IAioWvkEptRNHCQsEiiEGxEBQL42xMJSpRELGy0srayicQtJC4u8kjrGeH6/6D7mw+GNg5587Jnctu2F90lVx3LFmjbXHspph1LenppXiVZHNsi88FgeFaI9uMXlNMOJZ4SQY7Si5SiTmuEs/JYNcSK2Sbg+CnVHA/ZpzdccEZ++DVeswIXibbnKyO8WMbZJuTNWMEL5GNK6nytKNEG+IhSZreKZ+Edo0DJ16rMkRyQOaMFd/UJg72QlHs+9r7xcyIq2Qn1GVDFydAM8dBTbgOWFRA0a1f/HXER6O6f12dksC2yguxut9atylWsfnE5rXbqoxTPa7Hq7jFB76qt+8GnyI5AGe2YmE6UD6QzZhXZ4P0GMPz2AA9xkAD26lAS1ySnR90X0sG4jY3ZOcHh3eSgej6iuz8ZAdGZpgX/N3tpgILzrDet0DvrjSMw3vJQHTdopL84EOYTweKNtlmdM5KY9FO0eE5WcXBK3OvP71/w9gPLAmjs1khXJcAAAAASUVORK5CYII=");
+      background-size: 100% 100%;
+      background-repeat: no-repeat; }
+  .container .con-part0 {
+    width: 100%;
+    height: 7%;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: url(../images/oa-top.png);
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    line-height: 2;
+    color: #00a4ff;
+    font-size: 0.8rem;
+    text-align: center;
+    font-weight: bolder;
+    letter-spacing: 0.2rem; }
+  .container .con-part1 {
+    width: 25.54%;
+    height: 58.65%;
+    left: 0.6rem;
+    top: 10%;
+    background: url("../images/oa-gezi.png");
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    overflow: hidden;
+    border-width: 0.04rem;
+    border-color: #0d2852;
+    border-style: solid;
+    border-radius: 0.2rem;
+    background-repeat: repeat;
+    background-size: auto; }
+    .container .con-part1::before {
+      content: '';
+      display: block;
+      width: 0.30rem;
+      height: 0.3rem;
+      top: 0.1rem;
+      left: 0.1rem;
+      position: absolute;
+      border-width: 0.04rem;
+      border-color: #26468a transparent transparent #26468a;
+      border-style: solid;
+      border-top-left-radius: 0.2rem; }
+    .container .con-part1::after {
+      content: '';
+      display: block;
+      width: 0.30rem;
+      height: 0.3rem;
+      top: 0.1rem;
+      right: 0.1rem;
+      position: absolute;
+      border-width: 0.04rem;
+      border-color: #26468a #26468a transparent transparent;
+      border-style: solid;
+      border-top-right-radius: 0.2rem; }
+    .container .con-part1 .con-part1-copy {
+      width: 100%;
+      height: 100%;
+      position: relative; }
+      .container .con-part1 .con-part1-copy .con-part-body-title {
+        border-width: 0 0.6rem;
+        border-style: solid;
+        border-color: transparent;
+        color: #1199e2;
+        font-size: 0.35rem;
+        z-index: 9; }
+        .container .con-part1 .con-part1-copy .con-part-body-title::after {
+          content: attr(data-content);
+          font-size: 0.35rem;
+          color: #e9ee47;
+          padding-left: 0.1rem; }
+      .container .con-part1 .con-part1-copy .con-part-body-content {
+        position: relative;
+        width: 100%;
+        height: 100%; }
+      .container .con-part1 .con-part1-copy .con-part-body1 {
+        height: 46%;
+        width: 100%; }
+      .container .con-part1 .con-part1-copy .con-part-body2 {
+        height: 40%;
+        width: 100%;
+        top: 58%; }
+      .container .con-part1 .con-part1-copy::before {
+        content: '';
+        display: block;
+        width: 0.30rem;
+        height: 0.3rem;
+        bottom: 0.1rem;
+        left: 0.1rem;
+        position: absolute;
+        border-width: 0.04rem;
+        border-color: transparent transparent #26468a #26468a;
+        border-style: solid;
+        border-bottom-left-radius: 0.2rem; }
+      .container .con-part1 .con-part1-copy::after {
+        content: '';
+        display: block;
+        width: 0.30rem;
+        height: 0.3rem;
+        bottom: 0.1rem;
+        right: 0.1rem;
+        position: absolute;
+        border-width: 0.04rem;
+        border-color: transparent #26468a #26468a transparent;
+        border-style: solid;
+        border-bottom-right-radius: 0.2rem; }
+  .container .con-part2 {
+    background-color: #00fff03d;
+    width: 25.54%;
+    height: 26.39%;
+    left: 0.6rem;
+    bottom: 0.6rem;
+    background: url("../images/oa-gezi.png");
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    overflow: hidden;
+    border-width: 0.04rem;
+    border-color: #0d2852;
+    border-style: solid;
+    border-radius: 0.2rem;
+    background-repeat: repeat;
+    background-size: auto; }
+    .container .con-part2::before {
+      content: '';
+      display: block;
+      width: 0.30rem;
+      height: 0.3rem;
+      top: 0.1rem;
+      left: 0.1rem;
+      position: absolute;
+      border-width: 0.04rem;
+      border-color: #26468a transparent transparent #26468a;
+      border-style: solid;
+      border-top-left-radius: 0.2rem; }
+    .container .con-part2::after {
+      content: '';
+      display: block;
+      width: 0.30rem;
+      height: 0.3rem;
+      top: 0.1rem;
+      right: 0.1rem;
+      position: absolute;
+      border-width: 0.04rem;
+      border-color: #26468a #26468a transparent transparent;
+      border-style: solid;
+      border-top-right-radius: 0.2rem; }
+    .container .con-part2 .con-part2-copy {
+      width: 100%;
+      height: 100%;
+      position: relative; }
+      .container .con-part2 .con-part2-copy .con-part-body1 {
+        height: 75%;
+        width: 100%; }
+      .container .con-part2 .con-part2-copy::before {
+        content: '';
+        display: block;
+        width: 0.30rem;
+        height: 0.3rem;
+        bottom: 0.1rem;
+        left: 0.1rem;
+        position: absolute;
+        border-width: 0.04rem;
+        border-color: transparent transparent #26468a #26468a;
+        border-style: solid;
+        border-bottom-left-radius: 0.2rem; }
+      .container .con-part2 .con-part2-copy::after {
+        content: '';
+        display: block;
+        width: 0.30rem;
+        height: 0.3rem;
+        bottom: 0.1rem;
+        right: 0.1rem;
+        position: absolute;
+        border-width: 0.04rem;
+        border-color: transparent #26468a #26468a transparent;
+        border-style: solid;
+        border-bottom-right-radius: 0.2rem; }
+  .container .con-part3 {
+    width: 45.28%;
+    height: 31%;
+    left: 27.3%;
+    top: 10%;
+    background: url("../images/oa-zhongxin.png");
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    overflow: hidden;
+    border-width: 0.04rem;
+    border-color: #0d2852;
+    border-style: solid;
+    border-radius: 0.2rem;
+    background-size: auto 100%;
+    background-position: center; }
+    .container .con-part3 .con-part3-1 {
+      width: 2rem;
+      height: auto;
+      left: 30.5%;
+      top: 7%; }
+    .container .con-part3 .con-part3-2 {
+      width: 2rem;
+      height: auto;
+      left: 59%;
+      top: 7%; }
+    .container .con-part3 .con-part3-3 {
+      width: 2rem;
+      height: auto;
+      left: 28.5%;
+      top: 28%; }
+    .container .con-part3 .con-part3-4 {
+      width: 2rem;
+      height: auto;
+      left: 60%;
+      top: 28%; }
+    .container .con-part3 .con-part3-5 {
+      width: 3.9rem;
+      height: auto;
+      left: 42%;
+      top: 26%; }
+      .container .con-part3 .con-part3-5 .con-part3-5-center {
+        color: #e0ea62 !important;
+        font-size: 0.9rem;
+        text-align: center;
+        position: relative; }
+        .container .con-part3 .con-part3-5 .con-part3-5-center::before {
+          content: '';
+          position: absolute;
+          width: 0.4rem;
+          height: 0.4rem;
+          top: 0;
+          left: 0;
+          display: block;
+          border-width: 0.04rem 0 0 0.04rem;
+          border-style: solid;
+          border-color: #f1ad2b; }
+        .container .con-part3 .con-part3-5 .con-part3-5-center::after {
+          content: '';
+          position: absolute;
+          width: 0.4rem;
+          height: 0.4rem;
+          bottom: 0;
+          right: 0;
+          display: block;
+          border-width: 0 0.04rem 0.04rem 0;
+          border-style: solid;
+          border-color: #f1ad2b; }
+  .container .con-part4 {
+    background-color: #00fff03d;
+    width: 45.28%;
+    height: 53.52%;
+    left: 27.3%;
+    bottom: 0.6rem;
+    background: url("../images/oa-gezi.png");
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    overflow: hidden;
+    border-width: 0.04rem;
+    border-color: #0d2852;
+    border-style: solid;
+    border-radius: 0.2rem;
+    background-repeat: repeat;
+    background-size: auto; }
+    .container .con-part4 .con-part-body-title {
+      border-width: 0 0.6rem;
+      border-style: solid;
+      border-color: transparent;
+      color: #1199e2;
+      font-size: 0.35rem;
+      z-index: 9; }
+      .container .con-part4 .con-part-body-title::after {
+        content: attr(data-content);
+        font-size: 0.35rem;
+        color: #e9ee47; }
+    .container .con-part4 .con-part-body-content {
+      position: relative;
+      width: 100%;
+      height: 100%; }
+    .container .con-part4 .con-part-body1 {
+      height: 46%;
+      width: 100%; }
+    .container .con-part4 .con-part-body2 {
+      height: 40%;
+      width: 100%;
+      top: 58%; }
+    .container .con-part4::before {
+      content: '';
+      display: block;
+      width: 0.30rem;
+      height: 0.3rem;
+      top: 0.1rem;
+      left: 0.1rem;
+      position: absolute;
+      border-width: 0.04rem;
+      border-color: #26468a transparent transparent #26468a;
+      border-style: solid;
+      border-top-left-radius: 0.2rem; }
+    .container .con-part4::after {
+      content: '';
+      display: block;
+      width: 0.30rem;
+      height: 0.3rem;
+      top: 0.1rem;
+      right: 0.1rem;
+      position: absolute;
+      border-width: 0.04rem;
+      border-color: #26468a #26468a transparent transparent;
+      border-style: solid;
+      border-top-right-radius: 0.2rem; }
+    .container .con-part4 .con-part4-copy {
+      width: 100%;
+      height: 100%;
+      position: relative; }
+      .container .con-part4 .con-part4-copy::before {
+        content: '';
+        display: block;
+        width: 0.30rem;
+        height: 0.3rem;
+        bottom: 0.1rem;
+        left: 0.1rem;
+        position: absolute;
+        border-width: 0.04rem;
+        border-color: transparent transparent #26468a #26468a;
+        border-style: solid;
+        border-bottom-left-radius: 0.2rem; }
+      .container .con-part4 .con-part4-copy::after {
+        content: '';
+        display: block;
+        width: 0.30rem;
+        height: 0.3rem;
+        bottom: 0.1rem;
+        right: 0.1rem;
+        position: absolute;
+        border-width: 0.04rem;
+        border-color: transparent #26468a #26468a transparent;
+        border-style: solid;
+        border-bottom-right-radius: 0.2rem; }
+  .container .con-part5 {
+    background-color: #00fff03d;
+    width: 25.54%;
+    height: 42.44%;
+    right: 0.6rem;
+    top: 10%;
+    background: url("../images/oa-gezi.png");
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    overflow: hidden;
+    border-width: 0.04rem;
+    border-color: #0d2852;
+    border-style: solid;
+    border-radius: 0.2rem;
+    background-repeat: repeat;
+    background-size: auto; }
+    .container .con-part5::before {
+      content: '';
+      display: block;
+      width: 0.30rem;
+      height: 0.3rem;
+      top: 0.1rem;
+      left: 0.1rem;
+      position: absolute;
+      border-width: 0.04rem;
+      border-color: #26468a transparent transparent #26468a;
+      border-style: solid;
+      border-top-left-radius: 0.2rem; }
+    .container .con-part5::after {
+      content: '';
+      display: block;
+      width: 0.30rem;
+      height: 0.3rem;
+      top: 0.1rem;
+      right: 0.1rem;
+      position: absolute;
+      border-width: 0.04rem;
+      border-color: #26468a #26468a transparent transparent;
+      border-style: solid;
+      border-top-right-radius: 0.2rem; }
+    .container .con-part5 .con-part5-copy {
+      width: 100%;
+      height: 100%;
+      position: relative; }
+      .container .con-part5 .con-part5-copy .con-part-body1 {
+        width: 100%; }
+        .container .con-part5 .con-part5-copy .con-part-body1 .con-part-body-content {
+          border-width: 0.3rem 0.8rem;
+          border-style: solid;
+          border-color: transparent;
+          box-sizing: border-box;
+          width: 100%; }
+      .container .con-part5 .con-part5-copy::before {
+        content: '';
+        display: block;
+        width: 0.30rem;
+        height: 0.3rem;
+        bottom: 0.1rem;
+        left: 0.1rem;
+        position: absolute;
+        border-width: 0.04rem;
+        border-color: transparent transparent #26468a #26468a;
+        border-style: solid;
+        border-bottom-left-radius: 0.2rem; }
+      .container .con-part5 .con-part5-copy::after {
+        content: '';
+        display: block;
+        width: 0.30rem;
+        height: 0.3rem;
+        bottom: 0.1rem;
+        right: 0.1rem;
+        position: absolute;
+        border-width: 0.04rem;
+        border-color: transparent #26468a #26468a transparent;
+        border-style: solid;
+        border-bottom-right-radius: 0.2rem; }
+  .container .con-part6 {
+    background-color: #00fff03d;
+    width: 25.54%;
+    height: 42.44%;
+    right: 0.6rem;
+    bottom: 0.6rem;
+    background: url("../images/oa-gezi.png");
+    background-repeat: no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    overflow: hidden;
+    border-width: 0.04rem;
+    border-color: #0d2852;
+    border-style: solid;
+    border-radius: 0.2rem;
+    background-repeat: repeat;
+    background-size: auto; }
+    .container .con-part6::before {
+      content: '';
+      display: block;
+      width: 0.30rem;
+      height: 0.3rem;
+      top: 0.1rem;
+      left: 0.1rem;
+      position: absolute;
+      border-width: 0.04rem;
+      border-color: #26468a transparent transparent #26468a;
+      border-style: solid;
+      border-top-left-radius: 0.2rem; }
+    .container .con-part6::after {
+      content: '';
+      display: block;
+      width: 0.30rem;
+      height: 0.3rem;
+      top: 0.1rem;
+      right: 0.1rem;
+      position: absolute;
+      border-width: 0.04rem;
+      border-color: #26468a #26468a transparent transparent;
+      border-style: solid;
+      border-top-right-radius: 0.2rem; }
+    .container .con-part6 .con-part6-copy {
+      width: 100%;
+      height: 100%;
+      position: relative; }
+      .container .con-part6 .con-part6-copy .con-part-body-title {
+        width: 100%;
+        border-width: 0 0.6rem;
+        border-style: solid;
+        border-color: transparent;
+        color: #1199e2;
+        font-size: 0.35rem;
+        z-index: 9; }
+        .container .con-part6 .con-part6-copy .con-part-body-title.has-bg {
+          background: #050a20;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          background-clip: content-box; }
+        .container .con-part6 .con-part6-copy .con-part-body-title > span {
+          display: inline-flex;
+          position: relative;
+          color: #afb6d5;
+          font-size: 0.3rem; }
+          .container .con-part6 .con-part6-copy .con-part-body-title > span:nth-child(1) {
+            padding-left: 2%;
+            width: 40%; }
+          .container .con-part6 .con-part6-copy .con-part-body-title > span:nth-child(2) {
+            width: 25%; }
+          .container .con-part6 .con-part6-copy .con-part-body-title > span:nth-child(3) {
+            width: 25%; }
+        .container .con-part6 .con-part6-copy .con-part-body-title::after {
+          content: attr(data-content);
+          font-size: 0.35rem;
+          color: #e9ee47; }
+      .container .con-part6 .con-part6-copy .con-part-body-content {
+        position: relative;
+        width: 100%;
+        height: 100%; }
+      .container .con-part6 .con-part6-copy .con-part-body1 {
+        height: 46%;
+        width: 100%; }
+      .container .con-part6 .con-part6-copy .con-part-body2 {
+        height: 40%;
+        width: 100%;
+        top: 58%; }
+      .container .con-part6 .con-part6-copy::before {
+        content: '';
+        display: block;
+        width: 0.30rem;
+        height: 0.3rem;
+        bottom: 0.1rem;
+        left: 0.1rem;
+        position: absolute;
+        border-width: 0.04rem;
+        border-color: transparent transparent #26468a #26468a;
+        border-style: solid;
+        border-bottom-left-radius: 0.2rem; }
+      .container .con-part6 .con-part6-copy::after {
+        content: '';
+        display: block;
+        width: 0.30rem;
+        height: 0.3rem;
+        bottom: 0.1rem;
+        right: 0.1rem;
+        position: absolute;
+        border-width: 0.04rem;
+        border-color: transparent #26468a #26468a transparent;
+        border-style: solid;
+        border-bottom-right-radius: 0.2rem; }
+
+.table-ul {
+  position: absolute;
+  left: 1.4rem;
+  right: 1.40rem;
+  top: 1.25rem;
+  bottom: 1.25rem; }
+  .table-ul > li {
+    font-family: MicrosoftYaHei;
+    color: white;
+    border-radius: 0.15rem;
+    display: flex;
+    margin-bottom: 0.15rem !important;
+    background-clip: content-box !important; }
+    .table-ul > li > div {
+      font-size: .36rem;
+      padding: 0.12rem 0; }
+      .table-ul > li > div:nth-child(1) {
+        flex: 3;
+        text-align: left; }
+        .table-ul > li > div:nth-child(1) > span:nth-child(1) {
+          display: inline-block;
+          color: #fff;
+          padding: 0.02rem 0.17rem;
+          -webkit-border-radius: 0.10rem;
+          -moz-border-radius: 0.10rem;
+          border-radius: 0.10rem;
+          margin-right: 0.1rem; }
+      .table-ul > li > div:nth-child(2) {
+        flex: 1;
+        text-align: right; }
+    .table-ul > li:nth-child(1) > div {
+      color: #fd6996; }
+      .table-ul > li:nth-child(1) > div:nth-child(1) > span:nth-child(1) {
+        color: #fff;
+        background: #fd6996; }
+    .table-ul > li:nth-child(2) > div {
+      color: #88bbd3; }
+      .table-ul > li:nth-child(2) > div:nth-child(1) > span:nth-child(1) {
+        color: #fff;
+        background: #88bbd3; }
+
+/*# sourceMappingURL=oa.style.css.map */
