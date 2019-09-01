@@ -350,7 +350,9 @@
 <div class="part-modal" id="part3GJXX-modal" style="display: none;"></div>
 <div class="part-modal" id="part3TSGZ-modal" style="display: none;"></div>
 <%--可视化机房--%>
-<div class="part-modal" id="part9KSHJF-modal" style="display: none;"></div>
+<div class="part-modal" id="part9KSHJF-modal" style="display: none;bottom: 50%;transform: scale(1,2);transform-origin: top;">
+    <img src="<%=request.getContextPath()%>/resources/dist/images/kshjf-image.jpg" style="width: 100%;height: 100%;">
+</div>
 <%--第三方页面：工单系统--%>
 <div class="part-modal" id="gdgl-modal" style="display: none;"></div>
 <%--第三方页面：资产管理--%>

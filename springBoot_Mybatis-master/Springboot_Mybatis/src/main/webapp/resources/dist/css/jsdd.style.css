@@ -74,43 +74,43 @@ div[class^=con-part] {
     margin-left: -2.5rem;
     top: 7%; }
   .container .con-part1 {
-    width: 6.42rem;
+    width: 10.42rem;
     height: 3.63rem;
-    left: 4%;
-    top: 14%;
+    left: 2%;
+    top: 17%;
     background: url("../images/jsdd-kuang.png");
     background-repeat: no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%; }
   .container .con-part2 {
-    width: 6.42rem;
+    width: 10.42rem;
     height: 3.63rem;
-    left: 18%;
+    left: 16%;
     top: 10%;
     background: url("../images/jsdd-kuang.png");
     background-repeat: no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%; }
   .container .con-part3 {
-    width: 6.42rem;
+    width: 10.42rem;
     height: 3.63rem;
-    left: 6%;
+    left: 3%;
     top: 42%;
     background: url("../images/jsdd-kuang.png");
     background-repeat: no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%; }
   .container .con-part4 {
-    width: 6.42rem;
+    width: 10.42rem;
     height: 3.63rem;
-    left: 16%;
+    left: 17%;
     top: 30%;
     background: url("../images/jsdd-kuang.png");
     background-repeat: no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%; }
   .container .con-part5 {
-    width: 6.42rem;
+    width: 10.42rem;
     height: 3.63rem;
     left: 21%;
     top: 50%;
@@ -119,16 +119,16 @@ div[class^=con-part] {
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%; }
   .container .con-part6 {
-    width: 6.42rem;
+    width: 10.42rem;
     height: 3.63rem;
-    left: 10%;
+    left: 8%;
     top: 68%;
     background: url("../images/jsdd-kuang.png");
     background-repeat: no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%; }
   .container .con-part7 {
-    width: 6.42rem;
+    width: 10.42rem;
     height: 3.63rem;
     left: 27%;
     top: 70%;
@@ -137,16 +137,16 @@ div[class^=con-part] {
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%; }
   .container .con-part8 {
-    width: 6.42rem;
+    width: 10.42rem;
     height: 3.63rem;
-    right: 4%;
-    top: 14%;
+    right: 2%;
+    top: 17%;
     background: url("../images/jsdd-kuang.png");
     background-repeat: no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%; }
   .container .con-part9 {
-    width: 6.42rem;
+    width: 10.42rem;
     height: 3.63rem;
     right: 18%;
     top: 10%;
@@ -155,25 +155,25 @@ div[class^=con-part] {
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%; }
   .container .con-part10 {
-    width: 6.42rem;
+    width: 10.42rem;
     height: 3.63rem;
-    right: 6%;
+    right: 3%;
     top: 42%;
     background: url("../images/jsdd-kuang.png");
     background-repeat: no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%; }
   .container .con-part11 {
-    width: 6.42rem;
+    width: 10.42rem;
     height: 3.63rem;
-    right: 16%;
+    right: 17%;
     top: 30%;
     background: url("../images/jsdd-kuang.png");
     background-repeat: no-repeat;
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%; }
   .container .con-part12 {
-    width: 6.42rem;
+    width: 10.42rem;
     height: 3.63rem;
     right: 21%;
     top: 50%;
@@ -182,7 +182,7 @@ div[class^=con-part] {
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%; }
   .container .con-part13 {
-    width: 6.42rem;
+    width: 10.42rem;
     height: 3.63rem;
     right: 10%;
     top: 68%;
@@ -191,7 +191,7 @@ div[class^=con-part] {
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%; }
   .container .con-part14 {
-    width: 6.42rem;
+    width: 10.42rem;
     height: 3.63rem;
     right: 27%;
     top: 70%;

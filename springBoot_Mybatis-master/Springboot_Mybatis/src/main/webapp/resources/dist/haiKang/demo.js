@@ -1,10 +1,5 @@
-var jsdd_config = {
-    szIP: "192.168.1.107",
-    szPort: "80",
-    szUsername: "admin",
-    szPassword: "abc12345"
-}
 // 初始化插件
+
 // 全局保存当前选中窗口
 var g_iWndIndex = 0; //可以不用设置这个变量，有窗口参数的接口中，不用传值，开发包会默认使用当前选择窗口
 $(function () {
@@ -19,7 +14,7 @@ $(function () {
     WebVideoCtrl.I_InitPlugin(500, 300, {
         bWndFull: true,     //是否支持单窗口双击全屏，默认支持 true:支持 false:不支持
         iPackageType: 2,    //2:PS 11:MP4
-        iWndowType: 1,
+        iWndowType: 2,
         bNoPlugin: true,
         cbSelWnd: function (xmlDoc) {
             g_iWndIndex = parseInt($(xmlDoc).find("SelectWnd").eq(0).text(), 10);
@@ -28,11 +23,11 @@ $(function () {
         },
         cbDoubleClickWnd: function (iWndIndex, bFullScreen) {
             var szInfo = "当前放大的窗口编号：" + iWndIndex;
-            if (!bFullScreen) {
+            if (!bFullScreen) {            
                 szInfo = "当前还原的窗口编号：" + iWndIndex;
             }
             showCBInfo(szInfo);
-
+                        
             // 此处可以处理单窗口的码流切换
             /*if (bFullScreen) {
                 clickStartRealPlay(1);
@@ -81,9 +76,7 @@ $(function () {
     var szCurTime = dateFormat(new Date(), "yyyy-MM-dd");
     $("#starttime").val(szCurTime + " 00:00:00");
     $("#endtime").val(szCurTime + " 23:59:59");
-
-
-    clickLogin(jsdd_config);
+    clickLogin();
 });
 
 // 显示操作信息
@@ -142,7 +135,7 @@ function getWindowSize() {
 // 打开选择框 0：文件夹  1：文件
 function clickOpenFileDlg(id, iType) {
     var szDirPath = WebVideoCtrl.I_OpenFileDlg(iType);
-
+    
     if (szDirPath != -1 && szDirPath != "" && szDirPath != null) {
         $("#" + id).val(szDirPath);
     }
@@ -176,7 +169,7 @@ function clickGetLocalCfg() {
 function clickSetLocalCfg() {
     var arrXml = [],
         szInfo = "";
-
+    
     arrXml.push("<LocalConfigInfo>");
     arrXml.push("<PackgeSize>" + $("#packSize").val() + "</PackgeSize>");
     arrXml.push("<PlayWndType>" + $("#wndSize").val() + "</PlayWndType>");
@@ -209,12 +202,11 @@ function changeWndNum(iType) {
 }
 
 // 登录
-function clickLogin(param) {
-    //szIP="",szPort=80,szUsername="admin",szPassword="abc12345"
-    var szIP =param.szIP,
-        szPort = param.szPort,
-        szUsername = param.szUsername,
-        szPassword = param.szPassword;
+function clickLogin() {
+    var szIP = $("#loginip").val(),
+        szPort = $("#port").val(),
+        szUsername = $("#username").val(),
+        szPassword = $("#password").val();
 
     if ("" == szIP || "" == szPort) {
         return;
@@ -223,7 +215,7 @@ function clickLogin(param) {
     var szDeviceIdentify = szIP + "_" + szPort;
 
     var iRet = WebVideoCtrl.I_Login(szIP, 1, szPort, szUsername, szPassword, {
-        success: function (xmlDoc) {
+        success: function (xmlDoc) {            
             showOPInfo(szDeviceIdentify + " 登录成功！");
 
             $("#ip").prepend("<option value='" + szDeviceIdentify + "'>" + szDeviceIdentify + "</option>");
@@ -231,7 +223,6 @@ function clickLogin(param) {
                 $("#ip").val(szDeviceIdentify);
                 getChannelInfo();
                 getDevicePort();
-                clickStartRealPlay();
             }, 10);
         },
         error: function (status, xmlDoc) {
@@ -284,7 +275,7 @@ function clickGetDeviceInfo() {
             arrStr.push("MAC地址：" + $(xmlDoc).find("macAddress").eq(0).text() + "\r\n");
             arrStr.push("主控版本：" + $(xmlDoc).find("firmwareVersion").eq(0).text() + " " + $(xmlDoc).find("firmwareReleasedDate").eq(0).text() + "\r\n");
             arrStr.push("编码版本：" + $(xmlDoc).find("encoderVersion").eq(0).text() + " " + $(xmlDoc).find("encoderReleasedDate").eq(0).text() + "\r\n");
-
+            
             showOPInfo(szDeviceIdentify + " 获取设备信息成功！");
             alert(arrStr.join(""));
         },
@@ -352,7 +343,7 @@ function getChannelInfo() {
         async: false,
         success: function (xmlDoc) {
             var oChannels = $(xmlDoc).find("ZeroVideoChannel");
-
+            
             $.each(oChannels, function (i) {
                 var id = $(this).find("id").eq(0).text(),
                     name = $(this).find("name").eq(0).text();
@@ -408,7 +399,7 @@ function clickGetDigitalChannelInfo() {
             iAnalogChannelNum = $(xmlDoc).find("VideoInputChannel").length;
         },
         error: function () {
-
+            
         }
     });
 
@@ -417,7 +408,7 @@ function clickGetDigitalChannelInfo() {
         async: false,
         success: function (xmlDoc) {
             var oChannels = $(xmlDoc).find("InputProxyChannelStatus");
-
+            
             $.each(oChannels, function () {
                 var id = parseInt($(this).find("id").eq(0).text(), 10),
                     ipAddress = $(this).find("ipAddress").eq(0).text(),
@@ -425,7 +416,7 @@ function clickGetDigitalChannelInfo() {
                     managePortNo = $(this).find("managePortNo").eq(0).text(),
                     online = $(this).find("online").eq(0).text(),
                     proxyProtocol = $(this).find("proxyProtocol").eq(0).text();
-
+                            
                 var objTr = $("#digitalchannellist").get(0).insertRow(-1);
                 var objTd = objTr.insertCell(0);
                 objTd.innerHTML = (id - iAnalogChannelNum) < 10 ? "D0" + (id - iAnalogChannelNum) : "D" + (id - iAnalogChannelNum);
@@ -595,7 +586,7 @@ function clickCapturePic() {
 
         var szChannelID = $("#channels").val();
         var szPicName = oWndInfo.szDeviceIdentify + "_" + szChannelID + "_" + new Date().getTime();
-
+        
         szPicName += ("0" === szCaptureFileFormat) ? ".jpg": ".bmp";
 
         var iRet = WebVideoCtrl.I_CapturePic(szPicName, {
@@ -821,7 +812,7 @@ function mouseDownPTZControl(iPTZIndex) {
     if (bZeroChannel) {// 零通道不支持云台
         return;
     }
-
+    
     if (oWndInfo != null) {
         if (9 == iPTZIndex && g_bPTZAuto) {
             iPTZSpeed = 0;// 自动开启后，速度置为0可以关闭自动
@@ -926,7 +917,7 @@ function clickRecordSearch(iType) {
         iSearchPos: g_iSearchTimes * 40,
         success: function (xmlDoc) {
             if ("MORE" === $(xmlDoc).find("responseStatusStrg").eq(0).text()) {
-
+                
                 for(var i = 0, nLen = $(xmlDoc).find("searchMatchItem").length; i < nLen; i++) {
                     var szPlaybackURI = $(xmlDoc).find("playbackURI").eq(i).text();
                     if(szPlaybackURI.indexOf("name=") < 0) {
@@ -1249,7 +1240,7 @@ function clickPlayFast() {
 // OSD时间
 function clickGetOSDTime() {
     var oWndInfo = WebVideoCtrl.I_GetWindowStatus(g_iWndIndex);
-
+    
     if (oWndInfo != null) {
         var szTime = WebVideoCtrl.I_GetOSDTime({
             success: function (szOSDTime) {
@@ -1513,7 +1504,7 @@ function clickRemoteConfig() {
     var szDeviceIdentify = $("#ip").val(),
         iDevicePort = parseInt($("#deviceport").val(), 10) || "",
         szInfo = "";
-
+    
     if (null == szDeviceIdentify) {
         return;
     }
@@ -1755,7 +1746,7 @@ function clickDisableDraw() {
     var iRet = WebVideoCtrl.I_SetPlayModeType(0);// 预览模式
     if (0 === iRet) {
         g_bEnableDraw = false;
-
+        
         showOPInfo("禁用绘制成功！");
     } else {
         showOPInfo("禁用绘制失败！");
@@ -1961,7 +1952,7 @@ function clickDeviceCapturePic() {
     if (null == szDeviceIdentify) {
         return;
     }
-
+    
     if (bZeroChannel) {// 零通道不支持设备抓图
         return;
     }

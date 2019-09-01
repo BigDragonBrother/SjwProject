@@ -237,7 +237,8 @@ Tools = {
 	*可视化机房-第三方
 	*/
 	partKSHJFFn:function(){
-		Tools.partModalFn("part9KSHJF-modal", "http://156.8.11.22:8080/itims/room/view/view.jsp?mnSbj=topo&mnCMP=1_2&lunchFrom=start&lunchFuncID=roottopo_room");
+		$("#part9KSHJF-modal").show().html(`<img src="../resources/dist/images/kshjf-image.jpg" style="width: 100%;height: 100%;">`);
+		// Tools.partModalFn("part9KSHJF-modal", "http://156.8.11.22:8080/itims/room/view/view.jsp?mnSbj=topo&mnCMP=1_2&lunchFrom=start&lunchFuncID=roottopo_room");
 	},
 	
 	
