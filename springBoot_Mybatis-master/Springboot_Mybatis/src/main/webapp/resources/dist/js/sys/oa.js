@@ -111,7 +111,7 @@ Tools = {
                             <div>${data.meetingname[i]}</div>
                             <div>
                                 <div class="list-style-desc">
-                                    <div>开会时间：<span class="color-title">${data.surplusTimes[i]}</span></div>
+                                    <div>开会时间：<span class="color-title">${data.hosttimes[i]}</span></div>
                                     <div>开会位置：<span class="color-title">${data.palces[i]}</span></div>
                                 </div>
                                 <div class="list-style-date">倒计时：<span class="fontNumber color-orange">${data.surplusTimes[i]}</span>

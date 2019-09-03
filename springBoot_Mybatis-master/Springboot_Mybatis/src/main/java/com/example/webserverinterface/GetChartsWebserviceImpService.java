@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "GetChartsWebserviceImpService", targetNamespace = "http://spring.service.getChart.todoo.kmss.landray.com/", wsdlLocation = "http://192.168.1.33:6888/sys/webservice/getChartsWebservice?wsdl")
+@WebServiceClient(name = "GetChartsWebserviceImpService", targetNamespace = "http://spring.service.getChart.todoo.kmss.landray.com/", wsdlLocation = "http://156.8.11.13:6888/sys/webservice/getChartsWebservice?wsdl")
 public class GetChartsWebserviceImpService
     extends Service
 {
@@ -30,7 +30,7 @@ public class GetChartsWebserviceImpService
         URL url = null;
         WebServiceException e = null;
         try {
-            url = new URL("http://192.168.1.33:6888/sys/webservice/getChartsWebservice?wsdl");
+            url = new URL("http://156.8.11.13:6888/sys/webservice/getChartsWebservice?wsdl");
         } catch (MalformedURLException ex) {
             e = new WebServiceException(ex);
         }

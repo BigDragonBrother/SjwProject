@@ -200,8 +200,9 @@ Tools = {
      * part5:即时调度
      */
     part5JSDD: function () {
-        $("#part5JSDD-modal").show().html('<iframe frameborder="0" scrolling="no" src="jsdd" width="100%"' +
-            ' height="100%"></iframe>');
+     //   $("#part5JSDD-modal").show().html('<iframe frameborder="0" scrolling="no" src="jsdd" width="100%"' +
+         //   ' height="100%"></iframe>');
+        window.location.href="alert:"+window.location.origin+"/SjwProject/system/jsdd"
     },
     /**
      * 业务应用
