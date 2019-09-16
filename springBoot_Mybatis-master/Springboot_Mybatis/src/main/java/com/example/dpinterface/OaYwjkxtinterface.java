@@ -1,8 +1,8 @@
 package com.example.dpinterface;
 
 
-import com.example.webserverinterface.GetChartsWebserviceImpService;
-import com.example.webserverinterface.IGetChartWebservice;
+import com.example.webserverinterfacenew.GetChartsWebserviceImpService;
+import com.example.webserverinterfacenew.IGetChartWebservice;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -82,7 +82,52 @@ public class OaYwjkxtinterface {
         return ddd;
     }
 
+//*************************0911新增*******************
+    //每个会议室近三个月的使用次数
+    @RequestMapping("getMeetingRoomCountInfo")
+    public String getMeetingRoomCountInfo(){
+        //收发文数据传输接口
+        GetChartsWebserviceImpService gg = new GetChartsWebserviceImpService();
+        IGetChartWebservice i = gg.getGetChartsWebserviceImpPort();
+        String ddd = i.getMeetingRoomCountInfo(AccesskeyOA);
+        return ddd;
+    }
+    //每个会议室近三个月的使用率
+    @RequestMapping("getMeetingRoomPercentInfo")
+    public String getMeetingRoomPercentInfo(){
+        //收发文数据传输接口
+        GetChartsWebserviceImpService gg = new GetChartsWebserviceImpService();
+        IGetChartWebservice i = gg.getGetChartsWebserviceImpPort();
+        String ddd = i.getMeetingRoomPercentInfo(AccesskeyOA);
+        return ddd;
+    }
+    //近三个月人员办件数
+    @RequestMapping("getPDSubInfo")
+    public String getPDSubInfo(){
+        //收发文数据传输接口
+        GetChartsWebserviceImpService gg = new GetChartsWebserviceImpService();
+        IGetChartWebservice i = gg.getGetChartsWebserviceImpPort();
+        String ddd = i.getPDSubInfo(AccesskeyOA);
+        return ddd;
+    }
 
-
+    //办件办结率统计
+    @RequestMapping("getPerBJInfo")
+    public String getPerBJInfo(){
+        //收发文数据传输接口
+        GetChartsWebserviceImpService gg = new GetChartsWebserviceImpService();
+        IGetChartWebservice i = gg.getGetChartsWebserviceImpPort();
+        String ddd = i.getPerBJInfo(AccesskeyOA);
+        return ddd;
+    }
+    //各部门办件统计
+    @RequestMapping("getPerSubInfo")
+    public String getPerSubInfo(){
+        //收发文数据传输接口
+        GetChartsWebserviceImpService gg = new GetChartsWebserviceImpService();
+        IGetChartWebservice i = gg.getGetChartsWebserviceImpPort();
+        String ddd = i.getPerSubInfo(AccesskeyOA);
+        return ddd;
+    }
 
 }

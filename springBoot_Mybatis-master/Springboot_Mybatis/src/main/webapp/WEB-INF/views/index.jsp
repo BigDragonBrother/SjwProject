@@ -50,7 +50,7 @@
                 </object>
                 <div id="part1-2-data" class="con-part1-text fontSuccess fontNumber">41</div>
             </div>
-            <div class="con-part1-3" data-content="市县">
+            <div class="con-part1-3" data-content="市县" onclick="doclick1();">
                 <object data="<%=request.getContextPath()%>/resources/dist/svg/qsyxts0804.svg" type="image/svg+xml" style="width: 100%;">
                     <p>您的浏览器不支持SVG文件</p>
                 </object>
@@ -369,5 +369,10 @@
 <!--地图组件  end-->
 <script src="<%=request.getContextPath()%>/resources/dist/js/common/tools.js"></script>
 <script src="<%=request.getContextPath()%>/resources/dist/js/sys/index.js"></script>
+<script>
+    function doclick1(){
+        window.location.href="http://localhost:8083/SjwProject/system/dashboad";
+    }
+</script>
 </body>
 </html>

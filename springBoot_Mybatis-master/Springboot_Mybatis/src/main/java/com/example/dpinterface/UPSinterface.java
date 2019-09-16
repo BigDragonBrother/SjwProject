@@ -43,10 +43,10 @@ public class UPSinterface {
                 }
             }
         }else{
-            resMap.put("rl","100.00");
-            resMap.put("wd","25.00");
-            resMap.put("sj","533.00");
-            resMap.put("wdzt","正常");
+            resMap.put("rl","");
+            resMap.put("wd","");
+            resMap.put("sj","");
+            resMap.put("wdzt","");
         }
             return resMap;
     }
@@ -77,9 +77,9 @@ public class UPSinterface {
 
             }
         }else{
-            resMap.put("wsdzt","通讯正常");
-            resMap.put("wd","27.00");
-            resMap.put("sd","57.10");
+            resMap.put("wsdzt","");
+            resMap.put("wd","");
+            resMap.put("sd","");
 
         }
         return resMap;

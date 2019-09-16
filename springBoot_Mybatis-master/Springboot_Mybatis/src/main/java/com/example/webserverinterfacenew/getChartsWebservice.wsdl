@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="GetChartsWebserviceImpService" targetNamespace="http://spring.service.getChart.todoo.kmss.landray.com/" xmlns:ns1="http://service.getChart.todoo.kmss.landray.com/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://spring.service.getChart.todoo.kmss.landray.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="http://156.8.11.13:6888/sys/webservice/getChartsWebservice?wsdl=IGetChartWebservice.wsdl" namespace="http://service.getChart.todoo.kmss.landray.com/">
+    </wsdl:import>
+  <wsdl:binding name="GetChartsWebserviceImpServiceSoapBinding" type="ns1:IGetChartWebservice">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getSubInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getSubInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getSubInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPDSubInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getPDSubInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPDSubInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDubanInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDubanInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDubanInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMeetingInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getMeetingInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMeetingInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMeetingRoomCountInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getMeetingRoomCountInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMeetingRoomCountInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPartyInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getPartyInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPartyInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPerSubInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getPerSubInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPerSubInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOnlineNum">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getOnlineNum">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getOnlineNumResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMeetingRoomPercentInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getMeetingRoomPercentInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMeetingRoomPercentInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrSendFile">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getOrSendFile">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getOrSendFileResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPerBJInfo">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getPerBJInfo">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getPerBJInfoResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetChartsWebserviceImpService">
+    <wsdl:port binding="tns:GetChartsWebserviceImpServiceSoapBinding" name="GetChartsWebserviceImpPort">
+      <soap:address location="http://156.8.11.13:6888/sys/webservice/getChartsWebservice"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

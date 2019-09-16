@@ -13,6 +13,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class IndexController {
     private static Logger Log = Logger.getLogger(IndexController.class);
 
+    //0911新增
+    @RequestMapping("dashboad")
+    public String dashboad() {
+        return "dashboad";
+    }
+
     @RequestMapping("index")
     public String index() {
         return "index";

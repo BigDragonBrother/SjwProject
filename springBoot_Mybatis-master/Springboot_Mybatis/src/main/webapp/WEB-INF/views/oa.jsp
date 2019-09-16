@@ -153,7 +153,7 @@
 <%--</div>--%>
 <%--正式版 备份--%>
 <div class="container">
-    <div class="con-part0">OA运维监控系统</div>
+    <div class="con-part0"><img style="width:12%" src="<%=request.getContextPath()%>/resources/dist/images/oanewtitleimg.png"></div>
     <div class="con-part1">
         <div class="con-part1-copy">
             <div class="con-part-header">
@@ -174,9 +174,9 @@
     <div class="con-part2">
         <div class="con-part2-copy">
             <div class="con-part-header">
-                <span class="color-title">督办件概况</span>
+                <span class="color-title" onclick="doclick();">督办件概况</span>
                 <span></span>
-                <span>督办件总数：<span class="color-title title-count">2363</span>件</span>
+                <span>督办件总数：<span class="color-title title-count">31</span>件</span>
             </div>
             <div class="con-part-body1" id="part2-1"></div>
         </div>
@@ -272,5 +272,11 @@
 <script src="<%=request.getContextPath()%>/resources/dist/js/common/amcharts/serial.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/resources/dist/js/common/tools.js"></script>
 <script src="<%=request.getContextPath()%>/resources/dist/js/sys/oa.js"></script>
+<script>
+
+    function doclick(){
+        window.location.href="http://localhost:8083/SjwProject/system/dashboad";
+    }
+</script>
 </body>
 </html>
