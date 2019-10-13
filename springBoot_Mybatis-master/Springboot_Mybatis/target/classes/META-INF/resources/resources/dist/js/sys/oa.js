@@ -9,52 +9,74 @@ Tools = {
             var e = event || window.event || arguments.callee.caller.arguments[0];
             if (e && e.keyCode == 27) {
                 $(window.parent.document.getElementById("part5YWYY-modal")).hide().empty();
-				$("#part5YWYY-modal").hide().empty()
+                $("#part5YWYY-modal").hide().empty()
             }
         }
-
-        //部门发文
-        Tools.barFn("part1-1", function (e) {
-            Tools.barGetData(color, e)
-        });
-
+        Tools.bmSentFile("part1-1");
         //部门收文
         Tools.radiusFn("part1-2", function (e) {
             Tools.radiusGetData(e);
         });
-
         //督办件概况
         Tools.linesAreaFn("part2-1", function (e) {
-            var data = {
-                legend: ["领导指示类", "会议研究类", "调研讲话类", "任务分解类"],
-                data1: [18, 30, 40, 70, 100, 80],
-                data2: [40, 20, 45, 65, 110, 75],
-                data3: [20, 60, 50, 80, 120, 100],
-                data4: [40, 90, 80, 100, 120, 150],
-                date: []
-            };
-            Tools.linesAreaSetData(e, data);
+            // var data = {
+            //     legend: ["领导指示类", "会议研究类", "调研讲话类", "任务分解类"],
+            //     data1: [18, 30, 40, 70, 100, 80],
+            //     data2: [40, 20, 45, 65, 110, 75],
+            //     data3: [20, 60, 50, 80, 120, 100],
+            //     data4: [40, 90, 80, 100, 120, 150],
+            //     date: []
+            // };
+            Tools.linesAreaSetData(e);
         });
-
-
         Tools.onlineGetData();
-
         //会议概况
         Tools.meetingGetData();
+        Tools.barsGetData("part4-1", "part4-2");
 
-        //各地区得分情况
-        Tools.barFn("part4-1", function (e1) {
-            //各地区报送及采用情况
-            Tools.barsFn("part4-2", function (e2) {
-                Tools.barsGetData(e1, e2);
-            });
-        });
         Tools.graphFn("part6-1", function (e) {
             Tools.graphGetDataFn(e)
         })
         Tools.tableFn();
     },
-
+    //各地区扽分呢情况
+    everyScoreFn: function (target, data) {
+        $.ajax({
+            url: "../oayw/SendFile",
+            type: "post",
+            success: function (res) {
+                var data = JSON.parse(res);
+                var param = [];
+                for (var i = 0; i < data.count.length; i++) {
+                    param.push({
+                        name: data.deptName[i],
+                        value: data.count[i],
+                        color: color[i]
+                    })
+                }
+                Tools.amBarFn(target, param)
+            }
+        })
+    },
+//部门发文
+    bmSentFile: function (target) {
+        $.ajax({
+            url: "../oayw/SendFile",
+            type: "post",
+            success: function (res) {
+                var data = JSON.parse(res);
+                var param = [];
+                for (var i = 0; i < data.count.length; i++) {
+                    param.push({
+                        name: data.deptName[i],
+                        value: data.count[i],
+                        color: color[i]
+                    })
+                }
+                Tools.amBarFn(target, param)
+            }
+        })
+    },
     //当前在线人数
     onlineGetData: function () {
         $.ajax({
@@ -89,7 +111,7 @@ Tools = {
                             <div>${data.meetingname[i]}</div>
                             <div>
                                 <div class="list-style-desc">
-                                    <div>开会时间：<span class="color-title">${data.surplusTimes[i]}</span></div>
+                                    <div>开会时间：<span class="color-title">${data.hosttimes[i]}</span></div>
                                     <div>开会位置：<span class="color-title">${data.palces[i]}</span></div>
                                 </div>
                                 <div class="list-style-date">倒计时：<span class="fontNumber color-orange">${data.surplusTimes[i]}</span>
@@ -312,22 +334,19 @@ Tools = {
                 $("#totalScore").html(data.sumAllScore);
                 $("#totalCount").html(data.sumCounts);
                 for (var i = 0; i < data.regions.length; i++) {
-                    data_1.push({name: data.regions[i], value: data.scores[i]})
+                    data_1.push({name: data.regions[i], value: data.scores[i], color: "#00fff0"})
                 }
-                Tools.barSetData(["#00fff0"], tar1, data_1);
-                Tools.barsSetData(tar2, {
-                    xAxis: data.subregions,
-                    data: [{
-                        "data": data.allSubCounts,
-                        "name": "报送总条数",
-                    }, {
-                        "data": data.PDCommissions,
-                        "name": "被省纪委采用",
-                    }, {
-                        "data": data.CDCommissions,
-                        "name": "被中央纪委采用",
-                    }]
-                });
+                Tools.amBarFn(tar1, data_1);
+                var data_2 = [];
+                for (var i = 0; i < data.allSubCounts.length; i++) {
+                    data_2.push({
+                        name: data.subregions[i],
+                        value1: data.allSubCounts[i],
+                        value2: data.PDCommissions[i],
+                        value3: data.CDCommissions[i],
+                    })
+                }
+                Tools.amBarsFn(tar2, data_2, data.subregions);
             }
         })
     },
@@ -676,109 +695,63 @@ Tools = {
         return callback(myChart);
     },
     linesAreaSetData: function (target, data) {
-        // $.ajax({
-        //     url: "../oayw/getDubanInfo",
-        //     type: "post",
-        //     success: function (res) {
-        //         var data = JSON.parse(res);
-        target.setOption({
-            legend: [{
-                data: data.legend
-            }],
-            series: [
-                {
-                    name: data.legend[0],
-                    type: 'line',
-                    smooth: true,
-                    // stack: 100,
-                    itemStyle: {
-                        normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                            lineStyle: { // 系列级个性化折线样式
-                                width: 3,
-                                type: 'solid',
-                                color: color[0]
-                            }
-                        },
-                    }, //线条样式
-                    symbolSize: 10, //折线点的大小
-                    data: data.data1
-                },
-                {
-                    name: data.legend[1],
-                    type: 'line',
-                    smooth: true,
-                    // stack: 100,
-                    itemStyle: {
-                        normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                            lineStyle: { // 系列级个性化折线样式
-                                width: 3,
-                                type: 'solid',
-                                color: color[1]
-                            }
-                        },
-                    }, //线条样式
-                    symbolSize: 10, //折线点的大小
-                    data: data.data2
-                },
-                {
-                    name: data.legend[2],
-                    type: 'line',
-                    smooth: true,
-                    // stack: 100,
-                    itemStyle: {
-                        normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                            lineStyle: { // 系列级个性化折线样式
-                                width: 3,
-                                type: 'solid',
-                                color: color[2]
-                            }
-                        },
-                    }, //线条样式
-                    symbolSize: 10, //折线点的大小
-                    data: data.data3
-                },
-                {
-                    name: data.legend[3],
-                    type: 'line',
-                    smooth: true,
-                    //  symbol: "none", //去掉折线点
-                    stack: 100,
-                    itemStyle: {
-                        normal: { //颜色渐变函数 前四个参数分别表示四个位置依次为左、下、右、上
-                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                                offset: 0,
-                                color: '#64CAFA' // 0% 处的颜色
-                            }, {
-                                offset: 0.5,
-                                color: '#64CAFA' // 50% 处的颜色
-                            }, {
-                                offset: 1,
-                                color: '#0078D7' // 100% 处的颜色
-                            }]), //背景渐变色
-                            lineStyle: { // 系列级个性化折线样式
-                                width: 1,
-                                type: 'solid',
-                                color: "#0078D7"
-                            }
-                        },
-                        emphasis: {
-                            color: '#02675f',
-                            lineStyle: { // 系列级个性化折线样式
-                                width: 0.5,
-                                type: 'dotted',
-                                color: "#02675f" //折线的颜色
-                            }
+        $.ajax({
+            url: "../oayw/getDubanInfo",
+            type: "post",
+            success: function (res) {
+                var data = JSON.parse(res);
+                var legend = data.dubanfenlei;
+                var xAixs = data.Months;
+                var param = {}
+                for (var j = 0; j < legend.length; j++) {
+                    var arr = [];
+                    for (var i = 0; i < xAixs.length; i++) {
+                        arr.push(data["data" + (i + 1)][j])
+                    }
+                    param["data" + (j + 1)] = arr;
+                }
+                target.setOption({
+                    legend: [{
+                        data: legend
+                    }],
+                    xAxis: [{
+                        data: xAixs
+                    }],
+                    series: (function () {
+                        var series = [];
+                        for (var i = 0; i < legend.length; i++) {
+                            series.push({
+                                name: legend[i],
+                                type: 'line',
+                                smooth: true,
+                                itemStyle: {
+                                    normal: {
+                                        color: i == (legend.length - 1) ? new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                            offset: 0,
+                                            color: '#64CAFA' // 0% 处的颜色
+                                        }, {
+                                            offset: 0.5,
+                                            color: '#64CAFA' // 50% 处的颜色
+                                        }, {
+                                            offset: 1,
+                                            color: '#0078D7' // 100% 处的颜色
+                                        }]) : color[i],
+                                        lineStyle: {
+                                            width: 3,
+                                            type: 'solid',
+                                            color: color[i]
+                                        }
+                                    }, //线条样式
+                                },
+                                symbolSize: 3, //折线点的大小
+                                data: param["data" + i]
+                            })
                         }
-                    }, //线条样式
-                    symbolSize: 5, //折线点的大小
-                    areaStyle: {
-                        normal: {opacity: 0.2,}
-                    },
-                    data: data.data4
-                }]
+                        return series;
+                    })()
+                })
+            }
         })
-        // }
-        // })
     },
 
     graphFn: function (id, callback) {
@@ -860,9 +833,9 @@ Tools = {
                     var data_ = [];
                     for (var i = 0; i < data.actNames.length; i++) {
                         data_.push({
-                            ext0: i,
+                            ext0: i + 1,
                             ext1: data.actNames[i],
-                            ext2: data.joinCounts[i]+"人"
+                            ext2: data.joinCounts[i] + "人"
                         })
                     }
                     return data_;
@@ -880,15 +853,14 @@ Tools = {
     tableFn: function (data) {
         var index = 2;
         var i = 0;
-		if(data){
-			animationFn();
-			 setInterval(animationFn, 2000);
-		}
+        if (data) {
+            animationFn();
+            setInterval(animationFn, 2000);
+        }
+
         function animationFn() {
             $(".table-ul>li").removeClass("flipInX");
             var a = setInterval(function () {
-                $(".table-ul>li:nth-child(" + (i + 1) + ")").removeClass(".tr-status-1 .tr-status-2 .tr-status-3").addClass("flipInX" +
-                    " tr-status-" + data[index + i].ext5);
                 $(".table-ul>li:nth-child(" + (i + 1) + ")>div:nth-child(1)").html("<span>" + data[index + i].ext0 + "</span><span>" + data[index + i].ext1 + "</span>");
                 $(".table-ul>li:nth-child(" + (i + 1) + ")>div:nth-child(2)").html(data[index + i].ext2);
                 i++;
@@ -899,15 +871,153 @@ Tools = {
             }, 300)
             index = (index == 2) ? 0 : 2;
         }
-
-       
     },
     resizeFn: function (target) {
         window.addEventListener("resize", function () {
             fontSize = 30 * window.innerWidth / 1920 / 4;
             target.resize();
         });
-    }
+    },
+
+    amBarFn: function (target, data) {
+        var chart;
+        AmCharts.ready(function () {
+            // SERIAL CHART
+            chart = new AmCharts.AmSerialChart();
+            chart.dataProvider = data;
+            chart.columnWidth = 0.4;
+            chart.categoryField = "name";
+            chart.color = "rgba(93, 228, 250, 1)";
+            chart.fontSize = 30 * window.innerWidth / 1920 / 4;
+            chart.startDuration = 1;
+            chart.angle = 20;
+            chart.depth3D = 5;
+
+            // category
+            var categoryAxis = chart.categoryAxis;
+            categoryAxis.gridAlpha = 0.2;
+            categoryAxis.gridPosition = "start";
+            categoryAxis.gridColor = "rgba(93, 228, 250, 1)";
+            categoryAxis.axisColor = "rgba(93, 228, 250, 1)";
+            categoryAxis.gridAlpha = 0;
+            categoryAxis.fillAlpha = 0;
+            categoryAxis.widths = 2;
+            categoryAxis.fillColor = "#000";
+
+            //categoryAxis.axisAlpha = 0;
+
+            // value
+            var valueAxis = new AmCharts.ValueAxis();
+            //   valueAxis.stackType = "3d"; // This line makes chart 3D stacked (columns are placed one behind another)
+            valueAxis.gridAlpha = 0.2;
+            valueAxis.gridColor = "rgba(93, 228, 250, 1)";
+            valueAxis.axisColor = "rgba(93, 228, 250, 1)";
+            valueAxis.axisAlpha = 0.5;
+            valueAxis.fillColor = "transparent";
+            valueAxis.dashLength = 1;
+            chart.addValueAxis(valueAxis);
+
+            // GRAPHS
+            // first graph
+            var graph1 = new AmCharts.AmGraph();
+            graph1.title = "2004";
+            graph1.valueField = "value";
+            graph1.type = "column";
+            graph1.lineAlpha = 0;
+            graph1.lineColor = "#3e3bc6";
+            graph1.fillAlphas = 1;
+            // graph1.fillColors = ["rgba(15, 217, 219, 1)", "rgba(21, 112, 235, 1)"];
+            graph1.colorField = "color";
+            chart.addGraph(graph1);
+
+            chart.write(target);
+        });
+
+    },
+
+    amBarsFn: function (target, data, data2) {
+        var chart;
+        AmCharts.ready(function () {
+            // SERIAL CHART
+            chart = new AmCharts.AmSerialChart();
+            chart.dataProvider = data;
+            chart.columnWidth = 0.4;
+            chart.categoryField = "name";
+            chart.color = "rgba(93, 228, 250, 1)";
+            chart.fontSize = 30 * window.innerWidth / 1920 / 4;
+            chart.startDuration = 1;
+            chart.plotAreaFillAlphas = 0;
+            // the following two lines makes chart 3D
+            chart.angle = 30;
+            chart.depth3D = 60;
+
+            // AXES
+            // category
+            var categoryAxis = chart.categoryAxis;
+            categoryAxis.gridColor = "rgba(93, 228, 250, 1)";
+            categoryAxis.axisColor = "rgba(93, 228, 250, 1)";
+            categoryAxis.gridAlpha = 0;
+            categoryAxis.fillAlpha = 0;
+            categoryAxis.widths = 2;
+            categoryAxis.fillColor = "rgba(0,0,0,0)";
+
+            categoryAxis.gridAlpha = 2;
+            categoryAxis.gridPosition = "start";
+            categoryAxis.axisAlpha = 1;
+            categoryAxis.dashLength = 10;
+
+            // value
+            var valueAxis = new AmCharts.ValueAxis();
+            valueAxis.stackType = "3d"; // This line makes chart 3D stacked (columns are placed one behind another)
+            valueAxis.gridAlpha = 2;
+            valueAxis.gridColor = "rgba(93, 228, 250, 0.4)";
+            valueAxis.axisColor = "rgba(93, 228, 250, 0.4)";
+            valueAxis.axisAlpha = 1;
+            valueAxis.dashLength = 5;
+            valueAxis.unit = "";
+            chart.addValueAxis(valueAxis);
+
+            // GRAPHS
+            // first graph
+            for (let i = data2.length-1; i >=0 ; i--) {
+                let graph1 = new AmCharts.AmGraph();
+                graph1.title = data2[i];
+                graph1.valueField = ("value"+(i+1));
+                graph1.type = "column";
+                graph1.lineAlpha = 0;
+                graph1.lineColor = color[i];
+                graph1.fillAlphas = 1;
+                // graph1.balloonText = "GDP grow in [[category]] (2004): <b>[[value]]</b>";
+                chart.addGraph(graph1);
+            }
+
+            //
+            // // second graph
+            // var graph2 = new AmCharts.AmGraph();
+            // graph2.title = "2005";
+            // graph2.valueField = "value2";
+            // graph2.type = "column";
+            // graph2.lineAlpha = 0;
+            // graph2.lineColor = "#32A8FD";
+            // graph2.fillAlphas = 1;
+            // // graph2.balloonText = "GDP grow in [[category]] (2005): <b>[[value]]</b>";
+            // chart.addGraph(graph2);
+            //
+            // // second graph
+            // var graph3 = new AmCharts.AmGraph();
+            // graph3.title = "2005";
+            // graph3.valueField = "value3";
+            // graph3.type = "column";
+            // graph3.lineAlpha = 0;
+            // graph3.lineColor = "#8C71F7";
+            // graph3.fillAlphas = 1;
+            // // graph3.balloonText = "GDP grow in [[category]] (2005): <b>[[value]]</b>";
+            // chart.addGraph(graph3);
+
+            chart.write(target);
+        });
+    },
+
 }
 
 Tools.init();

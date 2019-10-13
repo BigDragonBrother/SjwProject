@@ -19,4 +19,148 @@
         where
         devid = 364 and varid in ('ATXW07','AWSD071','AWSD072')
     </select>
+
+    <select id="selectDhInfoList" resultType="java.util.Map">
+        SELECT
+            insid,
+            jfid,
+            devid,
+            insname,
+            varid,
+            ISNULL(insunit, '') AS insunit,
+            ISNULL(hvalue, '') AS hvalue,
+            ISNULL(hvaluen, '') AS hvaluen
+        FROM
+            JfDevIns
+    </select>
+    <!--selectDhInfoListByParam-->
+    <select id="selectDhInfoListByParam" resultType="java.util.Map" parameterType="java.util.Map">
+        SELECT
+        insid,
+        jfid,
+        devid,
+        insname,
+        varid,
+        ISNULL(insunit, '') AS insunit,
+        ISNULL(hvalue, '') AS hvalue,
+        ISNULL(hvaluen, '') AS hvaluen
+        FROM
+        JfDevIns
+        <where>
+            <if test="devid !=null and devid !=''">
+                devid = #{devid}
+            </if>
+            <if test="insid !=null and insid !=''">
+                and insid = #{insid}
+            </if>
+            <if test="varid !=null and varid !=''">
+                and varid = #{varid}
+            </if>
+        </where>
+
+    </select>
+    <!--动环警告带参-->
+    <select id="DhJgInfoList" resultType="java.util.Map" parameterType="java.util.Map">
+        SELECT
+        b.*, a.varid
+        FROM
+        JfDevIns a
+        RIGHT JOIN alarmevent b ON a.insid = b.insid
+        <where>
+            <if test="devid !=null and devid !=''">
+                b.devid = #{devid}
+            </if>
+            <if test="insid !=null and insid !=''">
+                and b.insid = #{insid}
+            </if>
+            <if test="varid !=null and varid !=''">
+                and a.varid = #{varid}
+            </if>
+        </where>
+
+    </select>
+
+
+    <select id="selectDhInfoList415" resultType="java.util.Map">
+    SELECT
+        a.insid,
+        b.devname,
+        a.jfid,
+        a.devid,
+        a.insname,
+        a.varid,
+        ISNULL(a.insunit, '') AS insunit,
+        ISNULL(a.hvalue, '') AS hvalue,
+        ISNULL(a.hvaluen, '') AS hvaluen
+    FROM
+        JfDevIns a
+    INNER JOIN JfDevice b ON a.devid = b.devid
+    WHERE
+        a.devid = 415
+    AND a.varid IN ('TXW07', 'WSD071', 'WSD072')
+    ORDER BY a.insid ASC
+    </select>
+
+    <select id="selectDhInfoListtwo" resultType="java.util.Map">
+       SELECT
+            a.insid,
+            b.devname,
+            a.jfid,
+            a.devid,
+            a.insname,
+            a.varid,
+            ISNULL(a.insunit, '') AS insunit,
+            ISNULL(a.hvalue, '') AS hvalue,
+            ISNULL(a.hvaluen, '') AS hvaluen
+        FROM
+            JfDevIns a
+        INNER JOIN JfDevice b ON a.devid = b.devid
+        WHERE
+            a.devid = 415
+        AND a.varid IN ('TXW08', 'WSD081', 'WSD082')
+        ORDER BY
+            a.insid ASC
+    </select>
+
+    <select id="selectDhInfoListthree" resultType="java.util.Map">
+        SELECT
+        a.insid,
+        b.devname,
+        a.jfid,
+        a.devid,
+        a.insname,
+        a.varid,
+        ISNULL(a.insunit, '') AS insunit,
+        ISNULL(a.hvalue, '') AS hvalue,
+        ISNULL(a.hvaluen, '') AS hvaluen
+        FROM
+        JfDevIns a
+        INNER JOIN JfDevice b ON a.devid = b.devid
+        WHERE
+        a.devid = 415
+        AND a.varid IN ('TXW09', 'WSD091', 'WSD092')
+        ORDER BY
+        a.insid ASC
+    </select>
+
+    <select id="selectDhInfoListfour" resultType="java.util.Map">
+        SELECT
+        a.insid,
+        b.devname,
+        a.jfid,
+        a.devid,
+        a.insname,
+        a.varid,
+        ISNULL(a.insunit, '') AS insunit,
+        ISNULL(a.hvalue, '') AS hvalue,
+        ISNULL(a.hvaluen, '') AS hvaluen
+        FROM
+        JfDevIns a
+        INNER JOIN JfDevice b ON a.devid = b.devid
+        WHERE
+        a.devid = 415
+        AND a.varid IN ('TXW10', 'WSD101', 'WSD102')
+        ORDER BY
+        a.insid ASC
+    </select>
 </mapper>

@@ -155,11 +155,11 @@ public class HttpClientTest {
 
     @Test
     public void testSendPostDataByJson() throws ClientProtocolException, IOException {
-        String url = "http://localhost:8080/httpService/sendPostDataByJson";
-        Map<String, String> map = new HashMap<String, String>();
-        map.put("name", "wyj");
-        map.put("city", "南京");
-        String body = sendPostDataByJson(url, JSON.toJSONString(map), "utf-8");
+        String url = "http://123.207.71.18:8017/api/pushdevicedata";
+       //String json = "[{\"DeviceId\":\"S001WSD001\",\"DeviceName\":\"1 号基站 1 号温湿度\",\"StationName\":\"1 号基站\",\"Properties\":[{\"PropertyId\":\"P001\",\"PropertyName\":\"温度\",\"PropertyValue\":\"19.4\",\"Unit\":\"℃\",\"PropertyType\":\"参数\",\"UpdateTime\":\"2016-06-29 11:37:39\"},{\"PropertyId\":\"P002\",\"PropertyName\":\"湿度\",\"PropertyValue\":\"89.6\",\"Unit\":\"%\",\"PropertyType\":\"参数\",\"UpdateTime\":\"2016-06-29 11:37:39\"},{\"PropertyId\":\"P003\",\"PropertyName\":\"温度高报警\",\"PropertyValue\":\"正常\",\"Unit\":\"严重告警\",\"PropertyType\":\"告警\",\"UpdateTime\":\"2016-06-29 11:37:39\"},{\"PropertyId\":\"P004\",\"PropertyName\":\"湿度高报警\",\"PropertyValue\":\"告警\",\"Unit\":\"严重告警\",\"PropertyType\":\"告警\",\"UpdateTime\":\"2016-06-29 11:37:39\"}]}]";
+        //String json = "[{\"StationName\":\"档案室温湿度监测\",\"DeviceId\":\"S001WSD001\",\"Properties\":[{\"PropertyName\":\"1#温湿度通讯状态\",\"UpdateTime\":\"2019-10-08 21:10:35\",\"PropertyValue\":\"通讯正常\",\"PropertyType\":\"状态\",\"Unit\":\"\",\"PropertyId\":\"TXW07\"},{\"PropertyName\":\"1#温度\",\"UpdateTime\":\"2019-10-08 21:10:35\",\"PropertyValue\":\"55.90\",\"PropertyType\":\"参数\",\"Unit\":\"℃\",\"PropertyId\":\"P001\"},{\"PropertyName\":\"1#湿度\",\"UpdateTime\":\"2019-10-08 21:10:35\",\"PropertyValue\":\"55.20\",\"PropertyType\":\"参数\",\"Unit\":\"％\",\"PropertyId\":\"P002\"}],\"DeviceName\":\"档案室温湿度监测\"}]";
+       String json = "[{\"StationName\":\"档案室温湿度监测\",\"DeviceId\":416,\"Properties\":[{\"PropertyName\":\"2#温湿度通讯状态\",\"UpdateTime\":\"2019-10-08 22:02:08\",\"PropertyValue\":\"通讯正常\",\"PropertyType\":\"状态\",\"Unit\":\"\",\"PropertyId\":\"TXW08\"},{\"PropertyName\":\"2#温度\",\"UpdateTime\":\"2019-10-08 22:02:08\",\"PropertyValue\":\"25.80\",\"PropertyType\":\"参数\",\"Unit\":\"℃\",\"PropertyId\":\"P001\"},{\"PropertyName\":\"2#湿度\",\"UpdateTime\":\"2019-10-08 22:02:08\",\"PropertyValue\":\"36.60\",\"PropertyType\":\"参数\",\"Unit\":\"％\",\"PropertyId\":\"P002\"}],\"DeviceName\":\"档案室温湿度监测\"}]";
+        String body = sendPostDataByJson(url, json, "utf-8");
         System.out.println("响应结果：" + body);
     }
 
@@ -272,4 +272,15 @@ public void mytest5() throws ClientProtocolException, IOException {
 
 
 }
+    @Test
+    public void mytest6() throws ClientProtocolException, IOException {
+        String url = "http://156.8.16.16/phpdir/trade_third.php?tradecode=networkclient&login=thirdadmin&pass=888888&contype=2";
+        String str = sendGetData(url,"utf-8");
+        String strs = decodeUnicode(str);
+        System.out.println(strs);
+
+
+    }
+
+
 }

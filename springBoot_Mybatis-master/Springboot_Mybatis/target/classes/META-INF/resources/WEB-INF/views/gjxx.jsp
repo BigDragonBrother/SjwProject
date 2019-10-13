@@ -4,11 +4,12 @@
 <head>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>吉林省纪委监委信息化运维平台</title>
+    <link href="<%=request.getContextPath()%>/resources/dist/css/layout.style.css" rel="stylesheet" type="text/css">
     <link href="<%=request.getContextPath()%>/resources/dist/css/common.style.css" rel="stylesheet" type="text/css">
     <%--<link href="<%=request.getContextPath()%>/resources/dist/css/layout.style.css" rel="stylesheet" type="text/css">--%>
 </head>
-<body data-desc="告警信息监控管理">
-<div class="container">
+<body   data-desc="告警信息监控管理">
+<div class="container xKing">
     <div class="con-part0"><span>告警信息监控系统</span></div>
     <div class="con-part1">
         <ul class="table-ul">

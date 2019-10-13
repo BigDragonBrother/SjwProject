@@ -18,6 +18,7 @@
     padding: 0 0.3rem;
   }
 }
+
 .part-header::after {
   content: '';
   display: block;
@@ -51,8 +52,6 @@
   -webkit-background-size: 100% 100%;
   background-size: 100% 100%;
   background-repeat: no-repeat;
-
-
 
   .con-part0 {
     //                  width,height,left,right,top,bottom,zIndex,background
@@ -258,7 +257,6 @@
       -webkit-background-size: contain;
       background-size: contain;
       background-position-x: center;
-
       .part-body-1 {
         position: absolute;
         width: 4.14rem;
@@ -301,24 +299,13 @@
         }
       }
 
-      .part-body-0 {
-        position: absolute;
-        width: 9.53rem;
-        height: 9.53rem;
-        left: 8.85rem;
-        top: 2.37rem;
-        border-radius: 50%;
-        z-index: 1;
-
-        & > img {
-          width: 118%;
-          height: 118%;
-          position: absolute;
-          top: -11%;
-          left: -9%;
-          transform: rotateZ(5deg);
-
-        }
+      .part-body-0 {    position: absolute;
+        @include positionFn(9.53rem, 10.53rem, 8.85rem, null, 0rem, null, 300, null);
+        -webkit-border-radius:50%;
+        -moz-border-radius:50%;
+        border-radius:50%;
+        z-index: 999;
+        cursor: pointer;
       }
 
       .part-body-2 {
@@ -908,7 +895,6 @@
       }
     }
   }
-
 
   .con-part8 {
     @include positionFn(14.45rem, 32.1%, 31.2rem, null, null, 0.2rem, 8, null);

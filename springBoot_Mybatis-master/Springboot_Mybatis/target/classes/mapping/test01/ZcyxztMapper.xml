@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.test01.ZcyxztMapper">
+
+
+    <!--  资产运行状态基础信息 -->
+
+    <select id="selectZcyxztBaseInfoList" resultType="java.util.Map">
+        SELECT
+            IFNULL(moid," ") as moid,
+            IFNULL(fip," ") as fip,
+            IFNULL(fname," ") as fname,
+            IFNULL(falias," ") as falias,
+            IFNULL(fmodel," ") as fmodel,
+            IFNULL(fvendor," ") as fvendor
+        FROM
+            tcmo
+    </select>
+
+    <select id="selectJkpzxxInfoList" resultType="java.util.Map">
+        SELECT
+            IFNULL(fpartid," ") as fpartid,
+            IFNULL(fpartname," ") as fpartname,
+            IFNULL(fpartalias," ") as fpartalias,
+            IFNULL(fiftype," ") as fiftype,
+            IFNULL(fifspeed," ") as fifspeed,
+            IFNULL(fifphysaddress," ") as fifphysaddress
+        FROM
+            tcrfcmib2if
+    </select>
+
+    <select id="selectJkZtZxsjInfoList" resultType="java.util.Map">
+        SELECT
+            fpartid,
+            fIfStatus,
+            max(fCollectTime) AS time
+        FROM
+            tsrfcmib2if
+    </select>
+
+    <select id="selectJkzxlsInfoList" resultType="java.util.Map">
+         SELECT
+            fpartid,
+            fbwusage,
+            finrate,
+            foutrate,
+            max(fCollectTime) AS time
+        FROM
+            tprfcmib2if
+    </select>
+
+    <select id="selectWlsbCPULylInfoList" resultType="java.util.Map">
+        SELECT
+            fpartid,
+            fcpuutil,
+            max(fCollectTime) AS time
+        FROM
+            tpnwcpuperf
+        GROUP BY
+            fpartid
+    </select>
+
+    <select id="selectWlsbNCLylInfoList" resultType="java.util.Map">
+        SELECT
+            fpartid,
+            fmemutil,
+            max(fCollectTime) AS time
+        FROM
+            tpnwmemperf
+    </select>
+
+    <select id="selectZjsbCPULylInfoList" resultType="java.util.Map">
+        SELECT
+            ftotalcpu,
+            max(fCollectTime) AS time
+        FROM
+            tphocpu
+    </select>
+
+    <select id="selectZjsbNCLylInfoList" resultType="java.util.Map">
+        SELECT
+            fmemratio,
+            max(fCollectTime) AS time
+        FROM
+            tphomem
+    </select>
+
+</mapper>

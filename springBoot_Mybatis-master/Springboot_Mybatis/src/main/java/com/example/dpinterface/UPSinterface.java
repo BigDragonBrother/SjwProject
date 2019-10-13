@@ -85,4 +85,61 @@ public class UPSinterface {
         return resMap;
     }
 
+    //selectDhInfoList
+    /**
+     * 动环数据
+     * pageNum  第几页
+     * @return
+     */
+    @RequestMapping("/selectDhInfoList")
+    public List<Map<String,Object>> selectDhInfoList(String devid,String insid,String varid){
+//        List<Map<String,Object>> result = new ArrayList<>();
+//        if(pageSize!=0 && pageSize>0){
+//            PageHelper.startPage(pageNum,pageSize);
+//        }else{
+//            PageHelper.startPage(pageNum,10);
+//        }
+        Map<String,Object> param = new HashMap<>();
+        if(!"".equals(devid)){
+            param.put("devid",devid);
+        }
+        if(!"".equals(insid)){
+            param.put("insid",insid);
+        }
+        if(!"".equals(varid)){
+            param.put("varid",varid);
+        }
+        //List<Map<String,Object>> list = upsService.selectDhInfoList();
+        List<Map<String,Object>> list = upsService.selectDhInfoListByParam(param);
+
+        return list;
+    }
+
+    @RequestMapping("/selectDhInfoList415")
+    public List<Map<String,Object>> selectDhInfoList415(){
+        return upsService.selectDhInfoListtwo();
+    }
+
+    /**
+     * 动环警告
+     * pageNum  第几页
+     * @return
+     */
+    @RequestMapping("/DhJgInfoList")
+    public List<Map<String,Object>> DhJgInfoList(String devid,String insid,String varid){
+        Map<String,Object> param = new HashMap<>();
+        if(!"".equals(devid)){
+            param.put("devid",devid);
+        }
+        if(!"".equals(insid)){
+            param.put("insid",insid);
+        }
+        if(!"".equals(varid)){
+            param.put("varid",varid);
+        }
+        List<Map<String,Object>> list = upsService.DhJgInfoList(param);
+        return list;
+    }
+
+
 }

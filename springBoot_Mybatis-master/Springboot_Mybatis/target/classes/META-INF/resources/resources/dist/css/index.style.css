@@ -285,18 +285,14 @@ div[class^=con-part] {
       .container .con-part3 .part-body .part-body-0 {
         position: absolute;
         width: 9.53rem;
-        height: 9.53rem;
+        height: 10.53rem;
         left: 8.85rem;
-        top: 2.37rem;
+        top: 0rem;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
         border-radius: 50%;
-        z-index: 1; }
-        .container .con-part3 .part-body .part-body-0 > img {
-          width: 118%;
-          height: 118%;
-          position: absolute;
-          top: -11%;
-          left: -9%;
-          transform: rotateZ(5deg); }
+        z-index: 999;
+        cursor: pointer; }
       .container .con-part3 .part-body .part-body-2 {
         position: absolute;
         width: 6.14rem;

@@ -5,17 +5,17 @@ var Tools = {
     init: function () {
         $(".table-th").empty().append(`
 		<div><i class="fa fa-bell-o"></i>序号</div>
-				<div>故障编码</div>
-				<div>处理人</div>
-                <div>发生时间</div>
-                <div>故障类型</div>
-                <div>故障描述</div>
-                <div>报告方式</div>
-                <div>报告人</div>
-                <div>联系信息</div>
-                <div>紧急程度</div>
-                <div>优先级</div>
-                <div>重大故障</div>
+            <div>故障编码</div>
+            <div>处理人</div>
+            <div>发生时间</div>
+            <div>故障类型</div>
+            <div>故障描述</div>
+            <div>报告方式</div>
+            <div>报告人</div>
+            <div>联系信息</div>
+            <div>紧急程度</div>
+            <div>优先级</div>
+            <div>重大故障</div>
 		`);
 
         $("head").append(`<style>
@@ -32,9 +32,7 @@ var Tools = {
         Tools.getData(1, iDisplayLength);
 
         Tools.getLoginUrl(function (data) {
-            $("body").append(`
-                <iframe data-desc="工单系统" style="display:none" src="${data}"></iframe>
-            `)
+            Tools.data.loginUrl = data;
         });
     },
     getData: function (offset, pageSize) {
@@ -88,8 +86,7 @@ var Tools = {
         $(window.parent.document.getElementById("part6GDGL-modal")).hide().empty()
     },
     goNext: function () {
-        $("#gdgl-modal").show().html('<iframe frameborder="0" scrolling="no" src="http://156.8.11.22:8090/itsms/init.mvc?moduleId=402883f56b1c7988016b1c7a22f3006b&activeFirstModuleId=402883f56b1c7988016b1c7a22f3006b&uri=%2Fincident%2Fnew-incident.jsp" width="100%"' +
-            ' height="100%"></iframe>');
+        $(window.parent.document.getElementById("gdgl-modal")).show().html(` <iframe data-desc="工单管理" style="width: 100%; height:100%;border: 0;" src="${Tools.data.loginUrl}"></iframe>`);
     },
 
     /**
@@ -97,7 +94,7 @@ var Tools = {
      */
     getLoginUrl: function (callback) {
         $.ajax({
-            url: "",
+            url: "../zcgl/zcglGdJump",
             success: function (data) {
                 return callback(data);
             }

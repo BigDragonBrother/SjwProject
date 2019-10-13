@@ -155,7 +155,7 @@ Tools = {
 						 
 						if((typeof data[index+i].assigneeInfo) =="object"){
 							if(data[index+i].assigneeInfo.length>0){
-								name = data[index+i].assigneeInfo[0].assignee.name;
+								name = data[index+i].assigneeInfo[0].assignee?data[index+i].assigneeInfo[0].assignee.name:"代签收";
 							}else if(data[index+i].solver){
 								name=data[index+i].solver.xingMing;
 							}else{
@@ -200,8 +200,9 @@ Tools = {
      * part5:即时调度
      */
     part5JSDD: function () {
-        $("#part5JSDD-modal").show().html('<iframe frameborder="0" scrolling="no" src="jsdd" width="100%"' +
-            ' height="100%"></iframe>');
+     //   $("#part5JSDD-modal").show().html('<iframe frameborder="0" scrolling="no" src="jsdd" width="100%"' +
+         //   ' height="100%"></iframe>');
+        window.location.href="alert:"+window.location.origin+"/SjwProject/system/jsdd"
     },
     /**
      * 业务应用
@@ -237,16 +238,23 @@ Tools = {
 	*可视化机房-第三方
 	*/
 	partKSHJFFn:function(){
-		Tools.partModalFn("part9KSHJF-modal", "http://156.8.11.22:8080/itims/room/view/view.jsp?mnSbj=topo&mnCMP=1_2&lunchFrom=start&lunchFuncID=roottopo_room");
+		$("#part9KSHJF-modal").show().html(`<img src="../resources/dist/images/kshjf-image.jpg" style="width: 100%;height: 100%;">`);
+		// Tools.partModalFn("part9KSHJF-modal", "http://156.8.11.22:8080/itims/room/view/view.jsp?mnSbj=topo&mnCMP=1_2&lunchFrom=start&lunchFuncID=roottopo_room");
 	},
 	
 	
 	/**
 	*终端态势感知-第三方
 	*/
-	//partTSGZFn:function(){
-	//	Tools.partModalFn("part9KSHJF-modal", "https://156.8.16.16/tp/login.html?login=admin&password=admin@123");		
-	//},
+	partTSGZFn:function(){
+	    $.ajax({
+            url:"../zcgl/GetWlywTsgzJumpUrl",
+            success:function (data) {
+                Tools.partModalFn("part3TSGZ-modal", data);
+            }
+        })
+
+	},
 
     /**
      * part1:派驻机构地图

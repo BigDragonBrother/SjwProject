@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="GetChartsWebserviceImpService" targetNamespace="http://spring.service.getChart.todoo.kmss.landray.com/" xmlns:ns1="http://service.getChart.todoo.kmss.landray.com/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://spring.service.getChart.todoo.kmss.landray.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <wsdl:import location="http://192.168.1.33:6888/sys/webservice/getChartsWebservice?wsdl=IGetChartWebservice.wsdl" namespace="http://service.getChart.todoo.kmss.landray.com/">
+  <wsdl:import location="http://156.8.11.13:6888/sys/webservice/getChartsWebservice?wsdl=IGetChartWebservice.wsdl" namespace="http://service.getChart.todoo.kmss.landray.com/">
     </wsdl:import>
   <wsdl:binding name="GetChartsWebserviceImpServiceSoapBinding" type="ns1:IGetChartWebservice">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
